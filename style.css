@@ -10,25 +10,54 @@ body {
     background-color: #fff;
     padding: 20px;
 }
+ .grid-container {
+     display: grid;
+     grid-template-columns: repeat(3, 1fr);
+     gap: 10px;
+ }
 
-.container {
+ .grid-item {
+     background-color: lightblue;
+     border: 1px solid #333;
+     display: flex;
+     /* Make this a flex container */
+     align-items: center;
+     /* Center items vertically */
+     justify-content: center;
+     /* Center items horizontally */
+ }
+
+ .flex-item {
+     background-color: coral;
+     margin: 5px;
+     padding: 10px;
+     border-radius: 5px;
+ }
+.hbox {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    max-width: 1200px;
-    margin: 0 auto;
+    flex-direction: row;
+    gap: 10px;
+    /* Optional: Adds space between items */
 }
-
-.left-column {
-    flex: 1;
-    padding-right: 20px;
-}
-
-.right-column {
-    flex: 0.5;
+.vbox {
     display: flex;
-    justify-content: center;
-    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+    /* Optional: Adds space between items */
+}
+.wrapper {
+    display: grid;
+    grid-template-columns: var(--col1-width, 1fr) var(--col2-width, 1fr);
+    grid-template-columns: repeat(4, [col] 150px);
+    gap: 10px;
+    grid-gap: 10px;
+    background-color: #fff;
+    color: #444;
+}
+.item {
+    background-color: lightblue;
+    padding: 10px;
+    border: 1px solid #ccc;
 }
 
 .profile-image {
