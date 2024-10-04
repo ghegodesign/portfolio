@@ -2,14 +2,14 @@
 
 @font-face {
     font-family: 'normalText';
-    src: url('font/bahnschrift.ttf') format('truetype');
+    src: url('../fonts/bahnschrift.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'headerText';
-    src: url('font/FE-FONT.TTF') format('truetype');
+    src: url('../fonts/FE-FONT.TTF') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
