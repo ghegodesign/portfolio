@@ -21,7 +21,7 @@ body {
     }
 
 header {
-    background-color: #333;
+    background-color: #111;
     color: #fff;
     width: 100%;
     height: 100%;
@@ -31,7 +31,7 @@ header {
     font-family: 'headerText', sans-serif;
 }
 header>div>h1 {
-    color: #333;
+    color: #111;
     background-color: #fc0;
     font-size: 10vw;
     padding: 1vw 2vw;
@@ -46,7 +46,7 @@ header>div>h2 {
 
 header>div>h2>span {
     font-family: 'headerText', sans-serif;
-    background-color: #333;
+    background-color: #111;
     color: #fc0;
 }
 
