@@ -4,11 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ghegodesign</title>
-    <!-- <base href="https://ghegodesign.com/portfolio/"> -->
+    <link rel="icon" href="images/icona.png" type="image/x-icon">
     <link rel="stylesheet" href="styles/banner.css">
     <link rel="stylesheet" href="styles/myproject.css">
-    <!-- add custom script -->
-    <script src="scripts/myproject.js" defer></script>
 </head>
 <body>
     <header class="slide">
@@ -18,7 +16,7 @@
         </div>
     </header>
     <main>
-        <!-- <section id="about">
+        <section id="about">
             <div class="grid-container">
                 <div class="grid-item" style="grid-column: span 2;">
                     <h1><span>LEONARDO</span> <span class="left">RE<span>GUZ</span>ZONI</span></h1>
@@ -26,7 +24,7 @@
                     <p class="sub-container" style="--sub-col1-width: 1fr; --sub-col2-width: 1fr;">
                     <div class="sub-item">
                         <strong>17-07-2001, St. Gallen, CH</strong><br>
-                        leonardoregu.zzoni@mail.polimi.it
+                        leonardo.reguzzoni@mail.polimi.it
                     </div>
                     <div class="sub-item">
                         <strong>
@@ -53,15 +51,12 @@
                     <img src="leo.png" alt="Leonardo Reguzzoni" class="profile-image">
                 </div>
             </div>
-        </section> -->
+        </section>
         <section id="projects">
-            <h1>My Projects</h2>
-                <div class="project-container" id="card-container"></div>
+            <h1>My Projects</h1>
+            <div class="project-container" id="card-container"></div>
         </section>
-        <section id="contact">
-            <h2>Contact</h2>
-            <p>Provide your contact information here.</p>
-        </section>
+        </br>
     </main>
     <footer class="slide">
         <div>
@@ -126,11 +121,12 @@
         }
 
         const container = document.getElementById('card-container');
-
+        
         // Loop through each category and item to create cards
         for (const category in data) {
             data[category].forEach(item => {
                 const card = createCard(item, category);
+
                 container.appendChild(card);
             });
         }
