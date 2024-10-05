@@ -6,16 +6,19 @@
     <title>ghegodesign</title>
     <!-- <base href="https://ghegodesign.com/portfolio/"> -->
     <link rel="stylesheet" href="styles/banner.css">
+    <link rel="stylesheet" href="styles/myproject.css">
+    <!-- add custom script -->
+    <script src="scripts/myproject.js" defer></script>
 </head>
 <body>
-    <header>
+    <header class="slide">
         <div>
-            <h1>PORTFOLIO</h1>
-            <h2>LEONARDO RE<span>GUZ</span>ZONI</h2>
+            <h1 class="slide-h-highlight">PORTFOLIO</h1>
+            <h2 class="slide-t">LEONARDO RE<span class="slide-t-highlight">GUZ</span>ZONI</h2>
         </div>
     </header>
     <main>
-        <section id="about">
+        <!-- <section id="about">
             <div class="grid-container">
                 <div class="grid-item" style="grid-column: span 2;">
                     <h1><span>LEONARDO</span> <span class="left">RE<span>GUZ</span>ZONI</span></h1>
@@ -50,18 +53,87 @@
                     <img src="leo.png" alt="Leonardo Reguzzoni" class="profile-image">
                 </div>
             </div>
-        </section>
+        </section> -->
         <section id="projects">
-            <h2>Projects</h2>
-            <p>Showcase your projects here.</p>
+            <h1>My Projects</h2>
+                <div class="project-container" id="card-container"></div>
         </section>
         <section id="contact">
             <h2>Contact</h2>
             <p>Provide your contact information here.</p>
         </section>
     </main>
-    <footer>
-        <p>&copy; 2024 Leonardo Reguzzoni. All rights reserved.</p>
+    <footer class="slide">
+        <div>
+            <h1 class="slide-h">that's it.</h1>
+            <h2 class="slide-h-highlight">thank you.</h2>
+        </div>
     </footer>
+    <script>
+        const data = {
+            'product design': [
+                { title: "omnia", description: "Light system" },
+                { title: "vlad", description: "Life assistant" },
+                { title: "guta", description: "Accessibility system" },
+                { title: "maialino", description: "Wooden swine" },
+                { title: "fluppete", description: "Campervan" },
+                { title: "resoap", description: "Open-source saponifier" }
+            ],
+            'interdisciplinary': [
+                { title: "sonora", description: "Community train" },
+                { title: "sahmat", description: "Caravanserai" }
+            ],
+            'digital modeling': [
+                { title: "parkside", description: "Community train" },
+                { title: "buzzer", description: "Walkie talkie" }
+            ],
+            'extras': [
+                { title: "lv leche", description: "Web photoseries" },
+                { title: "trix", description: "AI implant" }
+            ]
+        };
+
+
+        function createCard(item, category) {
+            // Create the card container
+            const card = document.createElement('div');
+            card.classList.add('project-card');
+            card.classList.add('clipped-border');
+
+            // Create and add the image
+            const img = document.createElement('img');
+            img.src = `images/projects/${item.title}.png`;
+            img.alt = item.title;
+            card.appendChild(img);
+
+            // Create and add the title
+            const title = document.createElement('h4');
+            title.textContent = item.title;
+            card.appendChild(title);
+
+            // Create and add the description
+            const description = document.createElement('p');
+            description.textContent = item.description;
+            card.appendChild(description);
+
+            // Create and add the category label
+            // const categoryLabel = document.createElement('p');
+            // categoryLabel.classList.add('category');
+            // categoryLabel.textContent = `Category: ${category}`;
+            // card.appendChild(categoryLabel);
+
+            return card;
+        }
+
+        const container = document.getElementById('card-container');
+
+        // Loop through each category and item to create cards
+        for (const category in data) {
+            data[category].forEach(item => {
+                const card = createCard(item, category);
+                container.appendChild(card);
+            });
+        }
+    </script>
 </body>
 </html>
