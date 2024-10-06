@@ -1,0 +1,62 @@
+/* Ensure the container uses grid */
+.project-container {
+    display: grid;
+    gap: 3vw;
+    justify-content: center;
+    margin-bottom: 5vh;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    /* Responsive grid */
+    align-items: stretch;
+    /* Ensure cards stretch vertically */
+}
+
+/* Style for the individual project card */
+.project-card {
+    border: 0.1vw solid #ccc;
+    text-align: center;
+    transition: transform 0.3s ease;
+    background-color: #fff;
+    box-shadow: 0 2vw 5vh rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    /* Distribute content evenly */
+    /* padding: 1vh; */
+}
+
+.project-card:hover {
+    transform: scale(1.05);
+    /* Subtle hover effect */
+}
+
+.project-card img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    /* Prevent image distortion */
+}
+
+/* Ensure all text elements are spaced properly */
+.project-card h4 {
+    font-size: 3vh;
+    margin: 1vh 0;
+}
+
+.project-card p {
+    font-size: 2vh;
+    color: #555;
+    margin: 0.5vh 0;
+}
+
+/* Responsive settings for different screen sizes */
+@media (max-width: 900px) {
+    .project-container {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+}
+
+@media (max-width: 600px) {
+    .project-container {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    }
+}

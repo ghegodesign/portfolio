@@ -23,8 +23,11 @@ body {
     }
 body > * {
     background-color: #fff;
+    
 }
-
+main {
+    padding: 1vw
+}
 .slide {
     background-color: #111;
     color: #fff;
@@ -47,7 +50,7 @@ body > * {
 
 .slide-h-highlight {
     color: #111;
-    background-color: #fc0;
+    background-color: #e5b52c;
     font-size: 10vw;
     padding: 1vw 2vw;
     margin: 2vw;
@@ -61,12 +64,11 @@ body > * {
 
 .slide-t-highlight {
     background-color: #111;
-    color: #fc0;
+    color: #e5b52c;
 }
 
 h1,
 h2,
 h3,
 h4 {
-    font-family: 'headerText', sans-serif;
-}
+    font-family: 'headerText', sans-serif;}

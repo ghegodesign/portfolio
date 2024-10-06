@@ -7,6 +7,7 @@
     <link rel="icon" href="images/icona.png" type="image/x-icon">
     <link rel="stylesheet" href="styles/banner.css">
     <link rel="stylesheet" href="styles/myproject.css">
+    <link rel="stylesheet" href="styles/mygrid.css">
 </head>
 <body>
     <header class="slide">
@@ -17,41 +18,85 @@
     </header>
     <main>
         <section id="about">
-            <div class="grid-container">
-                <div class="grid-item" style="grid-column: span 2;">
-                    <h1><span>LEONARDO</span> <span class="left">RE<span>GUZ</span>ZONI</span></h1>
+            <div class="about-container">
+                <div class="left-column">
+                    <h1>LEONARDO RE<span class="highlight">GUZ</span>ZONI</h1>
                     <h2>INTEGRATED PRODUCT DESIGN STUDENT</h2>
-                    <p class="sub-container" style="--sub-col1-width: 1fr; --sub-col2-width: 1fr;">
-                    <div class="sub-item">
-                        <strong>17-07-2001, St. Gallen, CH</strong><br>
-                        leonardo.reguzzoni@mail.polimi.it
+                    <div class="info">
+                        <div>
+                            <strong>17-07-2001, St. Gallen, CH</strong><br>
+                            leonardo.reguzzoni@mail.polimi.it
+                        </div>
+                        <div>
+                            <strong>Currently based in Busto Arsizio (VA) Italy</strong><br>
+                            leonardoreguzzoni@hotmail.com
+                        </div>
                     </div>
-                    <div class="sub-item">
-                        <strong>
-                            currently based in Busto Arsizio (VA) Italy
-                        </strong><br>
-                        leonardoreguzzoni@hotmail.com
+                    <p>My name is Leonardo, but I'm better known as <sapn class="highlight">Guz</sapn>. I grew up in Busto Arsizio, where
+                        the smog caresses the
+                        soul and where the metropolis meets the desolation of the outside world – <span
+                            class="highlight">nevertheless</span>, I still pursue a search for color and joy in everyday life.
+                        Although my arrival in the design field may appear to have happened by <span class="highlight">chance</span>, I
+                        firmly believe that nothing truly ever happens by coincidence,
+                        and for that I continue my daily fight to bring <span class="highlight">excellence and beauty</span> to
+                        the world and, above all, to <span class="highlight">express myself</span> through my work (and finding
+                        my essence in the meantime, why not).</p>
+                    <div class="skills-list">
+                        <p data-center-index="10">DESIGN THINKING METHODOLOGY</p>
+                        <p data-center-index="18">ELEMENT, MODEL AND INTERACTION DESIGN</p>
+                        <p data-center-index="16">3D MODELING, RENDERING</p>
+                        <p data-center-index="2">EMPATHIC DESIGN</p>
+                        <p data-center-index="13">PHYSICAL PROTOTYPING</p>
                     </div>
-                    </p>
-                    <p>My name is Leonardo, but I'm better known as Guz. I grew up in Busto Arsizio, where the smog caresses the soul and
-                        where the metropolis meets the desolation of the outside world – <span>nevertheless</span>, I still pursue a search
-                        for color and joy in everyday life. Although my arrival in the design field may appear to have happened by chance, I
-                        firmly believe that nothing truly ever happens by coincidence, and for that I continue my daily fight to bring
-                        <span>excellence and beauty</span> to the world and, above all, to <span>express myself</span> through my work (and
-                        finding my essence in the meantime, why not).</p>
-                    <ul class="skills">
-                        <li>DESIGN THINKING METHODOLOGY</li>
-                        <li>ELEMENT, MODEL AND INTERACTION DESIGN</li>
-                        <li>3D MODELING, RENDERING</li>
-                        <li>EMPATHIC DESIGN</li>
-                        <li>PHYSICAL PROTOTYPING</li>
-                    </ul>
+                    
+                    <script>
+                        const skillsList = document.getElementById('skills-list');
+                        document.querySelectorAll('.skills-list p').forEach((item) => {
+                            const text = item.textContent.trim();
+                            const letterIndex = parseInt(item.getAttribute('data-center-index'), 10);
+
+                            // Create 2 spans, one for the left and one for the right
+                            const leftSpan = document.createElement('span');
+                            const rightSpan = document.createElement('span');
+
+                            // Get the substring up to and including the center letter
+                            leftSpan.textContent = text.slice(0, letterIndex + 1);
+                            rightSpan.textContent = text.slice(letterIndex + 1);
+
+                            // Clear the paragraph
+                            item.textContent = '';
+
+                            // Append spans to the paragraph
+                            item.appendChild(leftSpan);
+                            item.appendChild(rightSpan);
+                        });
+
+                    </script>
+                    <!-- <script>
+                                            const skillsList = document.getElementById('skills-list');
+                                            document.querySelectorAll('.skills-list p').forEach((item) => {
+                                            const text = item.textContent.trim();
+                                            const letterIndex = parseInt(item.getAttribute('data-center-index'), 10);
+                                            // create 2 span one for the left one for the right
+                                            const leftSpan = document.createElement('span');
+                                            const rightSpan = document.createElement('span');
+                                            // Get the substring up to and including the center letter
+                                            leftSpan.textContent = text.slice(0, letterIndex + 1);
+                                            rightSpan.textContent = text.slice(letterIndex + 1);
+                                            // Clear the div and append the spans
+                                            item.textContent = '';
+                                            item.appendChild(leftSpan);
+                                            .appendChild(rightSpan);
+                                            });
+                                        
+                                        </script> -->
                 </div>
-                <div class="grid-item" style="grid-column: span 2;">
-                    <img src="leo.png" alt="Leonardo Reguzzoni" class="profile-image">
+                <div>
+                    <img src="images/profilo.png" alt="Leonardo Reguzzoni" class="profile-image">
                 </div>
             </div>
         </section>
+
         <section id="projects">
             <h1>My Projects</h1>
             <div class="project-container" id="card-container"></div>
