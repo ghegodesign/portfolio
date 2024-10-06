@@ -43,7 +43,7 @@
                         my essence in the meantime, why not).</p>
                     <div class="skills-list">
                         <p data-center-index="10">DESIGN THINKING METHODOLOGY</p>
-                        <p data-center-index="18">ELEMENT, MODEL AND INTERACTION DESIGN</p>
+                        <p data-center-index="19">ELEMENT, MODEL AND INTERACTION DESIGN</p>
                         <p data-center-index="16">3D MODELING, RENDERING</p>
                         <p data-center-index="2">EMPATHIC DESIGN</p>
                         <p data-center-index="13">PHYSICAL PROTOTYPING</p>
@@ -100,6 +100,91 @@
         <section id="projects">
             <h1>My Projects</h1>
             <div class="project-container" id="card-container"></div>
+            <div id="pdfModal" class="modal">
+                <iframe id="pdfViewer" class="modal-content" src=""></iframe>
+                <span class="close">Back to Portfolio &times;</span>
+            </div>
+            <script>
+                document.addEventListener('DOMContentLoaded', function () {
+                    const data = {
+                        'product design': [
+                            { title: "omnia", description: "Light system" },
+                            { title: "vlad", description: "Life assistant" },
+                            { title: "guta", description: "Accessibility system" },
+                            { title: "maialino", description: "Wooden swine" },
+                            { title: "fluppete", description: "Campervan" },
+                            { title: "resoap", description: "Open-source saponifier" }
+                        ],
+                        'interdisciplinary': [
+                            { title: "sonora", description: "Community train" },
+                            { title: "sahmat", description: "Caravanserai" }
+                        ],
+                        'digital modeling': [
+                            { title: "parkside", description: "Community train" },
+                            { title: "buzzer", description: "Walkie talkie" }
+                        ],
+                        'extras': [
+                            { title: "lv leche", description: "Web photoseries" },
+                            { title: "trix", description: "AI implant" }
+                        ]
+                    };
+                    const modal = document.getElementById('pdfModal');
+                    const pdfViewer = document.getElementById('pdfViewer');
+                    const closeModal = document.querySelector('.close');
+
+                    function createCard(item, category) {
+                        // Create the card container
+                        const card = document.createElement('div');
+                        card.classList.add('project-card');
+
+                        // Create and add the image
+                        const img = document.createElement('img');
+                        img.src = `images/projects/${item.title}.png`;
+                        img.alt = item.title;
+                        card.appendChild(img);
+
+                        // Create and add the title
+                        const title = document.createElement('h4');
+                        title.textContent = item.title;
+                        card.appendChild(title);
+
+                        // Create and add the description
+                        const description = document.createElement('p');
+                        description.textContent = item.description;
+                        card.appendChild(description);
+
+                        card.addEventListener('click', function () {
+                            const pdfPath = item.pdf || `pdfs/${item.title.toUpperCase()}.pdf`;
+                            pdfViewer.src = pdfPath; // Set the PDF source
+                            modal.style.display = 'block'; // Show the modal
+                        });
+                        return card;
+                    }
+
+                    const container = document.getElementById('card-container');
+
+                    // Loop through each category and item to create cards
+                    for (const category in data) {
+                        data[category].forEach(item => {
+                            const card = createCard(item, category);
+                        container.appendChild(card);
+                    });
+                }
+
+                closeModal.addEventListener('click', function () {
+                    modal.style.display = 'none'; // Hide the modal
+                    pdfViewer.src = ''; // Clear the PDF source to stop loading
+                });
+
+                // Close modal when clicking outside of the content
+                window.addEventListener('click', function (event) {
+                    if (event.target === modal) {
+                        modal.style.display = 'none';
+                        pdfViewer.src = '';
+                    }
+                });
+            });
+            </script>
         </section>
         </br>
     </main>
@@ -109,72 +194,5 @@
             <h2 class="slide-h-highlight">thank you.</h2>
         </div>
     </footer>
-    <script>
-        const data = {
-            'product design': [
-                { title: "omnia", description: "Light system" },
-                { title: "vlad", description: "Life assistant" },
-                { title: "guta", description: "Accessibility system" },
-                { title: "maialino", description: "Wooden swine" },
-                { title: "fluppete", description: "Campervan" },
-                { title: "resoap", description: "Open-source saponifier" }
-            ],
-            'interdisciplinary': [
-                { title: "sonora", description: "Community train" },
-                { title: "sahmat", description: "Caravanserai" }
-            ],
-            'digital modeling': [
-                { title: "parkside", description: "Community train" },
-                { title: "buzzer", description: "Walkie talkie" }
-            ],
-            'extras': [
-                { title: "lv leche", description: "Web photoseries" },
-                { title: "trix", description: "AI implant" }
-            ]
-        };
-
-
-        function createCard(item, category) {
-            // Create the card container
-            const card = document.createElement('div');
-            card.classList.add('project-card');
-            card.classList.add('clipped-border');
-
-            // Create and add the image
-            const img = document.createElement('img');
-            img.src = `images/projects/${item.title}.png`;
-            img.alt = item.title;
-            card.appendChild(img);
-
-            // Create and add the title
-            const title = document.createElement('h4');
-            title.textContent = item.title;
-            card.appendChild(title);
-
-            // Create and add the description
-            const description = document.createElement('p');
-            description.textContent = item.description;
-            card.appendChild(description);
-
-            // Create and add the category label
-            // const categoryLabel = document.createElement('p');
-            // categoryLabel.classList.add('category');
-            // categoryLabel.textContent = `Category: ${category}`;
-            // card.appendChild(categoryLabel);
-
-            return card;
-        }
-
-        const container = document.getElementById('card-container');
-        
-        // Loop through each category and item to create cards
-        for (const category in data) {
-            data[category].forEach(item => {
-                const card = createCard(item, category);
-
-                container.appendChild(card);
-            });
-        }
-    </script>
 </body>
 </html>
