@@ -132,6 +132,19 @@
                     const pdfViewer = document.getElementById('pdfViewer');
                     const closeModal = document.querySelector('.close');
 
+                    function openModal(item) {
+                        const pdfPath = item.pdf || `pdfs/${item.title.toUpperCase()}.pdf`;
+                        pdfViewer.src = pdfPath;
+                        modal.style.display = 'block'; // Show the modal
+                        document.body.classList.add('no-scroll'); // Add no-scroll class to body
+                    }
+
+                    // Function to close the modal and enable page scrolling
+                    function closeModalAndEnableScroll() {
+                        modal.style.display = 'none'; // Hide the modal
+                        pdfViewer.src = ''; // Clear the PDF source
+                        document.body.classList.remove('no-scroll'); // Remove no-scroll class
+                    }
                     function createCard(item, category) {
                         // Create the card container
                         const card = document.createElement('div');
@@ -153,11 +166,7 @@
                         description.textContent = item.description;
                         card.appendChild(description);
 
-                        card.addEventListener('click', function () {
-                            const pdfPath = item.pdf || `pdfs/${item.title.toUpperCase()}.pdf`;
-                            pdfViewer.src = pdfPath; // Set the PDF source
-                            modal.style.display = 'block'; // Show the modal
-                        });
+                        card.addEventListener('click', openModal.bind(null, item));
                         return card;
                     }
 
@@ -171,17 +180,11 @@
                     });
                 }
 
-                closeModal.addEventListener('click', function () {
-                    modal.style.display = 'none'; // Hide the modal
-                    pdfViewer.src = ''; // Clear the PDF source to stop loading
-                });
+                closeModal.addEventListener('click', closeModalAndEnableScroll);
 
                 // Close modal when clicking outside of the content
                 window.addEventListener('click', function (event) {
-                    if (event.target === modal) {
-                        modal.style.display = 'none';
-                        pdfViewer.src = '';
-                    }
+                    if (event.target === modal) closeModalAndEnableScroll();
                 });
             });
             </script>
