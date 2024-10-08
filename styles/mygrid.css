@@ -12,16 +12,13 @@
 
 /* Style for the individual project card */
 .project-card {
-    border: 0.1vw solid #ccc;
     text-align: center;
-    transition: transform 0.3s ease;
-    background-color: #fff;
-    box-shadow: 0 2vw 5vh rgba(0, 0, 0, 0.1);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    /* Distribute content evenly */
-    /* padding: 1vh; */
+    transition: transform 0.3s ease;
+        /* Set a minimum width so that items don't get too narrow */
+        min-width: 250px;
 }
 
 .project-card:hover {
@@ -36,32 +33,26 @@
     /* Prevent image distortion */
 }
 
-/* Ensure all text elements are spaced properly */
 .project-card h4 {
     font-size: 3vh;
     margin: 1vh 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding: 1vw;
 }
 
 .project-card p {
+    display: inline-block;
     font-size: 2vh;
     color: #555;
     margin: 0.5vh 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    /* Add padding to avoid overlap */
+    padding: 1vw;
 }
-
-/* Responsive settings for different screen sizes */
-@media (max-width: 900px) {
-    .project-container {
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    }
-}
-
-@media (max-width: 600px) {
-    .project-container {
-        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    }
-}
-
-/*  */
 
 .modal {
     display: none;
@@ -93,12 +84,14 @@
     position: absolute;
     bottom: 20px;
     right: 40px;
+    padding: 1vw;
     background-color: #111;
     color: white;
     font-size: 40px;
     font-weight: bold;
     cursor: pointer;
 }
+
 .no-scroll {
     overflow: hidden;
 }
