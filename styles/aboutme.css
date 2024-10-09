@@ -1,0 +1,76 @@
+/* General container styling */
+.aboutme-container {
+    display: flex;
+    gap: 20px;
+    justify-content: space-between;
+}
+
+/* Each column as a flex container for vertical stacking */
+.column {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    flex: 1;
+    /* Ensures equal width for each column */
+}
+
+/* Styling for individual sections within columns */
+.section {
+    flex: 1;
+    /* Makes the section's height flexible within the column */
+    box-sizing: border-box;
+    padding: 15px;
+    background-color: #f4f4f4;
+    border-radius: 8px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s;
+}
+
+/* Responsive layout for medium screens */
+@media (max-width: 1024px) {
+    .aboutme-container {
+        flex-wrap: wrap;
+    }
+
+    .column {
+        flex: 1 1 calc(50% - 20px);
+        /* 2 columns */
+    }
+}
+
+/* Responsive layout for small screens */
+@media (max-width: 768px) {
+    .column {
+        flex: 1 1 100%;
+        /* 1 column */
+    }
+}
+
+/* Style for the highlighted text */
+.highlight {
+    color: #0073e6;
+    font-weight: bold;
+}
+
+/* Skills grid for skill levels */
+.skills-grid {
+    display: flex;
+    gap: 5px;
+    margin: 10px 0;
+}
+
+.skill-level {
+    width: 20px;
+    height: 20px;
+    background-color: #dcdcdc;
+    border-radius: 50%;
+}
+
+.skill-level.filled {
+    background-color: #4caf50;
+}
+
+/* Hover effect for sections */
+.section:hover {
+    background-color: #e9ecef;
+}

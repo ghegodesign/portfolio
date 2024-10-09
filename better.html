@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="styles/banner.css">
     <link rel="stylesheet" href="styles/myproject.css">
     <link rel="stylesheet" href="styles/mygrid.css">
+    <link rel="stylesheet" href="styles/aboutme.css">
 </head>
 <body>
     <header class="slide">
@@ -71,25 +72,7 @@
                             item.appendChild(rightSpan);
                         });
 
-                    </script>
-                    <!-- <script>
-                                            const skillsList = document.getElementById('skills-list');
-                                            document.querySelectorAll('.skills-list p').forEach((item) => {
-                                            const text = item.textContent.trim();
-                                            const letterIndex = parseInt(item.getAttribute('data-center-index'), 10);
-                                            // create 2 span one for the left one for the right
-                                            const leftSpan = document.createElement('span');
-                                            const rightSpan = document.createElement('span');
-                                            // Get the substring up to and including the center letter
-                                            leftSpan.textContent = text.slice(0, letterIndex + 1);
-                                            rightSpan.textContent = text.slice(letterIndex + 1);
-                                            // Clear the div and append the spans
-                                            item.textContent = '';
-                                            item.appendChild(leftSpan);
-                                            .appendChild(rightSpan);
-                                            });
-                                        
-                                        </script> -->
+</script>
                 </div>
                 <div>
                     <img src="images/profilo.png" alt="Leonardo Reguzzoni" class="profile-image">
@@ -198,6 +181,137 @@
             });
             </script>
         </section>
+<section id="aboutme">
+    <h1>More about me</h1>
+    <div class="aboutme-container" id="container-aboutme">
+        <div class="column">
+            <div class="section">
+                <h2>Education</h2>
+                <p><strong>Master degree in <span class="highlight">Integrated Industrial Design</span></strong><br>
+                    started 2023 - ONGOING<br>
+                    Politecnico di Milano</p>
+
+                <p><strong>Honour bachelor degree in <span class="highlight">Industrial Design</span></strong><br>
+                    2020–2023<br>
+                    Politecnico di Milano</p>
+
+                <p><strong>International exchange semester</strong><br>
+                    Mar - Jul 2023<br>
+                    FADU-UBA, <span class="highlight">Buenos Aires (Argentina)</span></p>
+
+                <p><strong>Scientific High School Diploma</strong><br>
+                    2015 – 2020<br>
+                    Liceo Arturo Tosi, <span class="highlight">Busto Arsizio</span></p>
+
+                <p><strong>Degree at the Polish Consulate school</strong><br>
+                    2010 – 2016<br>
+                    Szkoła Polska w Mediolanie, Milan</p>
+            </div>
+
+            <div class="section">
+                <h2>Languages</h2>
+                <ul>
+                    <li><span class="highlight">Italian</span> (native)</li>
+                    <li>English C1 (FIRST, Cambridge School)</li>
+                    <li>Polish (high proficiency)</li>
+                    <li>Spanish B2 (DELE, Instituto Cervantes)</li>
+                </ul>
+            </div>
+        </div>
+        <div class="column">
+
+            <div class="section">
+                <h2>Partecipations</h2>
+                <p><strong>Ferrero workshop for <span class="highlight">Kinder surprise toys</span></strong><br>
+                    Autumn 2023<br>
+                    hosted by Politecnico di Milano</p>
+
+                <p><strong>Mobile <span class="highlight">carpentry workstations</span> Walden workshop</strong><br>
+                    March, April 2024<br>
+                    hosted by Rilegno x Politecnico di Milano</p>
+
+                <p><strong>Baku's <span class="highlight">Karavanseraj interdisciplinary workshop</span></strong><br>
+                    February 2023<br>
+                    hosted by Azerbaijan University of Architecture</p>
+            </div>
+
+            <div class="section">
+                <h2>Soft Skills</h2>
+                <ul>
+                    <li>Natural curiosity</li>
+                    <li>Flexibility and <span class="highlight">adaptability</span></li>
+                    <li><span class="highlight">Empathy</span> and group skills</li>
+                </ul>
+            </div>
+            <div class="section">
+                <h2>Interests</h2>
+                <ul>
+                    <li><span class="highlight">Bricolage</span> and DIY</li>
+                    <li>Cinema and <span class="highlight">Video</span></li>
+                    <li>Geography and history</li>
+                    <li>Travelling and languages</li>
+                </ul>
+            </div>
+        </div>
+        <div class="column">
+
+            <div class="section">
+                <h2>Hard Skills</h2>
+                <h3>General design skills</h3>
+                <ul>
+                    <li>User research</li>
+                    <li>Design strategy</li>
+                    <li>Prototyping</li>
+                </ul>
+
+                <h3>3D modelling and rendering</h3>
+                <ul>
+                    <li>Autodesk AutoCAD, Alias</li>
+                    <li>Solidworks</li>
+                    <li>Blender</li>
+                    <li>Keyshot</li>
+                    <li>Rhino Grasshopper</li>
+                </ul>
+
+                <div class="skills-grid">
+                    <span class="skill-level filled"></span><span class="skill-level filled"></span><span
+                        class="skill-level filled"></span><span class="skill-level filled"></span><span
+                        class="skill-level filled"></span><span class="skill-level"></span>
+                    <!-- Repeat skill grid as needed -->
+                </div>
+
+                <h3>Graphics, Editing and Drawing</h3>
+                <ul>
+                    <li>Adobe Illustrator, inDesign</li>
+                    <li>Adobe Photoshop, GIMP</li>
+                    <li>Artrage</li>
+                    <li>Figma</li>
+                </ul>
+
+                <h3>Videomaking and Production</h3>
+                <ul>
+                    <li>Sony Vegas</li>
+                    <li>Camtasia Techsmith</li>
+                </ul>
+
+                <h3>Prototyping</h3>
+                <ul>
+                    <li>Slicing and 3D printing</li>
+                    <li>Woodworking</li>
+                </ul>
+            </div>
+
+
+            <div class="section">
+                <h2>Fun Facts</h2>
+                <ul>
+                    <li>Can instantly recognize all 254 world flags</li>
+                    <li>Has a pet chicken</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
         </br>
     </main>
     <footer class="slide">
