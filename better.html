@@ -191,7 +191,7 @@
                     started 2023 - ONGOING<br>
                     Politecnico di Milano</p>
 
-                <p><strong>Honour bachelor degree in <span class="highlight">Industrial Design</span></strong><br>
+                <p><strong><span class="highlight">Honour bachelor degree</span> in Industrial Design</span></strong><br>
                     2020–2023<br>
                     Politecnico di Milano</p>
 
@@ -230,7 +230,7 @@
                     March, April 2024<br>
                     hosted by Rilegno x Politecnico di Milano</p>
 
-                <p><strong>Baku's <span class="highlight">Karavanseraj interdisciplinary workshop</span></strong><br>
+                <p><strong>Baku's <span class="highlight">Karavanseraj</span> interdisciplinary workshop</strong><br>
                     February 2023<br>
                     hosted by Azerbaijan University of Architecture</p>
             </div>
@@ -257,51 +257,85 @@
 
             <div class="section">
                 <h2>Hard Skills</h2>
-                <h3>General design skills</h3>
-                <ul>
-                    <li>User research</li>
-                    <li>Design strategy</li>
-                    <li>Prototyping</li>
-                </ul>
-
-                <h3>3D modelling and rendering</h3>
-                <ul>
-                    <li>Autodesk AutoCAD, Alias</li>
-                    <li>Solidworks</li>
-                    <li>Blender</li>
-                    <li>Keyshot</li>
-                    <li>Rhino Grasshopper</li>
-                </ul>
-
-                <div class="skills-grid">
-                    <span class="skill-level filled"></span><span class="skill-level filled"></span><span
-                        class="skill-level filled"></span><span class="skill-level filled"></span><span
-                        class="skill-level filled"></span><span class="skill-level"></span>
-                    <!-- Repeat skill grid as needed -->
+                <div class="skills-container">
+                    <div class="skill-category">
+                        <div>General design skills</div>
+                    </div>
+                    <div class="skill-item">
+                        <div skill-level="4">User research</div>
+                    </div>
+                    <div class="skill-item">
+                        <div skill-level="3">Design strategy</div>
+                    </div>
+                    <div class="skill-item">
+                        <div skill-level="4">Prototyping</div>
+                    </div>
+                    <div class="skill-category">
+                        <div>3D modelling and rendering</div>
+                    </div>
+                    <div class="skill-item">
+                        <div skill-level="3">Autodesk AutoCAD, Alias</div>
+                    </div>
+                    <div class="skill-item">
+                        <div skill-level="5">Solidworks</div>
+                    </div>
+                    <div class="skill-item">
+                        <div skill-level="4">Blender</div>
+                    </div>
+                    <div class="skill-item">
+                        <div skill-level="5">Keyshot</div>
+                    </div>
+                    <div class="skill-item">
+                        <div skill-level="2">Rhino Grasshopper</div>
+                    </div>
+                    <div class="skill-category">
+                        <div>3D modelling and rendering</div>
+                    </div>
+                    <div class="skill-item">
+                        <div skill-level="4">Adobe Illustrator, inDesign</div>
+                    </div>
+                    <div class="skill-item">
+                        <div skill-level="3">Adobe Photoshop, GIMP</div>
+                    </div>
+                    <div class="skill-item">
+                        <div skill-level="3">Artrage</div>
+                    </div>
+                    <div class="skill-item">
+                        <div skill-level="4">Figma</div>
+                    </div>
+                    <div class="skill-category">
+                        <div>Graphics, Editing and Drawing</div>
+                    </div>
+                    <div class="skill-item">
+                        <div skill-level="3">Sony Vegas</div>
+                    </div>
+                    <div class="skill-item">
+                        <div skill-level="5">Camtasia Techsmith</div>
+                    </div>
+                    <div class="skill-category">
+                        <div>Videomaking and Production</div>
+                    </div>
+                    <div class="skill-item">
+                        <div skill-level="3">Slicing and 3D printing</div>
+                    </div>
+                    <div class="skill-item">
+                        <div skill-level="4">Woodworking</div>
+                    </div>
                 </div>
-
-                <h3>Graphics, Editing and Drawing</h3>
-                <ul>
-                    <li>Adobe Illustrator, inDesign</li>
-                    <li>Adobe Photoshop, GIMP</li>
-                    <li>Artrage</li>
-                    <li>Figma</li>
-                </ul>
-
-                <h3>Videomaking and Production</h3>
-                <ul>
-                    <li>Sony Vegas</li>
-                    <li>Camtasia Techsmith</li>
-                </ul>
-
-                <h3>Prototyping</h3>
-                <ul>
-                    <li>Slicing and 3D printing</li>
-                    <li>Woodworking</li>
-                </ul>
             </div>
-
-
+            <script>
+                document.querySelectorAll('div[skill-level]').forEach((item) => {
+                    const level = parseInt(item.getAttribute('skill-level'), 10);
+                    item.removeAttribute('skill-level');
+                    const gridSkill = document.createElement('div');
+                    gridSkill.setAttribute('skill-level', level);
+                    item.parentElement.appendChild(gridSkill);
+                    new Array(5).fill().forEach(() => {
+                        const span = document.createElement('span');
+                        gridSkill.appendChild(span);
+                    });
+                });
+            </script>
             <div class="section">
                 <h2>Fun Facts</h2>
                 <ul>
