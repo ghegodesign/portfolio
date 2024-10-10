@@ -1,76 +1,94 @@
-/* General container styling */
 .aboutme-container {
     display: flex;
-    gap: 20px;
+    gap: 40px;
     justify-content: space-between;
+    flex-wrap: wrap;
 }
 
-/* Each column as a flex container for vertical stacking */
 .column {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 30px;
     flex: 1;
-    /* Ensures equal width for each column */
 }
 
-/* Styling for individual sections within columns */
 .section {
-    flex: 1;
-    /* Makes the section's height flexible within the column */
-    box-sizing: border-box;
-    padding: 15px;
-    background-color: #f4f4f4;
-    border-radius: 8px;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-    transition: background-color 0.3s;
+    /* padding: 20px; */
+        line-height: 1.6;
+        border: 1px solid #dcdcdc;
+    }
+    
+    .section h2 {
+        font-size: 22px;
+        text-transform: uppercase;
+        margin-bottom: 10px;
+        font-weight: bold;
+        color: #000;
+    }
+    
+    
+    .section ul {
+        list-style-type: none;
+        padding-left: 0;
 }
 
-/* Responsive layout for medium screens */
-@media (max-width: 1024px) {
-    .aboutme-container {
-        flex-wrap: wrap;
-    }
-
+/* Font sizes for general text */
+.section p,
+.section ul li {
+    font-size: 16px;
+    color: #333;
+    white-space: nowrap;
+}
+@media (max-width: 1200px) {
     .column {
         flex: 1 1 calc(50% - 20px);
         /* 2 columns */
     }
 }
 
-/* Responsive layout for small screens */
-@media (max-width: 768px) {
+@media (max-width: 650px) {
     .column {
         flex: 1 1 100%;
         /* 1 column */
     }
 }
 
-/* Style for the highlighted text */
-.highlight {
-    color: #0073e6;
+.skills-container {
+    max-width: 600px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.skill-category {
+    grid-column: 1 / 2;
     font-weight: bold;
 }
 
-/* Skills grid for skill levels */
-.skills-grid {
-    display: flex;
-    gap: 5px;
-    margin: 10px 0;
+.skill-item {
+    display: contents;
+    flex-wrap: nowrap;
 }
 
-.skill-level {
+.skill-item> :nth-child(1) {
+    grid-column: 1
+}
+
+[skill-level] {
+    grid-column: 2;
+}
+
+[skill-level] span {
+    display: inline-block;
     width: 20px;
     height: 20px;
-    background-color: #dcdcdc;
-    border-radius: 50%;
+    margin-left: 10px;
+    background-color: #d9d9d9;
 }
 
-.skill-level.filled {
-    background-color: #4caf50;
-}
-
-/* Hover effect for sections */
-.section:hover {
-    background-color: #e9ecef;
+[skill-level="1"] :nth-child(-n+1),
+[skill-level="2"] :nth-child(-n+2),
+[skill-level="3"] :nth-child(-n+3),
+[skill-level="4"] :nth-child(-n+4),
+[skill-level="5"] :nth-child(-n+5) {
+    background-color: #dfb03b;
 }
