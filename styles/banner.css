@@ -32,15 +32,13 @@ body > * {
     display: flex;
     align-items: center;
     justify-content: center;
-        font-family: 'headerText', sans-serif;
-}
-.slide > div {
-    text-align: center;
+    font-family: 'headerText', sans-serif;
 }
 .slide-h {
     font-size: 10vw;
     padding: 1vw 2vw;
     margin: 2vw;
+    text-align: center;
 }
 
 .slide-h-highlight {
@@ -49,7 +47,7 @@ body > * {
     font-size: 10vw;
     padding: 1vw 2vw;
     margin: 2vw;
-    }
+}
 .slide-t {
     margin: 1vw;
     font-size: 4vw;
