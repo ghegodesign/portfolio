@@ -4,6 +4,11 @@
     justify-content: space-between;
     flex-wrap: wrap;
 }
+#toggleTitle:hover {
+    transform: scale(1.05);
+    transition: transform 0.3s ease;
+    transform-origin: left;
+}
 
 .column {
     display: flex;
