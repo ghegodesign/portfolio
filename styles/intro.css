@@ -11,6 +11,11 @@
     align-items: center;
     gap: 1vw;
 }
+/* .about-container div {
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+} */
 
 .highlight {
     background-color: #fcd573;
@@ -36,6 +41,7 @@
     max-width: 100%;
     max-height: 90vh;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    margin: 0 0 0 5vw;
 }
 
 
