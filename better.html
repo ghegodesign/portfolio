@@ -99,8 +99,8 @@
                             { title: "vlad", description: "Life assistant" },
                             { title: "guta", description: "Accessibility system" },
                             { title: "maialino", description: "Wooden swine" },
-                            { title: "fluppete", description: "Campervan", pdf: "pdfs/FLUPPETE-compressed.pdf" },
-                            { title: "resoap", description: "Open-source saponifier", pdf:"pdfs/RESOAP-compressed_3.pdf" }
+                            { title: "fluppete", description: "Campervan", src: "pdfs/FLUPPETE-compressed.pdf" },
+                            { title: "resoap", description: "Open-source saponifier", src:"pdfs/RESOAP-compressed_3.pdf" },                            
                         ],
                         'interdisciplinary': [
                             { title: "sonora", description: "Community train" },
@@ -111,15 +111,14 @@
                             { title: "buzzer", description: "Walkie talkie" }
                         ],
                         'extras': [
-                            { title: "lv leche", description: "Web photoseries", pdf:"pdfs/LECHE LARGA VIDA.pdf" },
-                            { title: "trix", description: "AI implant", type:"none" }
+                            { title: "lv leche", description: "Web photoseries", src:"pdfs/LECHE LARGA VIDA.pdf" },
+                            { title: "trixx", description: "AI implant", type:"none" }
                         ]
                     };
                     const pdfModal = document.getElementById('pdfViewer');
                     const htmlModal = document.getElementById('htmlViewer');
 
                     function openModal([modal,src]) {
-                        console.log(modal.children[0].src);
                         modal.children[0].src = src;
                         modal.style.display = 'block'; // Show the modal
                         document.body.classList.add('no-scroll'); // Add no-scroll class to body
@@ -153,10 +152,10 @@
                         card.appendChild(description);
                         if (item.type === 'none') return card;
                         if (item.type === 'html') {
-                            card.addEventListener('click', openModal.bind(null, [htmlViewer, item.htmlPath || `automatized html/${item.title.toUpperCase()}.html`]));
+                            card.addEventListener('click', openModal.bind(null, [htmlViewer, item.src || `automatized html/${item.title.toUpperCase()}.html`]));
                             return card;
                         } 
-                        card.addEventListener('click', openModal.bind(null, [pdfViewer, item.pdf || `pdfs/${item.title.toUpperCase()}.pdf`]));
+                        card.addEventListener('click', openModal.bind(null, [pdfViewer, item.src || `pdfs/${item.title.toUpperCase()}.pdf`]));
                         return card;
                     }
 
