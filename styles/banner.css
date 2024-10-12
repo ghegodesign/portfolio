@@ -20,7 +20,9 @@ body {
     padding: 0.11vw;
     background-color: #111;
 }
-body > * {
+body>header,
+footer,
+main {
     background-color: #fff;
     padding: 4vw;
     min-width: 650px;
