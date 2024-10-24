@@ -1,9 +1,9 @@
 /* Ensure the container uses grid */
 .project-container {
     display: grid;
-    gap: 3vw;
+    gap: 2vw;
     justify-content: center;
-    margin-bottom: 5vh;
+    margin-bottom: 4vh;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
     /* Responsive grid */
     align-items: stretch;
@@ -42,23 +42,23 @@
 
 .project-card h4 {
     font-size: 3vh;
-    margin: 1vh 0;
+    margin: 0,1;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    padding: 1vw;
+    padding: 0,1vw;
 }
 
 .project-card p {
     display: inline-block;
     font-size: 2vh;
     color: #555;
-    margin: 0.5vh 0;
+    margin: 0,1;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
     /* Add padding to avoid overlap */
-    padding: 1vw;
+    padding: 0,1vw;
 }
 
 .modal {

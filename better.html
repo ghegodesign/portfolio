@@ -86,7 +86,7 @@
             </div>
         </section>
         <section id="aboutme">
-            <h1 id="toggleTitle" onclick=toggleSection()>More about me</h1>
+            <h2 id="toggleTitle" onclick=toggleSection()>More about me ▼</h2>
             <div class="aboutme-container" id="container-aboutme">
                 <div class="column">
                     <div class="section">
@@ -257,7 +257,7 @@
 
                     if (section.style.display === "none") {
                         section.style.display = previousState; // Show the section
-                        title.textContent = "Less about me"; // Change title
+                        title.textContent = "Less about me ▲"; // Change title
                     } else {
                         previousState = section.style.display;
                         section.style.display = "none"; // Hide the section
@@ -273,7 +273,7 @@
             <div class="project-container" id="card-container"></div>
             <div id="pdfViewer" class="modal">
                 <iframe class="modal-content" src=""></iframe>
-                <h1 class="close">Back to Portfolio</h1>
+                <h1 class="close"> X Back to Portfolio</h1>
             </div>
             <div id="htmlViewer" class="modal">
                 <iframe class="modal-content" src=""></iframe>
