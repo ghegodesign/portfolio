@@ -22,9 +22,9 @@
         <section id="about">
             <div class="about-container">
                 <div class="left-column">
-                    <h1 style="font-size: 10vh; text-align: left; margin: 2px;">LEONARDO</h1>
-                    <h1 style="font-size: 10vh; text-align: right; margin: 2px;">RE<span class="highlight">GUZ</span>ZONI</h1>
-                    <h2 style="font-size: 5vh;">INTEGRATED PRODUCT DESIGN STUDENT</h2>
+                    <h1 style="font-size: 12vh; text-align: left; margin: 2px;">LEONARDO</h1>
+                    <h1 style="font-size: 12vh; text-align: right; margin: 2px;">RE<span class="highlight">GUZ</span>ZONI</h1>
+                    <h2 style="font-size: 5vh; margin: 0.4vh 0 1.5vh 0;">INTEGRATED PRODUCT DESIGN STUDENT</h2>
                     <div class="info">
                         <div>
                             <strong style="font-size: 2vh;">17-07-2001, St. Gallen, CH</strong><br>
@@ -49,12 +49,14 @@
                         the world and, above all, to <span class="highlight">express myself</span> through my work (and
                         finding
                         my essence in the meantime, why not).</p>
+                        <div style="height: 4vh;"></div> <!-- Spazio vuoto!!! -->
                     <div class="skills-list">
                         <p data-center-index="10" style="font-size: 3.5vh;">DESIGN THINKING METHODOLOGY</p>
                         <p data-center-index="19" style="font-size: 3.5vh;">ELEMENT, MODEL AND INTERACTION DESIGN</p>
                         <p data-center-index="16" style="font-size: 3.5vh;">3D MODELING, RENDERING</p>
                         <p data-center-index="2" style="font-size: 3.5vh;">EMPATHIC DESIGN</p>
                         <p data-center-index="13" style="font-size: 3.5vh;">PHYSICAL PROTOTYPING</p>
+                        <div style="height: 4vh;"></div> <!-- Spazio vuoto!!! -->
                     </div>
 
                     <script>
@@ -86,8 +88,12 @@
                 </div>
             </div>
         </section>
+        <div style="height: 12vh;"></div> <!-- Spazio vuoto!!! -->
         <section id="aboutme">
-            <h2 id="toggleTitle" onclick=toggleSection()>More about me ▼</h2>
+            <h1 style="margin: 0.4vh 0 1.5vh 0;" id="toggleTitle" onclick="toggleSection()">
+                <span style=" background-color: yellow;">More about me ▼ see CV</span>
+            </h1>
+            <!--   RE<span class="highlight">GUZ</span>ZONI</h1>   -->
             <div class="aboutme-container" id="container-aboutme">
                 <div class="column">
                     <div class="section">
@@ -128,18 +134,27 @@
                     <div class="section">
                         <h2>Partecipations</h2>
                         <p><strong>Ferrero workshop for <span class="highlight">Kinder surprise toys</span></strong><br>
-                            Autumn 2023<br>
+                            September to November 2023<br>
                             hosted by Politecnico di Milano</p>
+
+                        <p><strong>HP workshop for <span class="highlight">innovative MJF 3D printing uses</span></strong><br>
+                            November 2023 to January 2024<br>
+                            hosted by HP X Politecnico di Milano </p>
 
                         <p><strong>Mobile <span class="highlight">carpentry workstations</span> Walden
                                 workshop</strong><br>
-                            March, April 2024<br>
-                            hosted by Rilegno x Politecnico di Milano</p>
+                            March to April 2024<br>
+                            hosted by Rilegno X Politecnico di Milano</p>
 
                         <p><strong>Baku's <span class="highlight">Karavanseraj</span> interdisciplinary
                                 workshop</strong><br>
                             February 2023<br>
                             hosted by Azerbaijan University of Architecture</p>
+
+                        <p><strong> <span class="highlight">Computational Design</span>  and Digital Fabrication PiA </strong><br>
+                            July 2024<br>
+                            hosted by Politecnico di Milano</p>
+                        
                     </div>
 
                     <div class="section">
@@ -258,17 +273,18 @@
 
                     if (section.style.display === "none") {
                         section.style.display = previousState; // Show the section
-                        title.textContent = "Less about me ▲"; // Change title
+                        title.textContent ="Less about me - hide CV ▲";
                     } else {
                         previousState = section.style.display;
                         section.style.display = "none"; // Hide the section
-                        title.textContent = "More about me"; // Change title
+                        title.textContent = "More about me - see CV ▼"; // Change title
                     }
                 }
                 toggleSection()
 
             </script>
         </section>
+        <div style="height: 8vh;"></div> <!-- Spazio vuoto!!! -->
         <section id="projects">
             <h1>My Projects</h1>
             <div class="project-container" id="card-container"></div>

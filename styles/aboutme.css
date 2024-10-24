@@ -4,10 +4,13 @@
     justify-content: space-between;
     flex-wrap: wrap;
 }
-#toggleTitle:hover {
-    transform: scale(1.05);
+#toggleTitle {
     transition: transform 0.3s ease;
     transform-origin: left;
+}
+
+#toggleTitle:hover {
+    transform: scale(1.05);
 }
 
 .column {
