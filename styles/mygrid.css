@@ -29,7 +29,7 @@
 }
 
 .project-card:hover {
-    transform: scale(1.05);
+    transform: scale(1.07);
     /* Subtle hover effect */
 }
 
@@ -42,23 +42,23 @@
 
 .project-card h4 {
     font-size: 3vh;
-    margin: 0,1;
+    margin: 5px 0; /* Modificato per rimuovere spazio superfluo */
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    padding: 0,1vw;
+    padding:0.25vw; 
 }
 
 .project-card p {
     display: inline-block;
     font-size: 2vh;
     color: #555;
-    margin: 0,1;
+    margin: 0px 0; /* Modificato per rimuovere spazio superfluo */
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
     /* Add padding to avoid overlap */
-    padding: 0,1vw;
+    padding: 0px;
 }
 
 .modal {
