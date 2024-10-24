@@ -1,0 +1,21 @@
+/* Assicurati che il corpo e l'html non abbiano margini */
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+/* Rimuovi margini e padding dalla sezione */
+.image-gallery {
+    margin: 0 !important; /* Forza a non avere margini */
+    padding: 0 !important; /* Forza a non avere padding */
+    width: 100vw; /* Assicura che occupi l'intera larghezza della viewport */
+}
+
+/* Stile per le immagini */
+.image-gallery img {
+    width: 100vw; /* Le immagini occupano l'intera larghezza della viewport */
+    height: auto; /* Mantiene le proporzioni originali */
+    display: block; /* Imposta le immagini come blocchi separati */
+    margin: 0 !important; /* Forza a non avere margini */
+    padding: 0 !important; /* Forza a non avere padding */
+}
