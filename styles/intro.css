@@ -62,6 +62,7 @@
 .skills-list span {
     display: block;
     font-family: 'headerText', sans-serif;
+    align-items: flex-end; /* Allinea gli elementi in basso */
     /* Make spans block-level to fill the grid cells */
 }
 
@@ -74,3 +75,4 @@
     text-align: left;
     /* Align right span to the left */
 }
+

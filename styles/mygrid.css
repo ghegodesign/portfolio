@@ -4,6 +4,7 @@
     gap: 2vw;
     justify-content: center;
     margin-bottom: 4vh;
+    cursor: pointer;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
     /* Responsive grid */
     align-items: stretch;
