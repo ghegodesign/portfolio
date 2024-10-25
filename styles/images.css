@@ -1,3 +1,6 @@
+html {
+    scroll-behavior: smooth;
+}
 /* Assicurati che il corpo e l'html non abbiano margini */
 html, body {
     margin: 0;
