@@ -29,27 +29,26 @@
     cursor: pointer; /* Mostra il cursore a forma di mano */
     transition: background-color 0.3s, color 0.3s, transform 0.3s; /* Transizione per sfondo, colore e scaling */
     padding: 4px; /* Aggiunge imbottitura di 2px per ingrandire l'area cliccabile */
+    font-weight: normal;
 }
 
 /* Hover per elementi non attivi */
 .navbar-item:hover {
     transform: scale(1.12); /* Effetto di ingrandimento al passaggio del mouse */
     background-color: transparent; /* Nessuno sfondo durante l'hover */
-    padding: 3px; /* Aggiunge imbottitura di 2px per ingrandire l'area cliccabile */
 }
 
 /* Stato attivo per l'elemento selezionato */
 .navbar-item.active {
-    color: black; /* Testo nero per la sezione attiva */
-    background-color:#e5b52c; /* Sfondo bianco per la sezione attiva */
+    color: black !important; /* Testo nero per la sezione attiva */
+    background-color: #e5b52c; /* Sfondo bianco per la sezione attiva */
     padding: 3px; /* Aggiunge imbottitura di 2px per ingrandire l'area cliccabile */
 }
 
 /* Impedire cambiamenti durante l'hover sull'elemento attivo */
 .navbar-item.active:hover {
-    background-color:#e5b52c; /* Mantiene lo sfondo bianco durante l'hover */
+    background-color: #e5b52c; /* Mantiene lo sfondo bianco durante l'hover */
     color: black; /* Mantiene il colore del testo nero durante l'hover */
-    padding: 3px; /* Aggiunge imbottitura di 2px per ingrandire l'area cliccabile */
 }
 
 /* Colore giallo per le sezioni specifiche */
@@ -63,7 +62,6 @@
 .navbar-item.about:hover,
 .navbar-item.back-to-project:hover,
 .navbar-item.get-in-touch:hover {
-    transform: scale(1.12); /* Mantiene l'effetto di ingrandimento */
     background-color: transparent; /* Nessuno sfondo durante l'hover */
     color: #e5b52c; /* Mantiene il colore giallo durante l'hover */
 }

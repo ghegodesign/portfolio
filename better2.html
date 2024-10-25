@@ -293,92 +293,98 @@
             <div class="project-container" id="card-container"></div>
         </section>
         <section>
-        <script>
-            document.addEventListener('DOMContentLoaded', function () {
-                const data = {
-                    'product design': [
-                        { title: "omnia", description: "Light system" },
-                        { title: "vlad", description: "Life assistant" },
-                        { title: "guta", description: "Accessibility system" },
-                        { title: "maialino", description: "Wooden swine" },
-                        { title: "fluppete", description: "Campervan" },
-                        { title: "resoap", description: "Open-source saponifier" }
-                    ],
-                    'interdisciplinary': [
-                        { title: "sonora", description: "Community train" },
-                        { title: "sahmat", description: "Caravanserai" }
-                    ],
-                    'digital modeling': [
-                        { title: "parkside", description: "Community train" },
-                        { title: "buzzer", description: "Walkie talkie" }
-                    ],
-                    'extras': [
-                        { title: "lv leche", description: "Web photoseries" },
-                        { title: "trix", description: "AI implant" }
-                    ]
-                };
-        
-                function createCard(item) {
-                    // Create the card container
-                    const card = document.createElement('div');
-                    card.classList.add('project-card');
-        
-                    // Create and add the image
-                    const img = document.createElement('img');
-                    img.src = `images/projects/${item.title}.png`;
-                    img.alt = item.title;
-                    card.appendChild(img);
-        
-                    // Create and add the title
-                    const title = document.createElement('h4');
-                    title.textContent = item.title;
-                    card.appendChild(title);
-        
-                    // Create and add the description
-                    const description = document.createElement('p');
-                    description.textContent = item.description;
-                    card.appendChild(description);
-        
-                    // Add scroll event on click
-                    card.addEventListener('click', function () {
-                        document.getElementById(item.title).scrollIntoView({ behavior: 'smooth' });
-                    });
-        
-                    return card;
-                }
-        
-                const container = document.getElementById('card-container');
-                for (const category in data) {
-                    data[category].forEach(item => {
-                        const card = createCard(item);
-                        container.appendChild(card);
-                    });
-                }
-            });
-        </script>        
+            <script>
+                document.addEventListener('DOMContentLoaded', function () {
+                    const data = {
+                        'product design': [
+                            { title: "omnia", description: "Light system" },
+                            { title: "vlad", description: "Life assistant" },
+                            { title: "guta", description: "Accessibility system" },
+                            { title: "maialino", description: "Wooden swine" },
+                            { title: "fluppete", description: "Campervan" },
+                            { title: "resoap", description: "Open-source saponifier" }
+                        ],
+                        'interdisciplinary': [
+                            { title: "sonora", description: "Community train" },
+                            { title: "sahmat", description: "Caravanserai" }
+                        ],
+                        'digital modeling': [
+                            { title: "parkside", description: "Community train" },
+                            { title: "buzzer", description: "Walkie talkie" }
+                        ],
+                        'extras': [
+                            { title: "lv leche", description: "Web photoseries" },
+                            { title: "trix", description: "AI implant" }
+                        ]
+                    };
+            
+                    function createCard(item) {
+                        // Create the card container
+                        const card = document.createElement('div');
+                        card.classList.add('project-card');
+            
+                        // Create and add the image
+                        const img = document.createElement('img');
+                        img.src = `images/projects/${item.title}.png`;
+                        img.alt = item.title;
+                        card.appendChild(img);
+            
+                        // Create and add the title
+                        const title = document.createElement('h4');
+                        title.textContent = item.title;
+                        card.appendChild(title);
+            
+                        // Create and add the description
+                        const description = document.createElement('p');
+                        description.textContent = item.description;
+                        card.appendChild(description);
+            
+                        // Add scroll event on click with offset
+                        card.addEventListener('click', function () {
+                            const section = document.getElementById(item.title);
+                            if (section) {
+                                // Calcola la posizione di destinazione con offset
+                                const sectionTop = section.getBoundingClientRect().top + window.scrollY;
+                                const offsetInPixels = window.innerHeight * (-44 / 100); // -44vh in pixel
+                                window.scrollTo({
+                                    top: sectionTop - offsetInPixels, // Applica l'offset
+                                    behavior: 'smooth'
+                                });
+                            }
+                        });
+            
+                        return card;
+                    }
+            
+                    const container = document.getElementById('card-container');
+                    for (const category in data) {
+                        data[category].forEach(item => {
+                            const card = createCard(item);
+                            container.appendChild(card);
+                        });
+                    }
+                });
+            </script>            
         </section> 
         </br>
     </main>
     
-    <nav id="project-navbar" style="display: none; position: fixed; top: 0; width: 100%; background-color: #111; padding: 0.3vh; z-index: 1000;">
-        <ul style="display: flex; list-style: none; justify-content: center; gap: 2vw; padding: 0vh; margin: 0;">
-            <!-- Link per tornare all'indice dei progetti o all'about me -->
+    <nav id="project-navbar" style="display: none; position: fixed; top: 0; width: 100%; background-color: #111; z-index: 1000;">
+        <ul style="display: flex; list-style: none; justify-content: center; gap: 1.1vw;">
             <li><h4 class="navbar-item about" style="color: #e5b52c; font-weight: normal;" onclick="scrollToSection('about')">About Me</h4></li>
             <li><h4 class="navbar-item back-to-project" style="color: #e5b52c; font-weight: normal;" onclick="scrollToSection('projects')">Projects Index</h4></li>
-    
-            <!-- Link ai progetti -->
-            <li><h4 class="navbar-item" style="color: white; font-weight: normal;" onclick="scrollToSection('omnia')">Omnia</h4></li>
-            <li><h4 class="navbar-item" style="color: white; font-weight: normal;" onclick="scrollToSection('vlad')">Vlad</h4></li>
-            <li><h4 class="navbar-item" style="color: white; font-weight: normal;" onclick="scrollToSection('guta')">Guta</h4></li>
-            <li><h4 class="navbar-item" style="color: white; font-weight: normal;" onclick="scrollToSection('maialino')">Maialino</h4></li>
-            <li><h4 class="navbar-item" style="color: white; font-weight: normal;" onclick="scrollToSection('fluppete')">Fluppete</h4></li>
-            <li><h4 class="navbar-item" style="color: white; font-weight: normal;" onclick="scrollToSection('resoap')">Resoap</h4></li>
-            <li><h4 class="navbar-item" style="color: white; font-weight: normal;" onclick="scrollToSection('sonora')">Sonora</h4></li>
-            <li><h4 class="navbar-item" style="color: white; font-weight: normal;" onclick="scrollToSection('sahmat')">Sahmat</h4></li>
-            <li><h4 class="navbar-item" style="color: white; font-weight: normal;" onclick="scrollToSection('parkside')">Parkside</h4></li>
-            <li><h4 class="navbar-item" style="color: white; font-weight: normal;" onclick="scrollToSection('buzzer')">Buzzer</h4></li>
-            <li><h4 class="navbar-item" style="color: white; font-weight: normal;" onclick="scrollToSection('lv-leche')">LV Leche</h4></li>
-            <li><h4 class="navbar-item back-to-project" style="color: #e5b52c; font-weight: normal;" onclick="scrollToSection('contacts')">Get in touch</h4></li>
+            <li><h4 class="navbar-item" onclick="scrollToSection('omnia')">Omnia</h4></li>
+            <li><h4 class="navbar-item" onclick="scrollToSection('vlad')">Vlad</h4></li>
+            <li><h4 class="navbar-item" onclick="scrollToSection('guta')">Guta</h4></li>
+            <li><h4 class="navbar-item" onclick="scrollToSection('maialino')">Maialino</h4></li>
+            <li><h4 class="navbar-item" onclick="scrollToSection('fluppete')">Fluppete</h4></li>
+            <li><h4 class="navbar-item" onclick="scrollToSection('resoap')">Resoap</h4></li>
+            <li><h4 class="navbar-item" onclick="scrollToSection('sonora')">Sonora</h4></li>
+            <li><h4 class="navbar-item" onclick="scrollToSection('sahmat')">Sahmat</h4></li>
+            <li><h4 class="navbar-item" onclick="scrollToSection('parkside')">Parkside</h4></li>
+            <li><h4 class="navbar-item" onclick="scrollToSection('buzzer')">Buzzer</h4></li>
+            <li><h4 class="navbar-item" onclick="scrollToSection('lv-leche')">LV-Leche</h4></li>
+            <li><h4 class="navbar-item back-to-project" style="color: #e5b52c; font-weight: normal;" onclick="scrollToSection('contacts')">contacts</h4></li>
         </ul>
     </nav>
     
@@ -386,14 +392,29 @@
     <script>
         // Funzione per gestire lo scrolling verso la sezione specificata
         function scrollToSection(sectionId) {
-            const section = document.getElementById(sectionId);
-            if (section) {
-                section.scrollIntoView({ behavior: 'smooth' });
-            }
+    const section = document.getElementById(sectionId);
+    const offset = -44; // Offset in vh equivalente all'altezza della barra nera
+    const navbarExceptions = ['about', 'projects', 'contacts']; // Sezioni senza offset
+
+    if (section) {
+        // Calcola la posizione di destinazione
+        const sectionTop = section.getBoundingClientRect().top + window.scrollY;
+
+        if (navbarExceptions.includes(sectionId)) {
+            // Se la sezione è una delle eccezioni, scrolla senza offset
+            section.scrollIntoView({ behavior: 'smooth' });
+        } else {
+            // Calcola l'offset in pixel
+            const offsetInPixels = window.innerHeight * (offset / 100); // Converte vh in pixel
+            window.scrollTo({
+                top: sectionTop - offsetInPixels, // Applica l'offset
+                behavior: 'smooth'
+            });
         }
-    
+    }
+}
         // Codice per gestire la visibilità della navbar e lo scrolling
-        document.addEventListener('scroll', function() {
+        document.addEventListener('scroll', function () {
             const omniaSection = document.getElementById('navstart'); // Sezione di riferimento per il primo progetto
             const navbar = document.getElementById('project-navbar'); // Navbar da mostrare/nascondere
             const scrollPosition = window.scrollY;
@@ -427,61 +448,66 @@
             });
         });
     
-        // Aggiungi l'evento hover per ingrandire il titolo della navbar
-        const navbarItems = document.querySelectorAll('.navbar-item');
-        navbarItems.forEach(item => {
-            item.addEventListener('mouseover', () => {
-                // Rimuovi lo scaling da tutti gli altri elementi
-                navbarItems.forEach(i => {
-                    if (i !== item) {
-                        i.style.transform = 'scale(1)'; // Ripristina lo scaling per gli altri
-                    }
-                });
-    
-                item.style.transform = 'scale(1.2)'; // Effetto di ingrandimento solo per l'elemento attuale
-            });
-    
-            item.addEventListener('mouseout', () => {
-                const sectionId = item.getAttribute('onclick').match(/'(.+?)'/)[1]; // Estrae l'ID della sezione
-                const section = document.getElementById(sectionId);
-                if (section && window.scrollY >= section.offsetTop && window.scrollY < section.offsetTop + section.offsetHeight) {
-                    // Se la sezione è visibile, mantieni il colore e l'evidenziazione
-                    return;
-                }
-                item.style.transform = 'scale(1)'; // Ripristina scaling
-            });
-        });
+// Aggiungi l'evento hover per ingrandire il titolo della navbar
+const navbarItems = document.querySelectorAll('.navbar-item');
+navbarItems.forEach(item => {
+    item.addEventListener('mouseover', () => {
+        item.style.transform = 'scale(1.2)'; // Effetto di ingrandimento solo per l'elemento attuale
+    });
+
+    item.addEventListener('mouseout', () => {
+        item.style.transform = 'scale(1)'; // Ripristina scaling
+    });
+});
     </script>
     
     
+<div id= "navstart" style="background-color: #111; height: 4vh; width: 100%; display: flex; align-items: center;"></div>
+<section class="image-gallery">
+    <div class="section" id="omnia">
+        <div class="section-bar"></div>
+    </div>
     
+    <div class="section" id="vlad">
+        <div class="section-bar"></div>
+    </div>
     
+    <div class="section" id="guta">
+        <div class="section-bar"></div>
+    </div>
     
-<div id= "navstart" style="background-color: #111; height: 24vh; width: 100%; display: flex; align-items: center;"></div>
+    <div class="section" id="maialino">
+        <div class="section-bar"></div>
+    </div>
     
-    <section class="image-gallery">
-        <div class="section" id="omnia"></div>
-        <div style="background-color: #111; height: 44vh; width: 100%; display: flex; align-items: center; padding-left: 20px;"></div>
-        <div class="section" id="vlad"></div>
-        <div style="background-color: #111; height: 44vh; width: 100%; display: flex; align-items: center; padding-left: 20px;"></div>
-        <div class="section" id="guta"></div>
-        <div style="background-color: #111; height: 44vh; width: 100%; display: flex; align-items: center; padding-left: 20px;"></div>
-        <div class="section" id="maialino"></div>
-        <div style="background-color: #111; height: 44vh; width: 100%; display: flex; align-items: center; padding-left: 20px;"></div>
-        <div class="section" id="fluppete"></div>
-        <div style="background-color: #111; height: 44vh; width: 100%; display: flex; align-items: center; padding-left: 20px;"></div>
-        <div class="section" id="resoap"></div>
-        <div style="background-color: #111; height: 44vh; width: 100%; display: flex; align-items: center; padding-left: 20px;"></div>
-        <div class="section" id="sonora"></div>
-        <div style="background-color: #111; height: 44vh; width: 100%; display: flex; align-items: center; padding-left: 20px;"></div>
-        <div class="section" id="sahmat"></div>
-        <div style="background-color: #111; height: 44vh; width: 100%; display: flex; align-items: center; padding-left: 20px;"></div>
-        <div class="section" id="parkside"></div>
-        <div style="background-color: #111; height: 44vh; width: 100%; display: flex; align-items: center; padding-left: 20px;"></div>
-        <div class="section" id="buzzer"></div>
-        <div style="background-color: #111; height: 44vh; width: 100%; display: flex; align-items: center; padding-left: 20px;"></div>
-        <div class="section" id="lv-leche"></div>
-    </section>
+    <div class="section" id="fluppete">
+        <div class="section-bar"></div>
+    </div>
+    
+    <div class="section" id="resoap">
+        <div class="section-bar"></div>
+    </div>
+    
+    <div class="section" id="sonora">
+        <div class="section-bar"></div>
+    </div>
+    
+    <div class="section" id="sahmat">
+        <div class="section-bar"></div>
+    </div>
+    
+    <div class="section" id="parkside">
+        <div class="section-bar"></div>
+    </div>
+    
+    <div class="section" id="buzzer">
+        <div class="section-bar"></div>
+    </div>
+    
+    <div class="section" id="lv-leche">
+        <div class="section-bar"></div>
+    </div>
+</section>
     
     <section class="contacts">
         <div class="section" id="contacts">

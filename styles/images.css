@@ -22,3 +22,12 @@ html, body {
     margin: 0 !important; /* Forza a non avere margini */
     padding: 0 !important; /* Forza a non avere padding */
 }
+
+.section-bar {
+    background-color: #111;
+    height: 44vh;
+    display: flex;
+    align-items: center;
+    padding-left: 20px;
+    width: 100%;
+}
