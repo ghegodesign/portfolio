@@ -359,7 +359,7 @@
         </br>
     </main>
     
-    <nav id="project-navbar" style="display: none; position: fixed; top: 0; width: 100%; background-color: #111; padding: 1.5vh 0; z-index: 1000;">
+    <nav id="project-navbar" style="display: none; position: fixed; top: 0; width: 100%; background-color: #111; padding: 0.6vh 0; z-index: 1000;">
         <ul style="display: flex; list-style: none; justify-content: center; gap: 2vw; padding: 0; margin: 0;">
             <!-- Link per tornare all'indice dei progetti o all'about me -->
             <li><h4 class="navbar-item about" style="color: #e5b52c; font-weight: normal;" onclick="scrollToSection('about')">About Me</h4></li>
@@ -382,8 +382,6 @@
     </nav>
     
     
-
-    
     <script>
         // Funzione per gestire lo scrolling verso la sezione specificata
         function scrollToSection(sectionId) {
@@ -395,7 +393,7 @@
     
         // Codice per gestire la visibilità della navbar e lo scrolling
         document.addEventListener('scroll', function() {
-            const omniaSection = document.getElementById('omnia'); // Sezione di riferimento per il primo progetto
+            const omniaSection = document.getElementById('navstart'); // Sezione di riferimento per il primo progetto
             const navbar = document.getElementById('project-navbar'); // Navbar da mostrare/nascondere
             const scrollPosition = window.scrollY;
     
@@ -407,17 +405,44 @@
         });
     </script>
     
-<div style="background-color: #111; height: 44vh; width: 100%; display: flex; align-items: center; padding-left: 20px;"></div>
+<div id= "navstart" style="background-color: #111; height: 24vh; width: 100%; display: flex; align-items: center;"></div>
     
     <section class="image-gallery">
         <div class="section" id="omnia"></div>
         <div style="background-color: #111; height: 44vh; width: 100%; display: flex; align-items: center; padding-left: 20px;"></div>
+        <div class="section" id="vlad"></div>
+        <div style="background-color: #111; height: 44vh; width: 100%; display: flex; align-items: center; padding-left: 20px;"></div>
         <div class="section" id="guta"></div>
+        <div style="background-color: #111; height: 44vh; width: 100%; display: flex; align-items: center; padding-left: 20px;"></div>
+        <div class="section" id="maialino"></div>
+        <div style="background-color: #111; height: 44vh; width: 100%; display: flex; align-items: center; padding-left: 20px;"></div>
+        <div class="section" id="fluppete"></div>
+        <div style="background-color: #111; height: 44vh; width: 100%; display: flex; align-items: center; padding-left: 20px;"></div>
+        <div class="section" id="resoap"></div>
+        <div style="background-color: #111; height: 44vh; width: 100%; display: flex; align-items: center; padding-left: 20px;"></div>
+        <div class="section" id="sonora"></div>
+        <div style="background-color: #111; height: 44vh; width: 100%; display: flex; align-items: center; padding-left: 20px;"></div>
+        <div class="section" id="sahmat"></div>
+        <div style="background-color: #111; height: 44vh; width: 100%; display: flex; align-items: center; padding-left: 20px;"></div>
+        <div class="section" id="parkside"></div>
+        <div style="background-color: #111; height: 44vh; width: 100%; display: flex; align-items: center; padding-left: 20px;"></div>
+        <div class="section" id="buzzer"></div>
+        <div style="background-color: #111; height: 44vh; width: 100%; display: flex; align-items: center; padding-left: 20px;"></div>
+        <div class="section" id="lv-leche"></div>
     </section>
     
+    <section class="contacts">
+        <div class="section" id="contacts">
+        <br>
+        <br>
+        <br>
+        <br>
+        <h1 style="color: white;"> get in touch </h1></div>
+    </section>
+
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-    const projects = ['omnia', 'guta']; // Aggiungi altri progetti qui se necessario
+document.addEventListener('DOMContentLoaded', function() {
+    const projects = ['omnia', 'vlad', 'guta', 'maialino', 'fluppete', 'resoap', 'sonora', 'sahmat', 'parkside', 'buzzer', 'lv-leche'];
 
     projects.forEach(project => {
         const section = document.getElementById(project);
@@ -428,25 +453,27 @@
 });
 
 function loadImagesSequentially(project, section, index) {
-    if (index > 10) return; // Ferma il caricamento dopo 10 immagini
+    if (index > 10) return;
 
-    const imgSrc = `export png/${project}${index}.png`;
+    // Prova prima con PNG, poi SVG se il primo formato non esiste
+    const imgSrcPng = `export png/${project}${index}.png`;
+    const imgSrcSvg = `export png/${project}${index}.svg`;
     const img = new Image();
 
-    img.src = imgSrc;
+    img.src = imgSrcPng;
 
     img.onload = function() {
-        // Se l'immagine è caricata con successo, aggiungila alla sezione
         section.appendChild(img);
-        // Carica la prossima immagine
         loadImagesSequentially(project, section, index + 1);
     };
 
     img.onerror = function() {
-        // Se l'immagine non esiste, non fare nulla
-        console.log(`Image not found: ${imgSrc}`);
-        // Carica la prossima immagine anche se questa non esiste
-        loadImagesSequentially(project, section, index + 1);
+        // Se il PNG non esiste, prova con l'SVG
+        img.src = imgSrcSvg;
+        img.onerror = function() {
+            console.log(`Image not found: ${imgSrcPng} or ${imgSrcSvg}`);
+            loadImagesSequentially(project, section, index + 1);
+        };
     };
 }
     </script>    
