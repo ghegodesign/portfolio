@@ -360,11 +360,11 @@
         </br>
     </main>
     
-    <nav id="project-navbar" style="display: none; position: fixed; top: 0; width: 100%; background-color: #111; padding: 0.6vh 0; z-index: 1000;">
-        <ul style="display: flex; list-style: none; justify-content: center; gap: 2vw; padding: 0; margin: 0;">
+    <nav id="project-navbar" style="display: none; position: fixed; top: 0; width: 100%; background-color: #111; padding: 0.3vh; z-index: 1000;">
+        <ul style="display: flex; list-style: none; justify-content: center; gap: 2vw; padding: 0vh; margin: 0;">
             <!-- Link per tornare all'indice dei progetti o all'about me -->
             <li><h4 class="navbar-item about" style="color: #e5b52c; font-weight: normal;" onclick="scrollToSection('about')">About Me</h4></li>
-            <li><h4 class="navbar-item back-to-project" style="color: #e5b52c; font-weight: normal;" onclick="scrollToSection('projects')">Back to Projects</h4></li>
+            <li><h4 class="navbar-item back-to-project" style="color: #e5b52c; font-weight: normal;" onclick="scrollToSection('projects')">Projects Index</h4></li>
     
             <!-- Link ai progetti -->
             <li><h4 class="navbar-item" style="color: white; font-weight: normal;" onclick="scrollToSection('omnia')">Omnia</h4></li>
@@ -398,13 +398,64 @@
             const navbar = document.getElementById('project-navbar'); // Navbar da mostrare/nascondere
             const scrollPosition = window.scrollY;
     
-            if (scrollPosition >= omniaSection.offsetTop) {
-                navbar.style.display = 'block'; // Mostra la navbar
-            } else {
-                navbar.style.display = 'none'; // Nascondi la navbar
-            }
+            // Mostra la navbar se si è scrollati oltre la sezione di riferimento
+            navbar.style.display = (scrollPosition >= omniaSection.offsetTop) ? 'block' : 'none';
+    
+            // Aggiorna lo stato della navbar in base alla sezione attualmente visualizzata
+            const sections = ['omnia', 'vlad', 'guta', 'maialino', 'fluppete', 'resoap', 'sonora', 'sahmat', 'parkside', 'buzzer', 'lv-leche'];
+    
+            sections.forEach(sectionId => {
+                const section = document.getElementById(sectionId);
+                if (section) {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.offsetHeight;
+    
+                    // Controlla se la sezione è attualmente visibile
+                    const navbarItem = document.querySelector(`.navbar-item[onclick*="${sectionId}"]`);
+                    if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+                        // Aggiungi la classe active per evidenziare l'elemento della navbar
+                        if (navbarItem) {
+                            navbarItem.classList.add('active');
+                        }
+                    } else {
+                        // Rimuovi la classe active se la sezione non è visibile
+                        if (navbarItem) {
+                            navbarItem.classList.remove('active');
+                        }
+                    }
+                }
+            });
+        });
+    
+        // Aggiungi l'evento hover per ingrandire il titolo della navbar
+        const navbarItems = document.querySelectorAll('.navbar-item');
+        navbarItems.forEach(item => {
+            item.addEventListener('mouseover', () => {
+                // Rimuovi lo scaling da tutti gli altri elementi
+                navbarItems.forEach(i => {
+                    if (i !== item) {
+                        i.style.transform = 'scale(1)'; // Ripristina lo scaling per gli altri
+                    }
+                });
+    
+                item.style.transform = 'scale(1.2)'; // Effetto di ingrandimento solo per l'elemento attuale
+            });
+    
+            item.addEventListener('mouseout', () => {
+                const sectionId = item.getAttribute('onclick').match(/'(.+?)'/)[1]; // Estrae l'ID della sezione
+                const section = document.getElementById(sectionId);
+                if (section && window.scrollY >= section.offsetTop && window.scrollY < section.offsetTop + section.offsetHeight) {
+                    // Se la sezione è visibile, mantieni il colore e l'evidenziazione
+                    return;
+                }
+                item.style.transform = 'scale(1)'; // Ripristina scaling
+            });
         });
     </script>
+    
+    
+    
+    
     
 <div id= "navstart" style="background-color: #111; height: 24vh; width: 100%; display: flex; align-items: center;"></div>
     

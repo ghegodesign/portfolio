@@ -4,7 +4,7 @@
     top: 0;
     width: 100%;
     background-color: #111;
-    padding: 0.8vh 0;
+    padding: 0.1vh 0;
     z-index: 1000;
     transition: transform 0.3s ease; /* Transizione per il movimento */
 }
@@ -18,19 +18,52 @@
     display: flex;
     list-style: none;
     justify-content: center;
-    gap: 1vw;
+    gap: 0.1vw;
     padding: 0;
     margin: 0;
 }
 
 .navbar-item {
-    color: #e5b52c; /* Colore giallo per il testo */
+    color: white; /* Colore di default per il testo */
     font-size: 2vh; /* Dimensione del testo */
     cursor: pointer; /* Mostra il cursore a forma di mano */
-    transition: transform 0.3s; /* Transizione per lo scaling */
+    transition: background-color 0.3s, color 0.3s, transform 0.3s; /* Transizione per sfondo, colore e scaling */
+    padding: 4px; /* Aggiunge imbottitura di 2px per ingrandire l'area cliccabile */
 }
 
+/* Hover per elementi non attivi */
 .navbar-item:hover {
-    transform: scale(1.2); /* Effetto di ingrandimento al passaggio del mouse */
+    transform: scale(1.12); /* Effetto di ingrandimento al passaggio del mouse */
+    background-color: transparent; /* Nessuno sfondo durante l'hover */
+    padding: 3px; /* Aggiunge imbottitura di 2px per ingrandire l'area cliccabile */
 }
 
+/* Stato attivo per l'elemento selezionato */
+.navbar-item.active {
+    color: black; /* Testo nero per la sezione attiva */
+    background-color:#e5b52c; /* Sfondo bianco per la sezione attiva */
+    padding: 3px; /* Aggiunge imbottitura di 2px per ingrandire l'area cliccabile */
+}
+
+/* Impedire cambiamenti durante l'hover sull'elemento attivo */
+.navbar-item.active:hover {
+    background-color:#e5b52c; /* Mantiene lo sfondo bianco durante l'hover */
+    color: black; /* Mantiene il colore del testo nero durante l'hover */
+    padding: 3px; /* Aggiunge imbottitura di 2px per ingrandire l'area cliccabile */
+}
+
+/* Colore giallo per le sezioni specifiche */
+.navbar-item.about,
+.navbar-item.back-to-project,
+.navbar-item.get-in-touch {
+    color: #e5b52c; /* Colore giallo */
+}
+
+/* Per mantenere il colore giallo durante l'hover */
+.navbar-item.about:hover,
+.navbar-item.back-to-project:hover,
+.navbar-item.get-in-touch:hover {
+    transform: scale(1.12); /* Mantiene l'effetto di ingrandimento */
+    background-color: transparent; /* Nessuno sfondo durante l'hover */
+    color: #e5b52c; /* Mantiene il colore giallo durante l'hover */
+}
