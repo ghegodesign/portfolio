@@ -43,13 +43,17 @@ main {
     text-align: center;
 }
 
+/* Stile per l'elemento evidenziato */
 .slide-h-highlight {
     color: #111;
     background-color: #e5b52c;
-    font-size: 10vw;
-    padding: 1vw 2vw;
-    margin: 2vw;
+    font-size: 10vw;       /* Font size relativo alla larghezza della viewport */
+    padding: 0.1em;        /* Padding relativo alla dimensione del font */
+    margin: 0.05em;        /* Margine relativo alla dimensione del font */
+    display: inline-block; /* Limita la larghezza dello sfondo al testo */
+    text-align: center; /* Centra orizzontalmente l'elemento */
 }
+
 .slide-t {
     margin: 1vw;
     font-size: 4vw;

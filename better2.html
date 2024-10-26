@@ -11,8 +11,49 @@
     <link rel="stylesheet" href="styles/aboutme.css">
     <link rel="stylesheet" href="styles/images.css">
     <link rel="stylesheet" href="styles/navbar.css">
+    <link rel="stylesheet" href="styles/warning.css">
 </head>
 <body>
+
+<!-- script per banner di warning formato verticale-->
+<div id="orientation-modal">
+    <div class="modal-content">
+        <img src="images/rotate icon.svg" alt="Rotate icon" class="orientation-icon">
+        <h2>Rotate your device<span style="font-size: 4vh; display: inline-block; transform: translateY(0.5vh);">!</span></h2>
+        <p>  Vertical view is not available yet </p>
+        <div style="height: 9vh;"></div> <!-- Spazio vuoto!!! -->
+        <button id="continue-vertical">continue vertically :(</button>
+    </div>
+</div>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const orientationModal = document.getElementById("orientation-modal");
+    const continueVerticalButton = document.getElementById("continue-vertical");
+
+    // Funzione per mostrare la modale solo in modalità verticale
+    function checkOrientation() {
+        if (window.innerHeight > window.innerWidth) {
+            // Aggiunge la classe solo se in verticale
+            orientationModal.classList.add("show-modal");
+        } else {
+            // Rimuove la modale in orizzontale o su desktop
+            orientationModal.classList.remove("show-modal");
+        }
+    }
+
+    // Inizializza il controllo dell'orientamento
+    checkOrientation();
+
+    // Rileva il cambio d'orientamento
+    window.addEventListener("resize", checkOrientation);
+
+    // Nascondi la modale quando si clicca su "continua"
+    continueVerticalButton.addEventListener("click", function () {
+        orientationModal.classList.remove("show-modal");
+    });
+});
+</script>
+
     <header class="slide">
         <div>
             <h1 class="slide-h-highlight">PORTFOLIO</h1>
@@ -27,15 +68,16 @@
                 <div class="left-column">
                     <h1 style="font-size: 12vh; text-align: left; margin: 2px;">LEONARDO</h1>
                     <h1 style="font-size: 12vh; text-align: right; margin: 2px;">RE<span class="highlight">GUZ</span>ZONI</h1>
-                    <h2 style="font-size: 5vh; margin: 0.4vh 0 1.5vh 0;">INTEGRATED PRODUCT DESIGN STUDENT</h2>
+                    <h2 style="font-size: 5vh; margin: 0.4vh 0 1.5vh 0; display: block; width: 100%;">
+                        INTEGRATED PRODUCT DESIGN STUDENT </h2>
                     <div class="info">
-                        <div>
-                            <strong style="font-size: 2vh;">17-07-2001, St. Gallen, CH</strong><br>
-                            leonardo.reguzzoni@mail.polimi.it
+                        <div style="font-size: 2vh;">
+                            <strong>17-07-2001, St. Gallen, CH</strong><br>
+                            <div> leonardo.reguzzoni@mail.polimi.it </div>
                         </div>
-                        <div>
-                            <strong style="font-size: 2vh; text-align: right; display: block;">Currently based in Busto Arsizio (VA) Italy</strong>
-                            <div style="font-size: 2vh; text-align: right; display: block;"> leonardoreguzzoni@hotmail.com</div>
+                        <div style="font-size: 2vh; text-align: right; display: block;">
+                            <strong>Currently based in Busto Arsizio (VA) Italy</strong>
+                            <div> leonardoreguzzoni@hotmail.com</div>
                         </div>
                     </div>
                     <p style="text-align: justify; font-size: 2vh;" >My name is Leonardo, but I'm better known as <sapn class="highlight">Guz</sapn>. I grew up in
