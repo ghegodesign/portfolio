@@ -382,7 +382,7 @@
             <li><h4 class="navbar-item" onclick="scrollToSection('sahmat')">Sahmat</h4></li>
             <li><h4 class="navbar-item" onclick="scrollToSection('parkside')">Parkside</h4></li>
             <li><h4 class="navbar-item" onclick="scrollToSection('buzzer')">Buzzer</h4></li>
-            <li><h4 class="navbar-item" onclick="scrollToSection('lv-leche')">LV-Leche</h4></li>
+            <li><h4 class="navbar-item" onclick="scrollToSection('lv leche')">LV Leche</h4></li>
             <li><h4 class="navbar-item back-to-project" style="color: #e5b52c; font-weight: normal;" onclick="scrollToSection('contacts')">contacts</h4></li>
         </ul>
     </nav>
@@ -422,7 +422,7 @@
             navbar.style.display = (scrollPosition >= omniaSection.offsetTop) ? 'block' : 'none';
     
             // Aggiorna lo stato della navbar in base alla sezione attualmente visualizzata
-            const sections = ['omnia', 'vlad', 'guta', 'maialino', 'fluppete', 'resoap', 'sonora', 'sahmat', 'parkside', 'buzzer', 'lv-leche'];
+            const sections = ['omnia', 'vlad', 'guta', 'maialino', 'fluppete', 'resoap', 'sonora', 'sahmat', 'parkside', 'buzzer', 'lv leche'];
     
             sections.forEach(sectionId => {
                 const section = document.getElementById(sectionId);
@@ -503,7 +503,7 @@ navbarItems.forEach(item => {
         <div class="section-bar"></div>
     </div>
     
-    <div class="section" id="lv-leche">
+    <div class="section" id="lv leche">
         <div class="section-bar"></div>
     </div>
 </section>
@@ -519,7 +519,7 @@ navbarItems.forEach(item => {
 
     <script>
 document.addEventListener('DOMContentLoaded', function() {
-    const projects = ['omnia', 'vlad', 'guta', 'maialino', 'fluppete', 'resoap', 'sonora', 'sahmat', 'parkside', 'buzzer', 'lv-leche'];
+    const projects = ['omnia', 'vlad', 'guta', 'maialino', 'fluppete', 'resoap', 'sonora', 'sahmat', 'parkside', 'buzzer', 'lv leche'];
 
     projects.forEach(project => {
         const section = document.getElementById(project);
