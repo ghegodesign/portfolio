@@ -1,25 +1,615 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ghegodesign</title>
-    <link rel="icon" href="icona.png" type="image/png">
+    <title>Guz Portfolio</title>
+    <link rel="icon" href="images/icona.png" type="image/x-icon">
+    <link rel="stylesheet" href="styles/banner.css">
+    <link rel="stylesheet" href="styles/intro.css">
+    <link rel="stylesheet" href="styles/mygrid.css">
+    <link rel="stylesheet" href="styles/aboutme.css">
+    <link rel="stylesheet" href="styles/images.css">
+    <link rel="stylesheet" href="styles/navbar.css">
+    <link rel="stylesheet" href="styles/warning.css">
 </head>
-
 <body>
-    <embed src="pdfs/Portfolio - Leonardo Reguzzoni-compressed-compressed.pdf" width="100%" height="40400px" type="application/pdf">
-    <!-- <script>
-        const pdfEmbed = document.getElementById('pdfEmbed');
 
-        // Disable scrolling within the PDF
-        pdfEmbed.addEventListener('wheel', function (event) {
-            event.preventDefault();
-            // Scroll the HTML page instead
-            window.scrollBy(0, event.deltaY);
+<!-- script per banner di warning formato verticale-->
+<div id="orientation-modal">
+    <div class="modal-content">
+        <img src="images/rotate icon.svg" alt="Rotate icon" class="orientation-icon">
+        <h2 style="font-size: 2.5em; text-align: center;">Rotate your device<span style="font-size: 1.35em; display: inline-block; transform: translateY(0.8vh);">!</span></h2>
+        <p>  Vertical view is still under construction </p>
+        <div style="height: 9vh;"></div> <!-- Spazio vuoto!!! -->
+        <button id="continue-vertical">continue vertically <br>
+             [pls :( don't]</button>
+    </div>
+</div>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const orientationModal = document.getElementById("orientation-modal");
+    const continueVerticalButton = document.getElementById("continue-vertical");
+
+    // Funzione per mostrare la modale solo in modalità verticale
+    function checkOrientation() {
+        if (window.innerHeight > window.innerWidth) {
+            // Aggiunge la classe solo se in verticale
+            orientationModal.classList.add("show-modal");
+        } else {
+            // Rimuove la modale in orizzontale o su desktop
+            orientationModal.classList.remove("show-modal");
+        }
+    }
+
+    // Inizializza il controllo dell'orientamento
+    checkOrientation();
+
+    // Rileva il cambio d'orientamento
+    window.addEventListener("resize", checkOrientation);
+
+    // Nascondi la modale quando si clicca su "continua"
+    continueVerticalButton.addEventListener("click", function () {
+        orientationModal.classList.remove("show-modal");
+    });
+});
+</script>
+
+    <header class="slide">
+        <div>
+            <h1 class="slide-h-highlight">PORTFOLIO</h1>
+            <h2 class="slide-t" style="font-size: 5vh">LEONARDO RE<span class="slide-t-highlight">GUZ</span>ZONI</h2>
+        </div>
+    </header>
+    <main>
+        <!-- <a href="#projects"> click me </a> -->
+        <section id="about">
+            <div style="height: 5vh;"></div> <!-- Spazio vuoto!!! -->
+            <div class="about-container">
+                <div class="left-column">
+                    <h1 style="font-size: 12vh; text-align: left; margin: 2px;">LEONARDO</h1>
+                    <h1 style="font-size: 12vh; text-align: right; margin: 2px;">RE<span class="highlight">GUZ</span>ZONI</h1>
+                    <h2 style="font-size: 5vh; margin: 0.4vh 0 1.5vh 0; display: block; width: 100%;">
+                        INTEGRATED PRODUCT DESIGN STUDENT </h2>
+                    <div class="info">
+                        <div style="font-size: 2vh;">
+                            <strong>17-07-2001, St. Gallen, CH</strong><br>
+                            <div> leonardo.reguzzoni@mail.polimi.it </div>
+                        </div>
+                        <div style="font-size: 2vh; text-align: right; display: block;">
+                            <strong>Currently based in Busto Arsizio (VA) Italy</strong>
+                            <div> leonardoreguzzoni@hotmail.com</div>
+                        </div>
+                    </div>
+                    <p style="text-align: justify; font-size: 2vh;" >My name is Leonardo, but I'm better known as <sapn class="highlight">Guz</sapn>. I grew up in
+                        Busto Arsizio, where
+                        the smog caresses the
+                        soul and where the metropolis meets the desolation of the outside world – <span
+                            class="highlight">nevertheless</span>, I still pursue a search for color and joy in everyday
+                        life.
+                        Although my arrival in the design field may appear to have happened by <span
+                            class="highlight">chance</span>, I
+                        firmly believe that nothing truly ever happens by coincidence,
+                        and for that I continue my daily fight to bring <span class="highlight">excellence and
+                            beauty</span> to
+                        the world and, above all, to <span class="highlight">express myself</span> through my work (and
+                        finding
+                        my essence in the meantime, why not).</p>
+                        <div style="height: 4vh;"></div> <!-- Spazio vuoto!!! -->
+                    <div class="skills-list">
+                        <p data-center-index="10" style="font-size: 3vh;">DESIGN THINKING METHODOLOGY</p>
+                        <p data-center-index="16" style="font-size: 3vh;">ELEMENT, MODEL AND INTERACTION DESIGN</p>
+                        <p data-center-index="16" style="font-size: 3vh;">3D MODELING, RENDERING</p>
+                        <p data-center-index="6" style="font-size: 3vh;">EMPATHIC  DESIGN</p>
+                        <p data-center-index="13" style="font-size: 3vh;">PHYSICAL PROTOTYPING</p>
+                        <div style="height: 4vh;"></div> <!-- Spazio vuoto!!! -->
+                    </div>
+
+                    <script>
+                        const skillsList = document.getElementById('skills-list');
+                        document.querySelectorAll('.skills-list p').forEach((item) => {
+                            const text = item.textContent.trim();
+                            const letterIndex = parseInt(item.getAttribute('data-center-index'), 10);
+
+                            // Create 2 spans, one for the left and one for the right
+                            const leftSpan = document.createElement('span');
+                            const rightSpan = document.createElement('span');
+
+                            // Get the substring up to and including the center letter
+                            leftSpan.textContent = text.slice(0, letterIndex + 1);
+                            rightSpan.textContent = text.slice(letterIndex + 1);
+
+                            // Clear the paragraph
+                            item.textContent = '';
+
+                            // Append spans to the paragraph
+                            item.appendChild(leftSpan);
+                            item.appendChild(rightSpan);
+                        });
+
+                    </script>
+                </div>
+                <div>
+                    <img src="images/profilo.png" alt="Leonardo Reguzzoni" class="profile-image">
+                </div>
+            </div>
+        </section>
+        <div style="height: 12vh;"></div> <!-- Spazio vuoto!!! -->
+        <section id="aboutme">
+            <h1 style="font-size: 6vh; margin: 0.4vh 0 1.5vh 0; cursor: pointer;" id="toggleTitle" onclick="toggleSection()"> 
+                <span>More about me ▼ see CV</span></h1>
+                <!-- Pulsante di download -->
+                <a href="CV Leonardo Reguzzoni.pdf" download="CV Leonardo Reguzzoni">
+            <button class="download-button">or click to download a PDF snapshot CV </button>
+                </a>   
+
+</a>
+            <!--   RE<span class="highlight">GUZ</span>ZONI</h1>   -->
+            <div class="aboutme-container" id="container-aboutme">
+                <div class="column">
+                    <div class="section">
+                        <h2>Education</h2>
+                        <p><strong>Master degree in <span class="highlight">Integrated Industrial
+                                    Design</span></strong><br>
+                            started 2023 - ONGOING<br>
+                            Politecnico di Milano</p>
+
+                        <p><strong><span class="highlight">Honour bachelor degree</span> in Industrial
+                                Design</span></strong><br>
+                            2020–2023<br>
+                            Politecnico di Milano</p>
+
+                        <p><strong>International exchange semester</strong><br>
+                            Mar - Jul 2023<br>
+                            FADU-UBA, <span class="highlight">Buenos Aires (Argentina)</span></p>
+
+                        <p><strong>Scientific High School Diploma</strong><br>
+                            2015 – 2020<br>
+                            Liceo Arturo Tosi, <span class="highlight">Busto Arsizio</span></p>
+
+                        <p><strong>Degree at the Polish Consulate school</strong><br>
+                            2010 – 2016<br>
+                            Szkoła Polska w Mediolanie, Milan</p>
+                    </div>
+
+                    <div class="section">
+                        <h2>Languages</h2>
+                        <p><strong class="highlight">Italian</strong> (native)</p>
+                        <p><strong>English</strong> C1 (FIRST, Cambridge School)</p>
+                        <p><strong>Polish</strong> (high proficiency)</p>
+                        <p><strong>Spanish</strong> B2 (DELE, Instituto Cervantes)</p>
+                    </div>
+                </div>
+                <div class="column">
+
+                    <div class="section">
+                        <h2>Partecipations</h2>
+                        <p><strong>Ferrero workshop for <span class="highlight">Kinder surprise toys</span></strong><br>
+                            September to November 2023<br>
+                            hosted by Politecnico di Milano</p>
+
+                        <p><strong>HP workshop for <span class="highlight">innovative MJF 3D printing uses</span></strong><br>
+                            November 2023 to January 2024<br>
+                            hosted by HP X Politecnico di Milano </p>
+
+                        <p><strong>Mobile <span class="highlight">carpentry workstations</span> Walden
+                                workshop</strong><br>
+                            March to April 2024<br>
+                            hosted by Rilegno X Politecnico di Milano</p>
+
+                        <p><strong>Baku's <span class="highlight">Karavanseraj</span> interdisciplinary
+                                workshop</strong><br>
+                            February 2023<br>
+                            hosted by Azerbaijan University of Architecture</p>
+
+                        <p><strong> <span class="highlight">Computational Design</span>  and Digital Fabrication PiA </strong><br>
+                            July 2024<br>
+                            hosted by Politecnico di Milano</p>
+                        
+                    </div>
+
+                    <div class="section">
+                        <h2>Soft Skills</h2>
+                        <p>Natural curiosity</p>
+                        <p>Flexibility and <span class="highlight">adaptability</span></p>
+                        <p><span class="highlight">Empathy</span> and group skills</p>
+                    </div>
+                    <div class="section">
+                        <h2>Interests</h2>
+                        <p><span class="highlight">Bricolage</span> and DIY</p>
+                        <p>Cinema and <span class="highlight">Video</span></p>
+                        <p>Geography and history</p>
+                        <p>Travelling and languages</p>
+                    </div>
+                </div>
+                <div class="column">
+
+                    <div class="section">
+                        <h2>Hard Skills</h2>
+                        <div class="skills-container">
+                            <div class="skill-category">
+                                <div>General design skills</div>
+                            </div>
+                            <div class="skill-item">
+                                <div skill-level="4">User research</div>
+                            </div>
+                            <div class="skill-item">
+                                <div skill-level="3">Design strategy</div>
+                            </div>
+                            <div class="skill-item">
+                                <div skill-level="4">Prototyping</div>
+                            </div>
+                            <div class="skill-category">
+                                <div>3D modelling and rendering</div>
+                            </div>
+                            <div class="skill-item">
+                                <div skill-level="3">Autodesk AutoCAD, Alias</div>
+                            </div>
+                            <div class="skill-item">
+                                <div skill-level="5">Solidworks</div>
+                            </div>
+                            <div class="skill-item">
+                                <div skill-level="4">Blender</div>
+                            </div>
+                            <div class="skill-item">
+                                <div skill-level="5">Keyshot</div>
+                            </div>
+                            <div class="skill-item">
+                                <div skill-level="2">Rhino Grasshopper</div>
+                            </div>
+                            <div class="skill-category">
+                                <div>3D modelling and rendering</div>
+                            </div>
+                            <div class="skill-item">
+                                <div skill-level="4">Adobe Illustrator, inDesign</div>
+                            </div>
+                            <div class="skill-item">
+                                <div skill-level="3">Adobe Photoshop, GIMP</div>
+                            </div>
+                            <div class="skill-item">
+                                <div skill-level="3">Artrage</div>
+                            </div>
+                            <div class="skill-item">
+                                <div skill-level="4">Figma</div>
+                            </div>
+                            <div class="skill-category">
+                                <div>Graphics, Editing and Drawing</div>
+                            </div>
+                            <div class="skill-item">
+                                <div skill-level="3">Sony Vegas</div>
+                            </div>
+                            <div class="skill-item">
+                                <div skill-level="5">Camtasia Techsmith</div>
+                            </div>
+                            <div class="skill-category">
+                                <div>Videomaking and Production</div>
+                            </div>
+                            <div class="skill-item">
+                                <div skill-level="3">Slicing and 3D printing</div>
+                            </div>
+                            <div class="skill-item">
+                                <div skill-level="4">Woodworking</div>
+                            </div>
+                        </div>
+                    </div>
+                    <script>
+                        document.querySelectorAll('div[skill-level]').forEach((item) => {
+                            const level = parseInt(item.getAttribute('skill-level'), 10);
+                            item.removeAttribute('skill-level');
+                            const gridSkill = document.createElement('div');
+                            gridSkill.setAttribute('skill-level', level);
+                            item.parentElement.appendChild(gridSkill);
+                            new Array(5).fill().forEach(() => {
+                                const span = document.createElement('span');
+                                gridSkill.appendChild(span);
+                            });
+                        });
+                    </script>
+                    <div class="section">
+                        <h2>Fun Facts</h2>
+                        <ul>
+                            <p>Can instantly recognize all 254 world flags</p>
+                            <p>Has a pet chicken</p>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <script>
+
+                var previousState;
+
+                function toggleSection() {
+                    const section = document.getElementById("container-aboutme");
+                    const title = document.getElementById("toggleTitle");
+
+                    if (section.style.display === "none") {
+                        section.style.display = previousState; // Show the section
+                        title.textContent ="Less about me - hide CV ▲";
+                    } else {
+                        previousState = section.style.display;
+                        section.style.display = "none"; // Hide the section
+                        title.textContent = "More about me - see CV ▼"; // Change title
+                    }
+                }
+                toggleSection()
+
+            </script>
+        </section>
+        <div style="height: 8vh;"></div> <!-- Spazio vuoto!!! -->
+        <section id="projects">
+            <h1 style="font-size: 6vh;">My Projects</h1>
+            <div class="project-container" id="card-container"></div>
+        </section>
+        <section>
+            <script>
+                document.addEventListener('DOMContentLoaded', function () {
+                    const data = {
+                        'product design': [
+                            { title: "omnia", description: "Light system" },
+                            { title: "vlad", description: "Life assistant" },
+                            { title: "guta", description: "Accessibility system" },
+                            { title: "maialino", description: "Wooden swine" },
+                            { title: "fluppete", description: "Campervan" },
+                            { title: "resoap", description: "Open-source saponifier" }
+                        ],
+                        'interdisciplinary': [
+                            { title: "sonora", description: "Community train" },
+                            { title: "sahmat", description: "Caravanserai" }
+                        ],
+                        'digital modeling': [
+                            { title: "parkside", description: "Community train" },
+                            { title: "buzzer", description: "Walkie talkie" }
+                        ],
+                        'extras': [
+                            { title: "lv leche", description: "Web photoseries" },
+                            { title: "trix", description: "AI implant" }
+                        ]
+                    };
+            
+                    function createCard(item) {
+                        // Create the card container
+                        const card = document.createElement('div');
+                        card.classList.add('project-card');
+            
+                        // Create and add the image
+                        const img = document.createElement('img');
+                        img.src = `images/projects/${item.title}.png`;
+                        img.alt = item.title;
+                        card.appendChild(img);
+            
+                        // Create and add the title
+                        const title = document.createElement('h4');
+                        title.textContent = item.title;
+                        card.appendChild(title);
+            
+                        // Create and add the description
+                        const description = document.createElement('p');
+                        description.textContent = item.description;
+                        card.appendChild(description);
+            
+                        // Add scroll event on click with offset
+                        card.addEventListener('click', function () {
+                            const section = document.getElementById(item.title);
+                            if (section) {
+                                // Calcola la posizione di destinazione con offset
+                                const sectionTop = section.getBoundingClientRect().top + window.scrollY;
+                                const offsetInPixels = window.innerHeight * (-44 / 100); // -44vh in pixel
+                                window.scrollTo({
+                                    top: sectionTop - offsetInPixels, // Applica l'offset
+                                    behavior: 'smooth'
+                                });
+                            }
+                        });
+            
+                        return card;
+                    }
+            
+                    const container = document.getElementById('card-container');
+                    for (const category in data) {
+                        data[category].forEach(item => {
+                            const card = createCard(item);
+                            container.appendChild(card);
+                        });
+                    }
+                });
+            </script>            
+        </section> 
+        </br>
+    </main>
+    
+    <nav id="project-navbar" style="display: none; position: fixed; top: 0; width: 100%; background-color: #111; z-index: 1000;">
+        <ul style="display: flex; list-style: none; justify-content: center; gap: 1.1vw;">
+            <li><h4 class="navbar-item about" style="color: #e5b52c; font-weight: normal;" onclick="scrollToSection('about')">About Me</h4></li>
+            <li><h4 class="navbar-item back-to-project" style="color: #e5b52c; font-weight: normal;" onclick="scrollToSection('projects')">Projects Index</h4></li>
+            <li><h4 class="navbar-item" onclick="scrollToSection('omnia')">Omnia</h4></li>
+            <li><h4 class="navbar-item" onclick="scrollToSection('vlad')">Vlad</h4></li>
+            <li><h4 class="navbar-item" onclick="scrollToSection('guta')">Guta</h4></li>
+            <li><h4 class="navbar-item" onclick="scrollToSection('maialino')">Maialino</h4></li>
+            <li><h4 class="navbar-item" onclick="scrollToSection('fluppete')">Fluppete</h4></li>
+            <li><h4 class="navbar-item" onclick="scrollToSection('resoap')">Resoap</h4></li>
+            <li><h4 class="navbar-item" onclick="scrollToSection('sonora')">Sonora</h4></li>
+            <li><h4 class="navbar-item" onclick="scrollToSection('sahmat')">Sahmat</h4></li>
+            <li><h4 class="navbar-item" onclick="scrollToSection('parkside')">Parkside</h4></li>
+            <li><h4 class="navbar-item" onclick="scrollToSection('buzzer')">Buzzer</h4></li>
+            <li><h4 class="navbar-item" onclick="scrollToSection('lv leche')">LV Leche</h4></li>
+            <li><h4 class="navbar-item back-to-project" style="color: #e5b52c; font-weight: normal;" onclick="scrollToSection('contacts')">contacts</h4></li>
+        </ul>
+    </nav>
+    
+    
+    <script>
+        // Funzione per gestire lo scrolling verso la sezione specificata
+        function scrollToSection(sectionId) {
+    const section = document.getElementById(sectionId);
+    const offset = -44; // Offset in vh equivalente all'altezza della barra nera
+    const navbarExceptions = ['about', 'projects', 'contacts']; // Sezioni senza offset
+
+    if (section) {
+        // Calcola la posizione di destinazione
+        const sectionTop = section.getBoundingClientRect().top + window.scrollY;
+
+        if (navbarExceptions.includes(sectionId)) {
+            // Se la sezione è una delle eccezioni, scrolla senza offset
+            section.scrollIntoView({ behavior: 'smooth' });
+        } else {
+            // Calcola l'offset in pixel
+            const offsetInPixels = window.innerHeight * (offset / 100); // Converte vh in pixel
+            window.scrollTo({
+                top: sectionTop - offsetInPixels, // Applica l'offset
+                behavior: 'smooth'
+            });
+        }
+    }
+}
+        // Codice per gestire la visibilità della navbar e lo scrolling
+        document.addEventListener('scroll', function () {
+            const omniaSection = document.getElementById('navstart'); // Sezione di riferimento per il primo progetto
+            const navbar = document.getElementById('project-navbar'); // Navbar da mostrare/nascondere
+            const scrollPosition = window.scrollY;
+    
+            // Mostra la navbar se si è scrollati oltre la sezione di riferimento
+            navbar.style.display = (scrollPosition >= omniaSection.offsetTop) ? 'block' : 'none';
+    
+            // Aggiorna lo stato della navbar in base alla sezione attualmente visualizzata
+            const sections = ['omnia', 'vlad', 'guta', 'maialino', 'fluppete', 'resoap', 'sonora', 'sahmat', 'parkside', 'buzzer', 'lv leche'];
+    
+            sections.forEach(sectionId => {
+                const section = document.getElementById(sectionId);
+                if (section) {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.offsetHeight;
+    
+                    // Controlla se la sezione è attualmente visibile
+                    const navbarItem = document.querySelector(`.navbar-item[onclick*="${sectionId}"]`);
+                    if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+                        // Aggiungi la classe active per evidenziare l'elemento della navbar
+                        if (navbarItem) {
+                            navbarItem.classList.add('active');
+                        }
+                    } else {
+                        // Rimuovi la classe active se la sezione non è visibile
+                        if (navbarItem) {
+                            navbarItem.classList.remove('active');
+                        }
+                    }
+                }
+            });
         });
-    </script> -->
-</body>
+    
+// Aggiungi l'evento hover per ingrandire il titolo della navbar
+const navbarItems = document.querySelectorAll('.navbar-item');
+navbarItems.forEach(item => {
+    item.addEventListener('mouseover', () => {
+        item.style.transform = 'scale(1.2)'; // Effetto di ingrandimento solo per l'elemento attuale
+    });
 
+    item.addEventListener('mouseout', () => {
+        item.style.transform = 'scale(1)'; // Ripristina scaling
+    });
+});
+    </script>
+    
+    
+<div id= "navstart" style="background-color: #111; height: 4vh; width: 100%; display: flex; align-items: center;"></div>
+<section class="image-gallery">
+    <div class="section" id="omnia">
+        <div class="section-bar"></div>
+    </div>
+    
+    <div class="section" id="vlad">
+        <div class="section-bar"></div>
+    </div>
+    
+    <div class="section" id="guta">
+        <div class="section-bar"></div>
+    </div>
+    
+    <div class="section" id="maialino">
+        <div class="section-bar"></div>
+    </div>
+    
+    <div class="section" id="fluppete">
+        <div class="section-bar"></div>
+    </div>
+    
+    <div class="section" id="resoap">
+        <div class="section-bar"></div>
+    </div>
+    
+    <div class="section" id="sonora">
+        <div class="section-bar"></div>
+    </div>
+    
+    <div class="section" id="sahmat">
+        <div class="section-bar"></div>
+    </div>
+    
+    <div class="section" id="parkside">
+        <div class="section-bar"></div>
+    </div>
+    
+    <div class="section" id="buzzer">
+        <div class="section-bar"></div>
+    </div>
+    
+    <div class="section" id="lv leche">
+        <div class="section-bar"></div>
+    </div>
+</section>
+    
+    <section class="contacts">
+        <div class="section" id="contacts">
+        <br>
+        <br>
+        <br>
+        <br>
+        <h1 style="color: white;"> get in touch </h1></div>
+    </section>
+
+    <script>
+document.addEventListener('DOMContentLoaded', function() {
+    const projects = ['omnia', 'vlad', 'guta', 'maialino', 'fluppete', 'resoap', 'sonora', 'sahmat', 'parkside', 'buzzer', 'lv leche'];
+
+    projects.forEach(project => {
+        const section = document.getElementById(project);
+        if (section) {
+            loadImagesSequentially(project, section, 1);
+        }
+    });
+});
+
+function loadImagesSequentially(project, section, index) {
+    if (index > 10) return;
+
+    // Prova prima con PNG, poi SVG se il primo formato non esiste
+    const imgSrcPng = `export png/${project}${index}.png`;
+    const imgSrcSvg = `export png/${project}${index}.svg`;
+    const img = new Image();
+
+    img.src = imgSrcPng;
+
+    img.onload = function() {
+        section.appendChild(img);
+        loadImagesSequentially(project, section, index + 1);
+    };
+
+    img.onerror = function() {
+        // Se il PNG non esiste, prova con l'SVG
+        img.src = imgSrcSvg;
+        img.onerror = function() {
+            console.log(`Image not found: ${imgSrcPng} or ${imgSrcSvg}`);
+            loadImagesSequentially(project, section, index + 1);
+        };
+    };
+}
+    </script>    
+
+    <footer class="slide">
+        <div>
+            <h1 class="slide-h">that's it.</h1>
+            <h2 class="slide-h-highlight">thank you.</h2>
+        </div>
+    </footer>
+
+</body>
 </html>
