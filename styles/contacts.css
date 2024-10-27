@@ -1,0 +1,17 @@
+.contacts {
+    background-color:none; /* Colore di sfondo per la sezione */
+    padding: 20px; /* Spaziatura interna */
+}
+
+.contact-box {
+    background-color: none; /* Colore di sfondo per il box */
+    padding: 20px; /* Spaziatura interna del box */
+    margin: 20px; /* Margine esterno del box */
+}
+
+.contact-box p,
+.contact-box a {
+    color: white; /* Forza il colore del testo a bianco */
+    font-size: 2.4vh; /* Dimensione del testo */
+    margin: 10px 0; /* Margine per i paragrafi */
+}
