@@ -39,14 +39,14 @@
 }
 
 #orientation-modal p {
-    font-size: 2em;
+    font-size: 4vw;
     text-align: center;
     margin: 10px 0 10px 0;
 }
 
 #continue-vertical {
     padding: 10px 20px;
-    font-size: 2em;
+    font-size: 3vw;
     background-color: #b3b3b3;
     text-align: center;
     color: #464646;
