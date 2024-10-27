@@ -5,7 +5,7 @@
     left: 50%; /* Posizionamento orizzontale centrale */
     transform: translate(-50%, -50%); /* Centro esatto della modale */
     z-index: 9999; /* Porta la modale in primo piano */
-    background-color: rgba(211, 211, 211, 0.94); /* Colore di sfondo grigio chiaro con trasparenza */
+    background-color: rgba(211, 211, 211, 0.96); /* Colore di sfondo grigio chiaro con trasparenza */
     width: 80%; /* Occupa l'80% della larghezza dello schermo */
     height: 80%; /* Occupa l'80% dell'altezza dello schermo */
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Ombra */
@@ -39,14 +39,16 @@
 }
 
 #orientation-modal p {
-    font-size: 1.2em;
+    font-size: 2em;
+    text-align: center;
     margin: 10px 0 10px 0;
 }
 
 #continue-vertical {
     padding: 10px 20px;
-    font-size: 1em;
+    font-size: 2em;
     background-color: #b3b3b3;
+    text-align: center;
     color: #464646;
     border: none;
     border-radius: 5px;
