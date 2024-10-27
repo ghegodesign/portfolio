@@ -135,8 +135,8 @@ document.addEventListener("DOMContentLoaded", function () {
                 </div>
             </div>
         </section>
-        <div style="height: 12vh;"></div> <!-- Spazio vuoto!!! -->
         <section id="aboutme">
+            <div style="height: 12vh;"> </div> <!-- Spazio vuoto!!! -->
             <h1 style="font-size: 6vh; margin: 0.4vh 0 1.5vh 0; cursor: pointer;" id="toggleTitle" onclick="toggleSection()"> 
                 <span>More about me ▼ see CV</span></h1>
                 <!-- Pulsante di download -->
@@ -144,7 +144,7 @@ document.addEventListener("DOMContentLoaded", function () {
             <button class="download-button">or click to download a PDF snapshot CV </button>
                 </a>   
 
-</a>
+<!-- </a> -->
             <!--   RE<span class="highlight">GUZ</span>ZONI</h1>   -->
             <div class="aboutme-container" id="container-aboutme">
                 <div class="column">
@@ -446,19 +446,29 @@ document.addEventListener("DOMContentLoaded", function () {
         // Funzione per gestire lo scrolling verso la sezione specificata
         function scrollToSection(sectionId) {
     const section = document.getElementById(sectionId);
-    const offset = -44; // Offset in vh equivalente all'altezza della barra nera
-    const navbarExceptions = ['about', 'projects', 'contacts']; // Sezioni senza offset
+    const defaultOffset = -44; // Offset di default in vh
+    
+    // Definisci le eccezioni con offset
+    const navbarExceptions = {
+        'about': 4, // Sezione "about" con offset personalizzato
+        'projects': 0,         // Sezione "projects" senza offset
+        'contacts': 0          // Sezione "contacts" senza offset
+    };
 
     if (section) {
         // Calcola la posizione di destinazione
         const sectionTop = section.getBoundingClientRect().top + window.scrollY;
 
-        if (navbarExceptions.includes(sectionId)) {
-            // Se la sezione è una delle eccezioni, scrolla senza offset
-            section.scrollIntoView({ behavior: 'smooth' });
+        // Controlla se la sezione ha un'eccezione
+        if (navbarExceptions.hasOwnProperty(sectionId)) {
+            const offsetInPixels = navbarExceptions[sectionId] ? window.innerHeight * (navbarExceptions[sectionId] / 100) : 0;
+            window.scrollTo({
+                top: sectionTop - offsetInPixels, // Applica l'offset
+                behavior: 'smooth'
+            });
         } else {
-            // Calcola l'offset in pixel
-            const offsetInPixels = window.innerHeight * (offset / 100); // Converte vh in pixel
+            // Per le sezioni senza eccezione, applica l'offset di default
+            const offsetInPixels = window.innerHeight * (defaultOffset / 100); // Converte vh in pixel
             window.scrollTo({
                 top: sectionTop - offsetInPixels, // Applica l'offset
                 behavior: 'smooth'
@@ -466,6 +476,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 }
+    
         // Codice per gestire la visibilità della navbar e lo scrolling
         document.addEventListener('scroll', function () {
             const omniaSection = document.getElementById('navstart'); // Sezione di riferimento per il primo progetto
@@ -473,10 +484,12 @@ document.addEventListener("DOMContentLoaded", function () {
             const scrollPosition = window.scrollY;
     
             // Mostra la navbar se si è scrollati oltre la sezione di riferimento
-            navbar.style.display = (scrollPosition >= omniaSection.offsetTop) ? 'block' : 'none';
-            // nuovo ordine: omnia - guta - maialino - resoap - fluppete - vlad-->
+            if (scrollPosition >= omniaSection.offsetTop) {
+                navbar.style.display = 'block';
+            }
+    
             // Aggiorna lo stato della navbar in base alla sezione attualmente visualizzata
-            const sections = ['omnia', 'guta', 'maialino', 'resoap', 'fluppete', 'vlad', 'sonora', 'sahmat', 'parkside', 'buzzer', 'lv leche'];
+            const sections = ['about', 'projects','omnia', 'guta', 'maialino', 'resoap', 'fluppete', 'vlad', 'sonora', 'sahmat', 'parkside', 'buzzer', 'lv leche', 'contacts'];
     
             sections.forEach(sectionId => {
                 const section = document.getElementById(sectionId);
@@ -501,18 +514,19 @@ document.addEventListener("DOMContentLoaded", function () {
             });
         });
     
-// Aggiungi l'evento hover per ingrandire il titolo della navbar
-const navbarItems = document.querySelectorAll('.navbar-item');
-navbarItems.forEach(item => {
-    item.addEventListener('mouseover', () => {
-        item.style.transform = 'scale(1.2)'; // Effetto di ingrandimento solo per l'elemento attuale
-    });
-
-    item.addEventListener('mouseout', () => {
-        item.style.transform = 'scale(1)'; // Ripristina scaling
-    });
-});
+        // Aggiungi l'evento hover per ingrandire il titolo della navbar
+        const navbarItems = document.querySelectorAll('.navbar-item');
+        navbarItems.forEach(item => {
+            item.addEventListener('mouseover', () => {
+                item.style.transform = 'scale(1.2)'; // Effetto di ingrandimento solo per l'elemento attuale
+            });
+    
+            item.addEventListener('mouseout', () => {
+                item.style.transform = 'scale(1)'; // Ripristina scaling
+            });
+        });
     </script>
+     
     
     <!--     // nuovo ordine: omnia - guta - maialino - resoap - fluppete - vlad-->
 <div id= "navstart" style="background-color: #111; height: 4vh; width: 100%; display: flex; align-items: center;"></div>

@@ -3,7 +3,7 @@
     position: fixed;
     top: 0;
     width: 100%;
-    background-color: #111;
+    background-color: #111; /* Colore di sfondo della navbar */
     padding: 0.1vh 0;
     z-index: 1000;
     transition: transform 0.3s ease; /* Transizione per il movimento */
@@ -25,7 +25,7 @@
 
 .navbar-item {
     color: white; /* Colore di default per il testo */
-    font-size: 2vh; /* Dimensione del testo */
+    font-size: 1wh; /* Dimensione del testo */
     cursor: pointer; /* Mostra il cursore a forma di mano */
     transition: background-color 0.3s, color 0.3s, transform 0.3s; /* Transizione per sfondo, colore e scaling */
     padding: 4px; /* Aggiunge imbottitura di 2px per ingrandire l'area cliccabile */
@@ -41,13 +41,13 @@
 /* Stato attivo per l'elemento selezionato */
 .navbar-item.active {
     color: black !important; /* Testo nero per la sezione attiva */
-    background-color: #e5b52c; /* Sfondo bianco per la sezione attiva */
+    background-color: #e5b52c; /* Sfondo giallo per la sezione attiva */
     padding: 3px; /* Aggiunge imbottitura di 2px per ingrandire l'area cliccabile */
 }
 
 /* Impedire cambiamenti durante l'hover sull'elemento attivo */
 .navbar-item.active:hover {
-    background-color: #e5b52c; /* Mantiene lo sfondo bianco durante l'hover */
+    background-color: #e5b52c; /* Mantiene lo sfondo giallo durante l'hover */
     color: black; /* Mantiene il colore del testo nero durante l'hover */
 }
 
@@ -64,4 +64,20 @@
 .navbar-item.get-in-touch:hover {
     background-color: transparent; /* Nessuno sfondo durante l'hover */
     color: #e5b52c; /* Mantiene il colore giallo durante l'hover */
+}
+
+/* Impedire il cambiamento di colore per gli elementi attivi durante l'hover */
+.navbar-item.about.active:hover,
+.navbar-item.back-to-project.active:hover,
+.navbar-item.get-in-touch.active:hover {
+    color: #e5b52c; /* Mantiene il colore giallo durante l'hover */
+    background-color: #e5b52c; /* Mantiene lo sfondo giallo durante l'hover */
+}
+
+/* Aggiungi questa regola per mantenere il colore di sfondo giallo */
+.navbar-item.about.active:hover,
+.navbar-item.back-to-project.active:hover,
+.navbar-item.get-in-touch.active:hover {
+    background-color: #e5b52c; /* Mantiene lo sfondo giallo durante l'hover */
+    color: black; /* Mantiene il colore del testo nero durante l'hover */
 }
