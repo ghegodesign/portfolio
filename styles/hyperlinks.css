@@ -13,7 +13,7 @@
     left: 5%;      /* Posizionamento orizzontale - regola in base all'immagine */
     width: 25%;     /* Larghezza dell'area cliccabile - modifica come preferisci */
     height: 7%;    /* Altezza dell'area cliccabile - modifica come preferisci */
-    background-color: rgba(255, 215, 0, 0.5); /* Colore giallo semitrasparente per visibilità temporanea */
+    background-color: rgba(255, 215, 0, 0); /* Colore giallo semitrasparente per visibilità temporanea */
     cursor: pointer;
 }
 
@@ -23,7 +23,7 @@
     left: 65%;      /* Posizionamento orizzontale - regola in base all'immagine */
     width: 30%;     /* Larghezza dell'area cliccabile - modifica come preferisci */
     height: 4%;    /* Altezza dell'area cliccabile - modifica come preferisci */
-    background-color: rgba(255, 215, 0, 0.5); /* Colore giallo semitrasparente per visibilità temporanea */
+    background-color: rgba(255, 215, 0, 0); /* Colore giallo semitrasparente per visibilità temporanea */
     cursor: pointer;
 }
 
@@ -33,6 +33,6 @@
     left: 3%;      /* Posizionamento orizzontale - regola in base all'immagine */
     width: 25%;     /* Larghezza dell'area cliccabile - modifica come preferisci */
     height: 2%;    /* Altezza dell'area cliccabile - modifica come preferisci */
-    background-color: rgba(255, 215, 0, 0.5); /* Colore giallo semitrasparente per visibilità temporanea */
+    background-color: rgba(255, 215, 0, 0); /* Colore giallo semitrasparente per visibilità temporanea */
     cursor: pointer;
 }
