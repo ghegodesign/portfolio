@@ -140,7 +140,7 @@ document.addEventListener("DOMContentLoaded", function () {
             <h1 style="font-size: 6vh; margin: 0.4vh 0 1.5vh 0; cursor: pointer;" id="toggleTitle" onclick="toggleSection()"> 
                 <span>More about me ▼ see CV</span></h1>
                 <!-- Pulsante di download -->
-                <a href="portfolio/Cv Leonardo Reguzzoni.pdf" download="Cv Leonardo Reguzzoni.pdf">
+                <a href="Cv Leonardo Reguzzoni.pdf" download="Cv Leonardo Reguzzoni.pdf">
             <button class="download-button">or click to download a PDF snapshot CV </button>
                 </a>   
 
@@ -349,12 +349,13 @@ document.addEventListener("DOMContentLoaded", function () {
                 document.addEventListener('DOMContentLoaded', function () {
                     const data = {
                         'product design': [
+                            // nuovo ordine: omnia - guta - maialino - resoap - fluppete - vlad//
                             { title: "omnia", description: "Light system" },
-                            { title: "vlad", description: "Life assistant" },
                             { title: "guta", description: "Accessibility system" },
-                            { title: "maialino", description: "Wooden swine" },
+                            { title: "maialino", description: "Wooden Swine" },
+                            { title: "resoap", description: "Open-source saponifier" },
                             { title: "fluppete", description: "Campervan" },
-                            { title: "resoap", description: "Open-source saponifier" }
+                            { title: "vlad", description: "Life assistant" }
                         ],
                         'interdisciplinary': [
                             { title: "sonora", description: "Community train" },
@@ -420,17 +421,17 @@ document.addEventListener("DOMContentLoaded", function () {
         </section> 
         </br>
     </main>
-    
+<!--     // nuovo ordine: omnia - guta - maialino - resoap - fluppete - vlad-->
     <nav id="project-navbar" style="display: none; position: fixed; top: 0; width: 100%; background-color: #111; z-index: 1000;">
         <ul style="display: flex; list-style: none; justify-content: center; gap: 1.1vw;">
             <li><h4 class="navbar-item about" style="color: #e5b52c; font-weight: normal;" onclick="scrollToSection('about')">About Me</h4></li>
             <li><h4 class="navbar-item back-to-project" style="color: #e5b52c; font-weight: normal;" onclick="scrollToSection('projects')">Projects Index</h4></li>
             <li><h4 class="navbar-item" onclick="scrollToSection('omnia')">Omnia</h4></li>
-            <li><h4 class="navbar-item" onclick="scrollToSection('vlad')">Vlad</h4></li>
             <li><h4 class="navbar-item" onclick="scrollToSection('guta')">Guta</h4></li>
             <li><h4 class="navbar-item" onclick="scrollToSection('maialino')">Maialino</h4></li>
-            <li><h4 class="navbar-item" onclick="scrollToSection('fluppete')">Fluppete</h4></li>
             <li><h4 class="navbar-item" onclick="scrollToSection('resoap')">Resoap</h4></li>
+            <li><h4 class="navbar-item" onclick="scrollToSection('fluppete')">Fluppete</h4></li>
+            <li><h4 class="navbar-item" onclick="scrollToSection('vlad')">Vlad</h4></li>
             <li><h4 class="navbar-item" onclick="scrollToSection('sonora')">Sonora</h4></li>
             <li><h4 class="navbar-item" onclick="scrollToSection('sahmat')">Sahmat</h4></li>
             <li><h4 class="navbar-item" onclick="scrollToSection('parkside')">Parkside</h4></li>
@@ -473,9 +474,9 @@ document.addEventListener("DOMContentLoaded", function () {
     
             // Mostra la navbar se si è scrollati oltre la sezione di riferimento
             navbar.style.display = (scrollPosition >= omniaSection.offsetTop) ? 'block' : 'none';
-    
+            // nuovo ordine: omnia - guta - maialino - resoap - fluppete - vlad-->
             // Aggiorna lo stato della navbar in base alla sezione attualmente visualizzata
-            const sections = ['omnia', 'vlad', 'guta', 'maialino', 'fluppete', 'resoap', 'sonora', 'sahmat', 'parkside', 'buzzer', 'lv leche'];
+            const sections = ['omnia', 'guta', 'maialino', 'resoap', 'fluppete', 'vlad', 'sonora', 'sahmat', 'parkside', 'buzzer', 'lv leche'];
     
             sections.forEach(sectionId => {
                 const section = document.getElementById(sectionId);
@@ -513,14 +514,10 @@ navbarItems.forEach(item => {
 });
     </script>
     
-    
+    <!--     // nuovo ordine: omnia - guta - maialino - resoap - fluppete - vlad-->
 <div id= "navstart" style="background-color: #111; height: 4vh; width: 100%; display: flex; align-items: center;"></div>
 <section class="image-gallery">
     <div class="section" id="omnia">
-        <div class="section-bar"></div>
-    </div>
-    
-    <div class="section" id="vlad">
         <div class="section-bar"></div>
     </div>
     
@@ -532,11 +529,15 @@ navbarItems.forEach(item => {
         <div class="section-bar"></div>
     </div>
     
+    <div class="section" id="resoap">
+        <div class="section-bar"></div>
+    </div>
+    
     <div class="section" id="fluppete">
         <div class="section-bar"></div>
     </div>
     
-    <div class="section" id="resoap">
+    <div class="section" id="vlad">
         <div class="section-bar"></div>
     </div>
     
