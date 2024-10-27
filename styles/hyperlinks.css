@@ -1,0 +1,38 @@
+.image-gallery {
+    position: relative;
+}
+
+.section {
+    position: relative;
+}
+
+/* Stile per visualizzare e posizionare temporaneamente l'area cliccabile */
+.background-link-leche {
+    position: absolute;
+    top: 34%;       /* Posizionamento verticale - regola in base all'immagine */
+    left: 5%;      /* Posizionamento orizzontale - regola in base all'immagine */
+    width: 25%;     /* Larghezza dell'area cliccabile - modifica come preferisci */
+    height: 7%;    /* Altezza dell'area cliccabile - modifica come preferisci */
+    background-color: rgba(255, 215, 0, 0.5); /* Colore giallo semitrasparente per visibilità temporanea */
+    cursor: pointer;
+}
+
+.background-link-resoap {
+    position: absolute;
+    top: 45%;       /* Posizionamento verticale - regola in base all'immagine */
+    left: 65%;      /* Posizionamento orizzontale - regola in base all'immagine */
+    width: 30%;     /* Larghezza dell'area cliccabile - modifica come preferisci */
+    height: 4%;    /* Altezza dell'area cliccabile - modifica come preferisci */
+    background-color: rgba(255, 215, 0, 0.5); /* Colore giallo semitrasparente per visibilità temporanea */
+    cursor: pointer;
+}
+
+.background-link-guta {
+    position: absolute;
+    top: 88%;       /* Posizionamento verticale - regola in base all'immagine */
+    left: 3%;      /* Posizionamento orizzontale - regola in base all'immagine */
+    width: 25%;     /* Larghezza dell'area cliccabile - modifica come preferisci */
+    height: 2%;    /* Altezza dell'area cliccabile - modifica come preferisci */
+    background-color: rgba(255, 215, 0, 0.5); /* Colore giallo semitrasparente per visibilità temporanea */
+    cursor: pointer;
+}
