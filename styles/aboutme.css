@@ -112,6 +112,6 @@
 
 /* Effetto hover per il pulsante di download */
 .download-button:hover {
-    transform: scale(1.1); /* Effetto di ingrandimento */
+    transform: scale(1.05); /* Effetto di ingrandimento */
     background-color: #d4a026; /* Colore leggermente più scuro su hover */
 }
