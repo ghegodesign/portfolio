@@ -38,17 +38,23 @@
     background-color: transparent; /* Nessuno sfondo durante l'hover */
 }
 
-/* Stato attivo per l'elemento selezionato */
-.navbar-item.active {
-    color: black !important; /* Testo nero per la sezione attiva */
-    background-color: #e5b52c; /* Sfondo giallo per la sezione attiva */
-    padding: 3px; /* Aggiunge imbottitura di 2px per ingrandire l'area cliccabile */
+/* Stato attivo per l'elemento selezionato, incluse le sezioni con colore speciale */
+.navbar-item.active,
+.navbar-item.about.active,
+.navbar-item.back-to-project.active,
+.navbar-item.get-in-touch.active {
+    color: black !important; /* Colore del testo nero */
+    background-color: #e5b52c !important; /* Sfondo giallo */
+    padding: 3px; /* Aggiunge imbottitura per ingrandire l'area cliccabile */
 }
 
-/* Impedire cambiamenti durante l'hover sull'elemento attivo */
-.navbar-item.active:hover {
-    background-color: #e5b52c; /* Mantiene lo sfondo giallo durante l'hover */
-    color: black; /* Mantiene il colore del testo nero durante l'hover */
+/* Evita cambiamenti durante l'hover sugli elementi attivi */
+.navbar-item.active:hover,
+.navbar-item.about.active:hover,
+.navbar-item.back-to-project.active:hover,
+.navbar-item.get-in-touch.active:hover {
+    background-color: #e5b52c; /* Mantiene lo sfondo giallo */
+    color: black; /* Mantiene il colore del testo nero */
 }
 
 /* Colore giallo per le sezioni specifiche */
@@ -70,14 +76,6 @@
 .navbar-item.about.active:hover,
 .navbar-item.back-to-project.active:hover,
 .navbar-item.get-in-touch.active:hover {
-    color: #e5b52c; /* Mantiene il colore giallo durante l'hover */
-    background-color: #e5b52c; /* Mantiene lo sfondo giallo durante l'hover */
-}
-
-/* Aggiungi questa regola per mantenere il colore di sfondo giallo */
-.navbar-item.about.active:hover,
-.navbar-item.back-to-project.active:hover,
-.navbar-item.get-in-touch.active:hover {
-    background-color: #e5b52c; /* Mantiene lo sfondo giallo durante l'hover */
-    color: black; /* Mantiene il colore del testo nero durante l'hover */
+    background-color: #e5b52c; /* Mantiene lo sfondo giallo */
+    color: black; /* Mantiene il colore del testo nero */
 }
