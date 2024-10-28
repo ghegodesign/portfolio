@@ -25,7 +25,7 @@
 
 .navbar-item {
     color: white; /* Colore di default per il testo */
-    font-size: 1vw; /* Dimensione del testo */
+    font-size: 0.9vw; /* Dimensione del testo */
     cursor: pointer; /* Mostra il cursore a forma di mano */
     transition: background-color 0.3s, color 0.3s, transform 0.3s; /* Transizione per sfondo, colore e scaling */
     padding: 4px; /* Aggiunge imbottitura di 2px per ingrandire l'area cliccabile */
@@ -34,7 +34,7 @@
 
 /* Hover per elementi non attivi */
 .navbar-item:hover {
-    transform: scale(1.12); /* Effetto di ingrandimento al passaggio del mouse */
+    transform: scale(1.1); /* Effetto di ingrandimento al passaggio del mouse */
     background-color: transparent; /* Nessuno sfondo durante l'hover */
 }
 
