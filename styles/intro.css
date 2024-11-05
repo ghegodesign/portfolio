@@ -5,16 +5,21 @@
     font-style: normal;
 }
 
+/* Imposta il box-sizing */
+* {
+    box-sizing: border-box;
+}
+
 .about-container {
     display: flex;
     flex-wrap: wrap;
-    align-items: start;
+    align-items: flex-start; /* Assicura che le colonne siano allineate in alto */
     gap: 1vw;
 }
 
 .highlight {
     background-color: #fcd573;
-    padding: 1wv;
+    padding: 0.1em; /* Mantiene le evidenziazioni */
 }
 
 /* Left Column Styling */
@@ -36,7 +41,8 @@
     max-width: 100%;
     max-height: 90vh;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-    margin: 0 2vw; /* Uniformare margini */
+    margin: 0 1vw;
+    border-radius: 5px; /* Uniformato il margine */
 }
 
 .skills-list {
@@ -72,34 +78,45 @@ h1 {
 }
 
 h2 {
-    font-size: 2.6vw; /* Ridotto per adattarsi meglio */
+    font-size: 2.3vw; /* Ridotto per adattarsi meglio */
     margin: 0.4vh 0 1.5vh 0;
-}
-
-/* Modifica per il testo della data e posizione */
-.info div {
-    font-size: 1.5em; /* Leggermente più grande del font h */
 }
 
 /* Media query per mobile landscape layout */
 @media (max-width: 768px) and (orientation: landscape) {
     .about-container {
         flex-direction: row;
-        align-items: flex-start; /* Keeps the vertical alignment at the top */
+        align-items: flex-start; /* Mantiene l'allineamento verticale in alto */
     }
 
     .left-column {
         flex: 1;
-        max-width: 50%; /* Occupies 50% of the width */
+        max-width: 50%; /* Occupa il 50% della larghezza */
     }
 
     .profile-image {
-        max-width: 45vw; /* Limits the width of the image */
-        margin: 0 2vw; /* Uniformare margini */
+        max-width: 45vw; /* Limita la larghezza dell'immagine */
+        margin: 0 1vw;
+        border-radius: 5px; /* Margini uniformati */
+    }
+}
+
+/* Media queries specifiche per smartphone */
+@media (max-width: 600px) {
+    .profile-image {
+        margin: 0 1vw; 
+        border-radius: 5px;/* Margine uniforme per smartphone */
     }
 
-    .skills-list {
-        width: 100%; /* Assicura che la lista delle competenze si estenda per tutta la larghezza */
-        margin-top: 20px; /* Aggiunge uno spazio tra l'immagine e la skills list */
+    .info > * {
+        font-size: 1.1em; /* Dimensione del font leggermente più grande */
+    }
+
+    .skills-list p {
+        font-size: 2.5vh; /* Dimensione del font per le competenze */
+    }
+
+    h1, h2 {
+        margin: 0; /* Rimuove margini per una disposizione più compatta */
     }
 }
