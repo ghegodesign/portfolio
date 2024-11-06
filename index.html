@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="styles/warning.css">
     <link rel="stylesheet" href="styles/contacts.css">
     <link rel="stylesheet" href="styles/hyperlinks.css">
+    <link rel="stylesheet" href="styles/links.css">
 </head>
 <body>
 
@@ -74,6 +75,8 @@ document.addEventListener("DOMContentLoaded", function () {
                     <h2 style="font-size: 2.3vw; margin: 0.4vh 0 1.5vh 0; display: block; width: 100%;">
                         INTEGRATED PRODUCT DESIGN STUDENT
                     </h2>
+
+
                     <div class="info" style="margin-bottom: 4vh;">
                         <div style="font-size: 2vh; font-weight: bold;">
                             <div>17-07-2001, St. Gallen, CH</div>
@@ -128,14 +131,14 @@ document.addEventListener("DOMContentLoaded", function () {
             </div>
         </section>
         
-        </section>
+
         <section id="aboutme">
             <div style="height: 12vh;"> </div> <!-- Spazio vuoto!!! -->
             <h1 style="font-size: 6vh; margin: 0.4vh 0 1.5vh 0; cursor: pointer;" id="toggleTitle" onclick="toggleSection()"> 
                 <span>More about me ▼ see CV</span></h1>
                 <!-- Pulsante di download -->
                 <a href="Cv Leonardo Reguzzoni.pdf" target="_blank" download="Cv Leonardo Reguzzoni.pdf">
-            <button class="download-button">or click to download a PDF snapshot CV </button>
+            <button class="download-button">or click to download a snapshot CV as PDF</button>
                 </a>   
 
 <!-- </a> -->
@@ -333,9 +336,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
             </script>
         </section>
-        <div style="height: 8vh;"></div> <!-- Spazio vuoto!!! -->
+    </section>
         <section id="projects">
+        <div style="height: 8vh;"></div> <!-- Spazio vuoto!!! -->
             <h1 style="font-size: 6vh;">My Projects</h1>
+            <br>
+            <br>
             <div class="project-container" id="card-container"></div>
         </section>
         <section>
@@ -614,24 +620,37 @@ function loadImagesSequentially(project, section, index) {
 
 
 
-    <section class="contacts">
-        <div class="section" id="contacts">
+    <section class="contacts" id="contacts">
+        <div class="section">
             <br>
             <br>
         </div>
         <div class="contact-box">
             <h1 style="color: white; font-size: 10vh;">get in touch</h1>
-            <p>I am currently seeking an internship to complete my Master's degree studies; any opportunity would be greatly appreciated. <br> <br>
+            <br>
+            <p>I am currently seeking an internship to complete my Master's degree studies; any opportunity would be greatly appreciated. <br> <br> </p>
 
-                You can contact me at those mail: <br>
-                <a href="mailto:leonardopaolo.reguzzoni@mail.polimi.it" style="font-weight: bold;">leonardopaolo.reguzzoni@mail.polimi.it</a><br>
-                <a href="mailto:leonardoreguzzoni@hotmail.com" style="font-weight: bold;">leonardo.reguzzoni@hotmail.com</a><br>
-                <br> 
-                or directlyl at my newly born <a href="https://www.linkedin.com/in/leonardo-reguzzoni-82ab86330" target="_blank" style="font-weight: bold;">linkedin</a> <br> <br>
-                Thanks for visiting my portfolio! And if you have any feedback do not hesitate to send them <a href="https://forms.gle/PPR28Aq3cv3xQnu77" target="_blank" style="font-weight: bold;">here</a>, everything is valuable.
+                <div class="contact-links">
+                    <div class="contact-link" onclick="window.location.href='mailto:leonardoreguzzoni@hotmail.com'">
+                        <img src="images/mail icon.png" alt="Mail Icon" class="contact-icon">
+                        <span>leonardoreguzzoni@hotmail.com</span>
+                    </div>
+                    <div class="contact-link" onclick="window.location.href='mailto:leonardopaolo.reguzzoni@mail.polimi.it'">
+                        <img src="images/mail icon.png" alt="Mail Icon" class="contact-icon">
+                        <span>leonardopaolo.reguzzoni@mail.polimi.it</span>
+                    </div>
+                    <div class="contact-link" onclick="window.location.href='https://www.linkedin.com/in/leonardo-reguzzoni-82ab86330'">
+                        <img src="images/linkedin icon.png" alt="LinkedIn Icon" class="contact-icon">
+                        <span>linkedin/leonardo reguzzoni</span>
+                    </div>
+                </div>   
+                <br>
+                <br>
+        
+            <p> Thanks for visiting my portfolio! And if you have any feedback do not hesitate to send them <a href="https://forms.gle/PPR28Aq3cv3xQnu77" target="_blank" style="font-weight: bold;">here</a>, everything is valuable.
             </p>
         </div>
-    </section>
+
 
     <footer class="slide">
         <div>
@@ -639,6 +658,6 @@ function loadImagesSequentially(project, section, index) {
             <h2 class="slide-h-highlight">thank you.</h2>
         </div>
     </footer>
-
+</section>
 </body>
 </html>

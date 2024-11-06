@@ -1,10 +1,10 @@
 #project-navbar {
     display: none; /* Nascondi inizialmente la navbar */
     position: fixed;
-    top: 0;
+    top: 0; 
     width: 100%;
-    background-color: #111; /* Colore di sfondo della navbar */
-    padding: 0.1vh 0;
+    background-color: rgba(17, 17, 17, 0.9) !important;
+    padding: 0.05vh 0;
     z-index: 1000;
     transition: transform 0.3s ease; /* Transizione per il movimento */
 }
@@ -24,11 +24,11 @@
 }
 
 .navbar-item {
-    color: white; /* Colore di default per il testo */
+    color:rgb(102, 102, 102); /* Colore di default per il testo */
     font-size: 0.9vw; /* Dimensione del testo */
     cursor: pointer; /* Mostra il cursore a forma di mano */
     transition: background-color 0.3s, color 0.3s, transform 0.3s; /* Transizione per sfondo, colore e scaling */
-    padding: 4px; /* Aggiunge imbottitura di 2px per ingrandire l'area cliccabile */
+    padding: 2px; /* Aggiunge imbottitura di 2px per ingrandire l'area cliccabile */
     font-weight: normal;
 }
 
