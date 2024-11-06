@@ -1,30 +1,25 @@
 #project-navbar {
     display: none; /* Nascondi inizialmente la navbar */
     position: fixed;
-    top: 0; 
+    top: 0;
     width: 100%;
-    background-color: rgba(17, 17, 17, 0.9) !important;
-    padding: 0.05vh 0;
+    background-color: rgba(17, 17, 17, 0.84) !important;
     z-index: 1000;
     transition: transform 0.3s ease; /* Transizione per il movimento */
-}
-
-#project-navbar.visible {
-    display: flex; /* Mostra la navbar */
-    transform: translateY(0); /* Posizione originale */
 }
 
 #project-navbar ul {
     display: flex;
     list-style: none;
-    justify-content: center;
-    gap: 0.1vw;
+    justify-content: center; /* Centrato orizzontalmente */
+    gap: 1.1vw;
     padding: 0;
     margin: 0;
+    width: 100%;
 }
 
 .navbar-item {
-    color:rgb(102, 102, 102); /* Colore di default per il testo */
+    color: rgb(175, 175, 175); /* Colore di default per il testo */
     font-size: 0.9vw; /* Dimensione del testo */
     cursor: pointer; /* Mostra il cursore a forma di mano */
     transition: background-color 0.3s, color 0.3s, transform 0.3s; /* Transizione per sfondo, colore e scaling */
@@ -32,13 +27,25 @@
     font-weight: normal;
 }
 
-/* Hover per elementi non attivi */
+/* Hover per gli elementi */
 .navbar-item:hover {
     transform: scale(1.1); /* Effetto di ingrandimento al passaggio del mouse */
     background-color: transparent; /* Nessuno sfondo durante l'hover */
 }
 
-/* Stato attivo per l'elemento selezionato, incluse le sezioni con colore speciale */
+/* "Contacts" sempre all'ultima posizione a destra */
+.navbar-item[onclick*="contacts"] {
+    margin-left: auto; /* Spinge 'contacts' all'estrema destra */
+}
+
+/* Allineamento e visibilità */
+.hidden {
+    visibility: hidden;
+    pointer-events: none; /* Rende l'elemento non cliccabile */
+    opacity: 0.2; /* Opacità ridotta per attenuare l'elemento */
+}
+
+/* Stato attivo per gli elementi selezionati */
 .navbar-item.active,
 .navbar-item.about.active,
 .navbar-item.back-to-project.active,
@@ -48,7 +55,6 @@
     padding: 3px; /* Aggiunge imbottitura per ingrandire l'area cliccabile */
 }
 
-/* Evita cambiamenti durante l'hover sugli elementi attivi */
 .navbar-item.active:hover,
 .navbar-item.about.active:hover,
 .navbar-item.back-to-project.active:hover,
@@ -57,25 +63,15 @@
     color: black; /* Mantiene il colore del testo nero */
 }
 
-/* Colore giallo per le sezioni specifiche */
 .navbar-item.about,
 .navbar-item.back-to-project,
 .navbar-item.get-in-touch {
     color: #e5b52c; /* Colore giallo */
 }
 
-/* Per mantenere il colore giallo durante l'hover */
 .navbar-item.about:hover,
 .navbar-item.back-to-project:hover,
 .navbar-item.get-in-touch:hover {
     background-color: transparent; /* Nessuno sfondo durante l'hover */
     color: #e5b52c; /* Mantiene il colore giallo durante l'hover */
-}
-
-/* Impedire il cambiamento di colore per gli elementi attivi durante l'hover */
-.navbar-item.about.active:hover,
-.navbar-item.back-to-project.active:hover,
-.navbar-item.get-in-touch.active:hover {
-    background-color: #e5b52c; /* Mantiene lo sfondo giallo */
-    color: black; /* Mantiene il colore del testo nero */
 }
