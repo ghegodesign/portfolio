@@ -5,7 +5,7 @@
 }
 
 .contact-link {
-    font-size: larger;
+    font-size: 1.1vw;
     display: flex; /* Per allineare icona e testo */
     align-items: center; /* Centra verticalmente icona e testo */
     text-decoration: none; /* Rimuove la sottolineatura */
