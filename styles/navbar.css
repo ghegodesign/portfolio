@@ -1,5 +1,5 @@
 #project-navbar {
-    display: none; /* Nascondi inizialmente la navbar */
+    display: none; /* Nascondi inizialmente la navbar, poi il JS la forza visibile */
     position: fixed;
     top: 0;
     width: 100%;
@@ -11,38 +11,40 @@
 #project-navbar ul {
     display: flex;
     list-style: none;
-    justify-content: center; /* Centrato orizzontalmente */
-    gap: 1.1vw;
     padding: 0;
     margin: 0;
     width: 100%;
 }
 
+/* Item della navbar distribuiti uniformemente */
 .navbar-item {
-    color: rgb(175, 175, 175); /* Colore di default per il testo */
-    font-size: 0.9vw; /* Dimensione del testo */
-    cursor: pointer; /* Mostra il cursore a forma di mano */
-    transition: background-color 0.3s, color 0.3s, transform 0.3s; /* Transizione per sfondo, colore e scaling */
-    padding: 2px; /* Aggiunge imbottitura di 2px per ingrandire l'area cliccabile */
+    flex: 1;           /* Ogni item prende lo stesso spazio */
+    text-align: center; /* Centra il testo */
+    color: rgb(175, 175, 175);
+    font-size: 0.9vw;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s, transform 0.3s;
+    padding: 2px;
     font-weight: normal;
 }
 
 /* Hover per gli elementi */
 .navbar-item:hover {
-    transform: scale(1.1); /* Effetto di ingrandimento al passaggio del mouse */
-    background-color: transparent; /* Nessuno sfondo durante l'hover */
+    transform: scale(1.1);
+    background-color: transparent;
 }
 
-/* "Contacts" sempre all'ultima posizione a destra */
+/* Ultimo item (Contacts) all’estrema destra */
 .navbar-item[onclick*="contacts"] {
-    margin-left: auto; /* Spinge 'contacts' all'estrema destra */
+    flex: 0;           /* Non prende spazio extra */
+    margin-left: auto; /* Spinge all’estrema destra */
 }
 
-/* Allineamento e visibilità */
+/* Elementi nascosti */
 .hidden {
     visibility: hidden;
-    pointer-events: none; /* Rende l'elemento non cliccabile */
-    opacity: 0.2; /* Opacità ridotta per attenuare l'elemento */
+    pointer-events: none;
+    opacity: 0.2;
 }
 
 /* Stato attivo per gli elementi selezionati */
@@ -50,28 +52,29 @@
 .navbar-item.about.active,
 .navbar-item.back-to-project.active,
 .navbar-item.get-in-touch.active {
-    color: black !important; /* Colore del testo nero */
-    background-color: #e5b52c !important; /* Sfondo giallo */
-    padding: 3px; /* Aggiunge imbottitura per ingrandire l'area cliccabile */
+    color: black !important;
+    background-color: #e5b52c !important;
+    padding: 3px;
 }
 
 .navbar-item.active:hover,
 .navbar-item.about.active:hover,
 .navbar-item.back-to-project.active:hover,
 .navbar-item.get-in-touch.active:hover {
-    background-color: #e5b52c; /* Mantiene lo sfondo giallo */
-    color: black; /* Mantiene il colore del testo nero */
+    background-color: #e5b52c;
+    color: black;
 }
 
+/* Colore speciale per elementi specifici */
 .navbar-item.about,
 .navbar-item.back-to-project,
 .navbar-item.get-in-touch {
-    color: #e5b52c; /* Colore giallo */
+    color: #e5b52c;
 }
 
 .navbar-item.about:hover,
 .navbar-item.back-to-project:hover,
 .navbar-item.get-in-touch:hover {
-    background-color: transparent; /* Nessuno sfondo durante l'hover */
-    color: #e5b52c; /* Mantiene il colore giallo durante l'hover */
+    background-color: transparent;
+    color: #e5b52c;
 }

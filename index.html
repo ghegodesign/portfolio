@@ -663,17 +663,30 @@ function loadImagesSequentially(project, section, index) {
         <div class="contact-box">
             <h1 style="color: white; font-size: 10vh;">get in touch</h1>
             <br>
-            <p>I am currently seeking an internship to complete my Master's degree studies; any opportunity would be greatly appreciated. <br> <br> </p>
+            <p>I am currently looking for an internship to to gain hands-on experience and kickstart my career; any opportunity will be greatly appreciated! <br> <br> </p>
 
                 <div class="contact-links">
-                    <div class="contact-link" onclick="window.location.href='mailto:leonardoreguzzoni@hotmail.com'">
-                        <img src="images/mail icon.png" alt="Mail Icon" class="contact-icon">
-                        <span>leonardoreguzzoni@hotmail.com</span>
-                    </div>
-                    <div class="contact-link" onclick="window.location.href='mailto:leonardopaolo.reguzzoni@mail.polimi.it'">
-                        <img src="images/mail icon.png" alt="Mail Icon" class="contact-icon">
-                        <span>leonardopaolo.reguzzoni@mail.polimi.it</span>
-                    </div>
+                    <div class="contact-link" onclick="copyMail(this)">
+                 <img src="images/mail icon.png" alt="Mail Icon" class="contact-icon">
+                 <span>leonardoreguzzoni@hotmail.com</span>
+    </div>
+
+<script>
+function copyMail(el) {
+  const span = el.querySelector('span');
+  const originalText = span.textContent;
+
+  navigator.clipboard.writeText(originalText);
+
+  span.textContent = 'Address copied ✓';
+
+  setTimeout(() => {
+    span.textContent = originalText;
+  }, 1500);
+}
+</script>
+
+
                     <div class="contact-link" onclick="window.location.href='https://www.linkedin.com/in/leonardo-reguzzoni-82ab86330'">
                         <img src="images/linkedin icon.png" alt="LinkedIn Icon" class="contact-icon">
                         <span>linkedin/leonardo reguzzoni</span>
@@ -682,17 +695,10 @@ function loadImagesSequentially(project, section, index) {
                 <br>
                 <br>
         
-            <p> Thanks for visiting my portfolio! And if you have any feedback do not hesitate to send them <a href="https://forms.gle/PPR28Aq3cv3xQnu77" target="_blank" style="font-weight: bold;">here</a>, everything is valuable.
+            <p> Thanks for visiting my portfolio! And if you have any feedback do not hesitate to send them <a href="https://forms.gle/PPR28Aq3cv3xQnu77" target="_blank" style="font-weight: bold;">here</a>
             </p>
         </div>
-
-
-    <footer class="slide">
-        <div>
-            <h1 class="slide-h">that's it.</h1>
-            <h2 class="slide-h-highlight">thank you.</h2>
-        </div>
-    </footer>
+        <div style="height: 48vh;"></div> <!-- Spazio vuoto!!! -->
 </section>
 </body>
 </html>
