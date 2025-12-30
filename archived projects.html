@@ -22,85 +22,17 @@
     <link rel="stylesheet" href="styles/mobile_disclaimer.css">
     <link rel="stylesheet" href="styles/contacts.css">
     <link rel="stylesheet" href="styles/hyperlinks.css">
+    <script src="scripts/archived_grid.js" defer></script>
+
 </head>
 <body>
        <main> 
        <section id="projects">
-        <div style="height: 3vh;"></div> <!-- Spazio vuoto!!! -->
-            <h1 style="font-size: 8vh;">Archived projects</h1>
+            <h1 style="font-size: 6vh;">Archived projects</h1>
             <br>
             <br>
-            <div class="project-container" id="card-container"></div>
         </section>
-
-        <section>
-            <script>
-                document.addEventListener('DOMContentLoaded', function () {
-                    const data = {
-                        'product design': [
-                            { title: "vlad", description: "Life assistant" },
-                            { title: "fluppete", description: "Campervan" }
-                        ],
-                        'digital modeling': [
-                            { title: "parkside", description: "Thermal gun" },
-                            { title: "buzzer", description: "Walkie talkie" }
-                        ],
-                    };
-            
-                    function createCard(item) {
-    // Create the card container
-    const card = document.createElement('div');
-    card.classList.add('project-card');
-
-    // Create and add the image
-    const img = document.createElement('img');
-    img.src = `images/projects/${item.title}.png`;
-    img.alt = item.title;
-    card.appendChild(img);
-
-    // Create overlay-text container
-    const overlay = document.createElement('div');
-    overlay.classList.add('overlay-text');
-
-    // Create and add the title
-    const title = document.createElement('h4');
-    title.textContent = item.title;
-    overlay.appendChild(title);
-
-    // Create and add the description
-    const description = document.createElement('p');
-    description.textContent = item.description;
-    overlay.appendChild(description);
-
-    // Append overlay to card
-    card.appendChild(overlay);
-
-    // Add scroll event on click with offset
-    card.addEventListener('click', function () {
-        const section = document.getElementById(item.title);
-        if (section) {
-            const sectionTop = section.getBoundingClientRect().top + window.scrollY;
-            const offsetInPixels = window.innerHeight * (-44 / 100);
-            window.scrollTo({
-                top: sectionTop - offsetInPixels,
-                behavior: 'smooth'
-            });
-        }
-    });
-
-    return card;
-}
-            
-                    const container = document.getElementById('card-container');
-                    for (const category in data) {
-                        data[category].forEach(item => {
-                            const card = createCard(item);
-                            container.appendChild(card);
-                        });
-                    }
-                });
-            </script>            
-        </section> 
+            <div class="project-container" id="card-container"></div>
         <br>
     </main>
 
@@ -109,7 +41,7 @@
 <nav id="project-navbar">
     <ul>
         <li class="navbar-item about"><h4> <a href="index.html#projects" style="color: #e5b52c; text-decoration: none;">◀ Back to main page</a> </h4> </li>
-        <li class="navbar-item back-to-project" onclick="scrollToSection('projects')"> <h4>Projects</h4> </li>
+        <li class="navbar-item back-to-project" onclick="window.scrollTo({top: 0, behavior: 'smooth'});"> <h4>Projects</h4> </li>
         <li class="navbar-item" onclick="scrollToSection('vlad')"><h4>Vlad</h4></li>
         <li class="navbar-item" onclick="scrollToSection('fluppete')"><h4>Fluppete</h4></li>
         <li class="navbar-item" onclick="scrollToSection('parkside')"><h4>Parkside</h4></li>
