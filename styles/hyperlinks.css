@@ -9,10 +9,10 @@
 /* Stile per visualizzare e posizionare temporaneamente l'area cliccabile */
 .background-link-leche {
     position: absolute;
-    top: 34%;       /* Posizionamento verticale - regola in base all'immagine */
-    left: 5%;      /* Posizionamento orizzontale - regola in base all'immagine */
-    width: 25%;     /* Larghezza dell'area cliccabile - modifica come preferisci */
-    height: 7%;    /* Altezza dell'area cliccabile - modifica come preferisci */
+    top: 41%;       /* Posizionamento verticale - regola in base all'immagine */
+    left: 0%;      /* Posizionamento orizzontale - regola in base all'immagine */
+    width: 100%;     /* Larghezza dell'area cliccabile - modifica come preferisci */
+    height: 23%;    /* Altezza dell'area cliccabile - modifica come preferisci */
     background-color: rgba(255, 215, 0, 0); /* Colore giallo semitrasparente per visibilità temporanea */
     cursor: pointer;
 }

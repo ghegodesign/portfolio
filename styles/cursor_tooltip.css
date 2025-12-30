@@ -1,0 +1,13 @@
+#cursor-tooltip {
+    position: fixed;
+    pointer-events: none;
+    padding: 4px 8px;
+    font-size: 12px;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    white-space: nowrap;
+    opacity: 0;
+    transform: translate(12px, 12px);
+    transition: opacity 0.15s ease;
+    z-index: 9999;
+}
