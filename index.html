@@ -72,6 +72,7 @@ document.addEventListener("DOMContentLoaded", function () {
             <h2 class="slide-t" style="font-size: 5vh">LEONARDO RE<span class="slide-t-highlight">GUZ</span>ZONI</h2>
         </div>
     </header>
+    
     <main>
         <section id="about">
             <div style="height: 5vh;"></div> <!-- Spazio vuoto!!! -->
@@ -142,7 +143,7 @@ document.addEventListener("DOMContentLoaded", function () {
         <section id="aboutme">
             <div style="height: 12vh;"> </div> <!-- Spazio vuoto!!! -->
             <h1 style="font-size: 6vh; margin: 0.4vh 0 1.5vh 0; cursor: pointer;" id="toggleTitle" onclick="toggleSection()"> 
-                <span>More about me ▼ see CV</span></h1>
+                <span>More about me ▼ show CV</span></h1>
                 <!-- Pulsante di download -->
                 <a href="Cv Leonardo Reguzzoni.pdf" target="_blank" download="Cv Leonardo Reguzzoni.pdf">
             <button class="download-button">or click to download a snapshot CV as PDF</button>
@@ -198,11 +199,11 @@ document.addEventListener("DOMContentLoaded", function () {
                         <h2>Professional experiences</h2>
 
                         <p><strong> internship at <a class="highlight" href="https://designopenspaces.it/" target="_blank" style="color: black; text-decoration: underline;">D.O.S. - design open spaces</a> </strong><br>                                    
-                            since february 2025 - <strong> ongoing </strong><br>
+                            Spring 2025 <br>
                             trend research, UI & UX, design of AR experiences</p>
 
                         <p><strong> <span class="highlight">Delonghi workshop</span> for innovative kitchen appliances</strong><br>
-                            autumn 2024<br>
+                            Autumn 2024 <br>
                             hosted by Delonghi x Politecnico di Milano</p>
                     
                         <p><strong>Ferrero workshop for <span class="highlight">Kinder surprise toys</span></strong><br>
@@ -349,7 +350,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     } else {
                         previousState = section.style.display;
                         section.style.display = "none"; // Hide the section
-                        title.textContent = "More about me - see CV ▼"; // Change title
+                        title.textContent = "More about me - show CV ▼"; // Change title
                     }
                 }
                 toggleSection()
@@ -357,6 +358,10 @@ document.addEventListener("DOMContentLoaded", function () {
             </script>
         </section>
     </section>
+
+
+
+
         <section id="projects">
         <div style="height: 8vh;"></div> <!-- Spazio vuoto!!! -->
             <h1 style="font-size: 6vh;">My Projects</h1>
@@ -364,6 +369,7 @@ document.addEventListener("DOMContentLoaded", function () {
             <br>
             <div class="project-container" id="card-container"></div>
         </section>
+
         <section>
             <script>
                 document.addEventListener('DOMContentLoaded', function () {
@@ -387,47 +393,53 @@ document.addEventListener("DOMContentLoaded", function () {
                         ],
                         'extras': [
                             { title: "lv leche", description: "Web photoseries" },
-                            { title: "trix", description: "AI implant" }
+                            { title: "milk-it", description: "Add-on extractor" }
                         ]
                     };
             
                     function createCard(item) {
-                        // Create the card container
-                        const card = document.createElement('div');
-                        card.classList.add('project-card');
-            
-                        // Create and add the image
-                        const img = document.createElement('img');
-                        img.src = `images/projects/${item.title}.png`;
-                        img.alt = item.title;
-                        card.appendChild(img);
-            
-                        // Create and add the title
-                        const title = document.createElement('h4');
-                        title.textContent = item.title;
-                        card.appendChild(title);
-            
-                        // Create and add the description
-                        const description = document.createElement('p');
-                        description.textContent = item.description;
-                        card.appendChild(description);
-            
-                        // Add scroll event on click with offset
-                        card.addEventListener('click', function () {
-                            const section = document.getElementById(item.title);
-                            if (section) {
-                                // Calcola la posizione di destinazione con offset
-                                const sectionTop = section.getBoundingClientRect().top + window.scrollY;
-                                const offsetInPixels = window.innerHeight * (-44 / 100); // -44vh in pixel
-                                window.scrollTo({
-                                    top: sectionTop - offsetInPixels, // Applica l'offset
-                                    behavior: 'smooth'
-                                });
-                            }
-                        });
-            
-                        return card;
-                    }
+    // Create the card container
+    const card = document.createElement('div');
+    card.classList.add('project-card');
+
+    // Create and add the image
+    const img = document.createElement('img');
+    img.src = `images/projects/${item.title}.png`;
+    img.alt = item.title;
+    card.appendChild(img);
+
+    // Create overlay-text container
+    const overlay = document.createElement('div');
+    overlay.classList.add('overlay-text');
+
+    // Create and add the title
+    const title = document.createElement('h4');
+    title.textContent = item.title;
+    overlay.appendChild(title);
+
+    // Create and add the description
+    const description = document.createElement('p');
+    description.textContent = item.description;
+    overlay.appendChild(description);
+
+    // Append overlay to card
+    card.appendChild(overlay);
+
+    // Add scroll event on click with offset
+    card.addEventListener('click', function () {
+        const section = document.getElementById(item.title);
+        if (section) {
+            const sectionTop = section.getBoundingClientRect().top + window.scrollY;
+            const offsetInPixels = window.innerHeight * (-44 / 100);
+            window.scrollTo({
+                top: sectionTop - offsetInPixels,
+                behavior: 'smooth'
+            });
+        }
+    });
+
+    return card;
+}
             
                     const container = document.getElementById('card-container');
                     for (const category in data) {
@@ -441,6 +453,9 @@ document.addEventListener("DOMContentLoaded", function () {
         </section> 
         </br>
     </main>
+
+
+    
 <!--     // nuovo ordine: omnia - guta - maialino - resoap - fluppete - vlad-->
     <nav id="project-navbar" style="display: none; position: fixed; top: 0; width: 100%; background-color: #111; z-index: 1000;">
         <ul style="display: flex; list-style: none; justify-content: center; gap: 1.1vw;">

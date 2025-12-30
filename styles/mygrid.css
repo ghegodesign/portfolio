@@ -1,91 +1,145 @@
-/* Ensure the container uses grid */
+/* Container griglia progetti */
 .project-container {
     display: grid;
     gap: 2vw;
     justify-content: center;
     margin-bottom: 4vh;
     cursor: pointer;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
-    /* Responsive grid */
+    grid-template-columns: repeat(4, 1fr);
     align-items: stretch;
-    /* Ensure cards stretch vertically */
 }
+
 @media (max-width: 1200px) {
     .project-container {
-        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-template-columns: repeat(2, 1fr);
     }
 }
+
 @media (max-width: 700px) {
     .project-container {
         grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     }
 }
-/* Style for the individual project card */
+
+/* Card progetti */
 .project-card {
+    position: relative;
+    overflow: hidden;
     text-align: center;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    transition: transform 0.3s ease;
 }
 
-.project-card:hover {
-    transform: scale(1.07);
-    /* Subtle hover effect */
+/* Overlay scuro uniforme per evitare alone */
+.project-card::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.25);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    pointer-events: none;
+    z-index: 0; /* sotto il testo */
 }
 
+/* Hover desktop: mostra overlay + blur leggero */
+@media (min-width: 701px) {
+    .project-card:hover::after {
+        opacity: 1;
+    }
+    .project-card:hover img {
+        filter: blur(2px); /* blur leggero per contenuto centrale */
+    }
+}
+
+/* Immagine */
 .project-card img {
     width: 100%;
     height: auto;
-    object-fit: contain;
-    /* Prevent image distortion */
+    object-fit: cover; /* mantiene bordi nitidi */
+    display: block;
+    transition: filter 0.4s ease;
+    backface-visibility: hidden; /* migliora il rendering del blur */
 }
 
-.project-card h4 {
-    font-size: 3vh;
-    margin: 5px 0; /* Modificato per rimuovere spazio superfluo */
-    white-space: nowrap;
+/* Overlay testo centrato (nuovo div .overlay-text) */
+.project-card .overlay-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    pointer-events: none;
+    z-index: 1; /* sopra overlay */
+    color: white;
+}
+
+/* Titolo */
+.project-card .overlay-text h4 {
+    margin-bottom: 0.75rem; /* distanza stabile dal sottotitolo */
+    white-space: nowrap; /* sempre su una riga */
     overflow: hidden;
     text-overflow: ellipsis;
-    padding:0.25vw; 
+    font-size: 2rem;
+    transition: opacity 0.35s ease, transform 0.35s ease;
+    opacity: 0;
 }
 
-.project-card p {
-    display: inline-block;
-    font-size: 2vh;
-    color: #555;
-    margin: 0px 0; /* Modificato per rimuovere spazio superfluo */
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    /* Add padding to avoid overlap */
-    padding: 0px;
+/* Sottotitolo */
+.project-card .overlay-text p {
+    margin: 0;
+    font-size: 1.25rem;
+    transition: opacity 0.35s ease, transform 0.35s ease;
+    opacity: 0;
 }
 
+/* Hover: fade + micro scorrimento più marcato */
+@media (min-width: 701px) {
+    .project-card:hover .overlay-text h4,
+    .project-card:hover .overlay-text p {
+        opacity: 1;
+        transform: translateY(-15%);
+    }
+}
+
+/* Mobile: testo sempre sotto l'immagine */
+@media (max-width: 700px) {
+    .project-card .overlay-text {
+        position: static;
+        transform: none;
+        opacity: 1;
+        color: black;
+        text-align: center;
+        margin: 2px 0;
+    }
+
+    .project-card:hover img {
+        filter: none;
+    }
+
+    .project-card::after {
+        display: none;
+    }
+}
+
+/* Modal */
 .modal {
     display: none;
-    /* Hidden by default */
     position: fixed;
-    /* Stay in place */
     z-index: 1000;
-    /* Sit on top */
     left: 0;
     top: 0;
     width: 100%;
-    /* Full width */
     height: 100%;
-    /* Full height */
     overflow: auto;
-    /* Enable scroll if needed */
     background-color: rgba(0, 0, 0, 0.8);
-    /* Black w/ opacity */
 }
 
 .modal-content {
     width: 100%;
     height: 99vh;
     border: none;
-    /* No border */
 }
 
 .close {
