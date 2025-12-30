@@ -449,32 +449,40 @@ document.addEventListener("DOMContentLoaded", function () {
                         });
                     }
                 });
-            </script>            
-        </section> 
-        </br>
+            </script>
+
+<div style="text-align: right"> 
+<h1 id="toggleTitle" 
+        style="display: inline-block; font-size:4vh; margin:0.4vh 0 1.5vh 0; text-align:right; cursor:pointer; transition: transform 0.2s;"
+         onmouseover="this.style.transform='scale(1.05)';"
+         onmouseout="this.style.transform='scale(1)';"
+        onclick="window.location.href='archived projects.html'"> See more projects ▶ </h1> </div>
+<div style="height: 1vh;"></div> <!-- Spazio vuoto -->
+
     </main>
 
 
     
 <!--     // nuovo ordine: omnia - guta - maialino - resoap - fluppete - vlad-->
-    <nav id="project-navbar" style="display: none; position: fixed; top: 0; width: 100%; background-color: #111; z-index: 1000;">
-        <ul style="display: flex; list-style: none; justify-content: center; gap: 1.1vw;">
-            <li><h4 class="navbar-item about" style="color: #e5b52c; font-weight: normal;" onclick="scrollToSection('about')">About Me</h4></li>
-            <li><h4 class="navbar-item back-to-project" style="color: #e5b52c; font-weight: normal;" onclick="scrollToSection('projects')">Projects Index</h4></li>
-            <li><h4 class="navbar-item" onclick="scrollToSection('omnia')">Omnia</h4></li>
-            <li><h4 class="navbar-item" onclick="scrollToSection('guta')">Guta</h4></li>
-            <li><h4 class="navbar-item" onclick="scrollToSection('maialino')">Maialino</h4></li>
-            <li><h4 class="navbar-item" onclick="scrollToSection('resoap')">Resoap</h4></li>
-            <li><h4 class="navbar-item" onclick="scrollToSection('fluppete')">Fluppete</h4></li>
-            <li><h4 class="navbar-item" onclick="scrollToSection('vlad')">Vlad</h4></li>
-            <li><h4 class="navbar-item" onclick="scrollToSection('sonora')">Sonora</h4></li>
-            <li><h4 class="navbar-item" onclick="scrollToSection('sahmat')">Sahmat</h4></li>
-            <li><h4 class="navbar-item" onclick="scrollToSection('parkside')">Parkside</h4></li>
-            <li><h4 class="navbar-item" onclick="scrollToSection('buzzer')">Buzzer</h4></li>
-            <li><h4 class="navbar-item" onclick="scrollToSection('lv leche')">LV Leche</h4></li>
-            <li><h4 class="navbar-item back-to-project" style="color: #e5b52c; font-weight: normal;" onclick="scrollToSection('contacts')">contacts</h4></li>
-        </ul>
-    </nav>
+<nav id="project-navbar">
+    <ul>
+        <li class="navbar-item about" style="color: #e5b52c;" onclick="scrollToSection('about')"> <h4>About Me</h4> </li>
+        <li class="navbar-item back-to-project" style="color: #e5b52c;" onclick="scrollToSection('projects')"> <h4>Projects</h4> </li>
+        <li class="navbar-item" onclick="scrollToSection('omnia')"> <h4>Omnia</h4></li> 
+        <li class="navbar-item" onclick="scrollToSection('guta')"><h4>Guta</h4> </li> 
+        <li class="navbar-item" onclick="scrollToSection('maialino')"> <h4>Maialino</h4></li>
+        <li class="navbar-item" onclick="scrollToSection('resoap')"> <h4>Resoap</h4> </li>
+        <li class="navbar-item" onclick="scrollToSection('fluppete')"><h4>Fluppete</h4></li>
+        <li class="navbar-item" onclick="scrollToSection('vlad')"><h4>Vlad</h4> </li>
+        <li class="navbar-item" onclick="scrollToSection('sonora')"><h4>Sonora</h4></li>
+        <li class="navbar-item" onclick="scrollToSection('sahmat')"> <h4>Sahmat</h4></li>
+        <li class="navbar-item" onclick="scrollToSection('parkside')"><h4>Parkside</h4></li>
+        <li class="navbar-item" onclick="scrollToSection('buzzer')"><h4>Buzzer</h4> </li>
+        <li class="navbar-item" onclick="scrollToSection('lv leche')"> <h4>LV Leche</h4> </li> 
+        <li class="navbar-item back-to-project" style="color: #e5b52c; font-weight: normal;" onclick="scrollToSection('contacts')"><h4>Contacts</h4> </li>
+    </ul>
+</nav>
+
     
     
     <script>
@@ -654,6 +662,16 @@ function loadImagesSequentially(project, section, index) {
     </script>    
 
 
+    <section id="more" style="background-color: #ffffff; text-align:right; padding: 2vh 4vw;">
+        <div class="section" style="text-align:right;"> <h1 id="toggleTitle"  
+        style="display: inline-block; font-size:4vh; margin:0.4vh 0 1.5vh 0; text-align:right; cursor:pointer; transition: transform 0.2s;"
+         onmouseover="this.style.transform='scale(1.05)';"
+         onmouseout="this.style.transform='scale(1)';"
+        onclick="window.location.href='archived projects.html'"> Still unsatisfied? see archived projects ▶ </h1> </div>
+        <div style="height: 1vh;"></div> <!-- Spazio vuoto -->
+    </section>
+
+
 
     <section class="contacts" id="contacts">
         <div class="section">
@@ -669,22 +687,18 @@ function loadImagesSequentially(project, section, index) {
                     <div class="contact-link" onclick="copyMail(this)">
                  <img src="images/mail icon.png" alt="Mail Icon" class="contact-icon">
                  <span>leonardoreguzzoni@hotmail.com</span>
-    </div>
-
-<script>
-function copyMail(el) {
-  const span = el.querySelector('span');
-  const originalText = span.textContent;
-
-  navigator.clipboard.writeText(originalText);
-
-  span.textContent = 'Address copied ✓';
-
-  setTimeout(() => {
-    span.textContent = originalText;
-  }, 1500);
-}
-</script>
+                 </div>
+                 <script>
+                 function copyMail(el) {
+                const span = el.querySelector('span');
+                const originalText = span.textContent;
+                navigator.clipboard.writeText(originalText);
+                span.textContent = 'Address copied ✓';
+                setTimeout(() => {
+                 span.textContent = originalText;
+                }, 1200);
+            }
+        </script>
 
 
                     <div class="contact-link" onclick="window.location.href='https://www.linkedin.com/in/leonardo-reguzzoni-82ab86330'">

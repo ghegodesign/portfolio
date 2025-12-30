@@ -1,80 +1,62 @@
-#project-navbar {
-    display: none; /* Nascondi inizialmente la navbar, poi il JS la forza visibile */
+#project-navbar { 
+    display: none;
     position: fixed;
     top: 0;
     width: 100%;
-    background-color: rgba(17, 17, 17, 0.84) !important;
+    height: 50px;
+    background-color: rgba(17, 17, 17, 0.84);
     z-index: 1000;
-    transition: transform 0.3s ease; /* Transizione per il movimento */
 }
 
 #project-navbar ul {
     display: flex;
+    align-items: center;
     list-style: none;
-    padding: 0;
+    padding: 0 96px; /* margini dai bordi */
     margin: 0;
+    height: 100%;
     width: 100%;
+    box-sizing: border-box;
 }
 
-/* Item della navbar distribuiti uniformemente */
 .navbar-item {
-    flex: 1;           /* Ogni item prende lo stesso spazio */
-    text-align: center; /* Centra il testo */
-    color: rgb(175, 175, 175);
-    font-size: 0.9vw;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
     cursor: pointer;
-    transition: background-color 0.3s, color 0.3s, transform 0.3s;
-    padding: 2px;
+}
+
+/* Rimuovere margini extra sugli estremi
+.navbar-item.about { margin-left: 48px; }
+.navbar-item.back-to-project,
+.navbar-item.get-in-touch { margin-right: 48px; }
+*/
+
+.navbar-item h4 {
+    margin: 0;
+    padding: 2px 6px; /* rettangolino attorno al testo */
+    font-size: 0.9vw;
     font-weight: normal;
+    color: rgb(175, 175, 175);
+    transition: background-color 0.2s, color 0.2s, transform 0.2s;
 }
 
-/* Hover per gli elementi */
-.navbar-item:hover {
-    transform: scale(1.1);
-    background-color: transparent;
+/* Hover testo */
+.navbar-item h4:hover {
+    transform: scale(1.05);
 }
 
-/* Ultimo item (Contacts) all’estrema destra */
-.navbar-item[onclick*="contacts"] {
-    flex: 0;           /* Non prende spazio extra */
-    margin-left: auto; /* Spinge all’estrema destra */
-}
-
-/* Elementi nascosti */
-.hidden {
-    visibility: hidden;
-    pointer-events: none;
-    opacity: 0.2;
-}
-
-/* Stato attivo per gli elementi selezionati */
-.navbar-item.active,
-.navbar-item.about.active,
-.navbar-item.back-to-project.active,
-.navbar-item.get-in-touch.active {
-    color: black !important;
-    background-color: #e5b52c !important;
-    padding: 3px;
-}
-
-.navbar-item.active:hover,
-.navbar-item.about.active:hover,
-.navbar-item.back-to-project.active:hover,
-.navbar-item.get-in-touch.active:hover {
+/* Stato attivo: rettangolo piccolo attorno al testo e testo nero */
+.navbar-item.active h4 {
     background-color: #e5b52c;
     color: black;
 }
 
-/* Colore speciale per elementi specifici */
-.navbar-item.about,
-.navbar-item.back-to-project,
-.navbar-item.get-in-touch {
-    color: #e5b52c;
-}
-
-.navbar-item.about:hover,
-.navbar-item.back-to-project:hover,
-.navbar-item.get-in-touch:hover {
-    background-color: transparent;
+/* Item speciali gialli solo quando non sono attivi */
+.navbar-item.about:not(.active) h4,
+.navbar-item.back-to-project:not(.active) h4,
+.navbar-item.get-in-touch:not(.active) h4 {
     color: #e5b52c;
 }
