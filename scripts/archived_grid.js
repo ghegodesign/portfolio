@@ -1,13 +1,13 @@
 document.addEventListener('DOMContentLoaded', function () {
     const data = {
         'product design': [
+            { title: "sahmat bar", description: "Caravanserai" },
             { title: "vlad", description: "Life assistant" },
             { title: "fluppete", description: "Campervan" }
         ],
         'digital modeling': [
             { title: "parkside", description: "Thermal gun" },
-            { title: "buzzer", description: "Walkie talkie" },
-            { title: "sahmat", description: "Caravanserai" }
+            { title: "buzzer", description: "Walkie talkie" }
         ],
     };
 
