@@ -5,7 +5,6 @@
     justify-content: center;
     margin-bottom: 4vh;
     cursor: pointer;
-    grid-template-columns: repeat(4, 1fr);
     align-items: stretch;
 }
 

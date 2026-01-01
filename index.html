@@ -148,10 +148,8 @@ document.addEventListener("DOMContentLoaded", function () {
                 <!-- Pulsante di download -->
                 <a href="Cv Leonardo Reguzzoni.pdf" target="_blank" download="Cv Leonardo Reguzzoni.pdf">
             <button class="download-button">or click to download a snapshot CV as PDF</button>
-                </a>   
+                </a> 
 
-<!-- </a> -->
-            <!--   RE<span class="highlight">GUZ</span>ZONI</h1>   -->
             <div class="aboutme-container" id="container-aboutme">
                 <div class="column">
                     <div class="section">
@@ -364,12 +362,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
-        <section id="projects">
+    <section id="projects">
         <div style="height: 8vh;"></div> <!-- Spazio vuoto!!! -->
             <h1 style="font-size: 6vh;">My Projects</h1>
             <br>
             <br>
-            <div class="project-container" id="card-container"></div>
+            <div class="project-container" id="card-container" style="grid-template-columns: repeat(4, 1fr);"></div>
         </section>
 
         <section>
@@ -382,20 +380,14 @@ document.addEventListener("DOMContentLoaded", function () {
                             { title: "guta", description: "Accessibility system" },
                             { title: "maialino", description: "Wooden Swine" },
                             { title: "resoap", description: "Open-source saponifier" },
-                            { title: "fluppete", description: "Campervan" },
-                            { title: "vlad", description: "Life assistant" }
+                            { title: "milk-it", description: "Add-on extractor" },
+                            { title: "Enkidu AI", description: "Decision maker" }
                         ],
                         'interdisciplinary': [
-                            { title: "sonora", description: "Community train" },
-                            { title: "sahmat", description: "Caravanserai" }
-                        ],
-                        'digital modeling': [
-                            { title: "parkside", description: "Thermal gun" },
-                            { title: "buzzer", description: "Walkie talkie" }
+                            { title: "sonora", description: "Community train" }
                         ],
                         'extras': [
-                            { title: "lv leche", description: "Web photoseries" },
-                            { title: "milk-it", description: "Add-on extractor" }
+                            { title: "lv leche", description: "Web photoseries" }
                         ]
                     };
             
@@ -465,7 +457,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     
-<!--     // nuovo ordine: omnia - guta - maialino - resoap - fluppete - vlad-->
+<!--     // nuovo ordine: 'omnia', 'guta', 'maialino', 'resoap', 'milk-it', 'enkidu', 'sonora', 'lv leche'-->
 <nav id="project-navbar">
     <ul>
         <li class="navbar-item about" style="color: #e5b52c;" onclick="scrollToSection('about')"> <h4>About Me</h4> </li>
@@ -474,12 +466,9 @@ document.addEventListener("DOMContentLoaded", function () {
         <li class="navbar-item" onclick="scrollToSection('guta')"><h4>Guta</h4> </li> 
         <li class="navbar-item" onclick="scrollToSection('maialino')"> <h4>Maialino</h4></li>
         <li class="navbar-item" onclick="scrollToSection('resoap')"> <h4>Resoap</h4> </li>
-        <li class="navbar-item" onclick="scrollToSection('fluppete')"><h4>Fluppete</h4></li>
-        <li class="navbar-item" onclick="scrollToSection('vlad')"><h4>Vlad</h4> </li>
-        <li class="navbar-item" onclick="scrollToSection('sonora')"><h4>Sonora</h4></li>
-        <li class="navbar-item" onclick="scrollToSection('sahmat')"> <h4>Sahmat</h4></li>
-        <li class="navbar-item" onclick="scrollToSection('parkside')"><h4>Parkside</h4></li>
-        <li class="navbar-item" onclick="scrollToSection('buzzer')"><h4>Buzzer</h4> </li>
+        <li class="navbar-item" onclick="scrollToSection('milk-it')"><h4>Milk-it</h4></li>
+        <li class="navbar-item" onclick="scrollToSection('Enkidu AI')"><h4>Enkidu AI</h4> </li>
+        <li class="navbar-item" onclick="scrollToSection('sonora')"><h4>sonora</h4> </li>
         <li class="navbar-item" onclick="scrollToSection('lv leche')"> <h4>LV Leche</h4> </li> 
         <li class="navbar-item back-to-project" style="color: #e5b52c; font-weight: normal;" onclick="scrollToSection('contacts')"><h4>Contacts</h4> </li>
     </ul>
@@ -534,7 +523,7 @@ document.addEventListener("DOMContentLoaded", function () {
             }
     
             // Aggiorna lo stato della navbar in base alla sezione attualmente visualizzata
-            const sections = ['about', 'projects','omnia', 'guta', 'maialino', 'resoap', 'fluppete', 'vlad', 'sonora', 'sahmat', 'parkside', 'buzzer', 'lv leche', 'contacts'];
+            const sections = ['about', 'projects','omnia', 'guta', 'maialino', 'resoap', 'milk-it', 'enkidu', 'sonora', 'lv leche', 'contacts'];
     
             sections.forEach(sectionId => {
                 const section = document.getElementById(sectionId);
@@ -594,27 +583,15 @@ document.addEventListener("DOMContentLoaded", function () {
         <a href="https://acrobat.adobe.com/link/track?uri=urn:aaid:scds:US:3d47c9ae-7908-3886-b5e8-61da533882c6" target="_blank" class="background-link-resoap"></a>
     </div>
     
-    <div class="section" id="fluppete">
+    <div class="section" id="milk-it">
         <div class="section-bar"></div>
     </div>
     
-    <div class="section" id="vlad">
+    <div class="section" id="Enkidu AI">
         <div class="section-bar"></div>
     </div>
     
     <div class="section" id="sonora">
-        <div class="section-bar"></div>
-    </div>
-    
-    <div class="section" id="sahmat">
-        <div class="section-bar"></div>
-    </div>
-    
-    <div class="section" id="parkside">
-        <div class="section-bar"></div>
-    </div>
-    
-    <div class="section" id="buzzer">
         <div class="section-bar"></div>
     </div>
     
@@ -627,7 +604,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     <script>
 document.addEventListener('DOMContentLoaded', function() {
-    const projects = ['omnia', 'vlad', 'guta', 'maialino', 'fluppete', 'resoap', 'sonora', 'sahmat', 'parkside', 'buzzer', 'lv leche'];
+    const projects = ['omnia', 'guta', 'maialino', 'resoap', 'milk-it', 'Enkidu AI', 'sonora', 'lv leche'];
 
     projects.forEach(project => {
         const section = document.getElementById(project);
@@ -683,14 +660,15 @@ function loadImagesSequentially(project, section, index) {
         <div class="contact-box">
             <h1 style="color: white; font-size: 10vh;">get in touch</h1>
             <br>
-            <p>I am currently looking for an internship to to gain hands-on experience and kickstart my career; any opportunity will be greatly appreciated! <br> <br> </p>
+            <p>I am currently looking for an entry level job to gain hands-on experience and kickstart my career; any opportunity will be greatly appreciated! <br> <br> </p>
 
                 <div class="contact-links">
                     <div class="contact-link" onclick="copyMail(this)">
                  <img src="images/mail icon.png" alt="Mail Icon" class="contact-icon">
                  <span>leonardoreguzzoni@hotmail.com</span>
-                 </div>
-                 <script>
+        </div>
+
+        <script>
                  function copyMail(el) {
                 const span = el.querySelector('span');
                 const originalText = span.textContent;

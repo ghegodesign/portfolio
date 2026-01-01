@@ -6,7 +6,8 @@ document.addEventListener('DOMContentLoaded', function () {
         ],
         'digital modeling': [
             { title: "parkside", description: "Thermal gun" },
-            { title: "buzzer", description: "Walkie talkie" }
+            { title: "buzzer", description: "Walkie talkie" },
+            { title: "sahmat", description: "Caravanserai" }
         ],
     };
 
