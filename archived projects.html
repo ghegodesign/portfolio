@@ -26,13 +26,15 @@
 
 </head>
 <body>
-       <main> 
-       <section id="projects">
+    <main> 
+    <section id="projects">
+            <section>
             <h1 style="font-size: 6vh;">Archived projects</h1>
             <br>
             <br>
-        </section>
+            </section>
             <div class="project-container" id="card-container" style="grid-template-columns: repeat(5, 1fr);"></div>
+    </section>
     </main>
 
 <section id="more" style="background-color: #ffffff; padding: 2vh 4vw;">
@@ -56,8 +58,7 @@
         <li class="navbar-item" onclick="scrollToSection('fluppete')"><h4>fluppete</h4></li>
         <li class="navbar-item" onclick="scrollToSection('parkside')"><h4>parkside</h4></li>
         <li class="navbar-item" onclick="scrollToSection('buzzer')"><h4>buzzer</h4></li>
-        <li class="navbar-item back-to-project contacts" onclick="scrollToSection('contacts')">
-            <h4>Contacts</h4>
+        <li class="navbar-item back-to-project contacts" onclick="scrollToSection('contacts')"><h4>Contacts</h4>
         </li>
     </ul>
 </nav>
@@ -89,52 +90,66 @@
         }
     }
 
-    document.addEventListener('DOMContentLoaded', function () {
-        // Assicura che la navbar sia sempre visibile
-        const navbar = document.getElementById('project-navbar');
-        if (navbar) {
-            navbar.style.display = 'block'; // forza visibilità
-        }
+   document.addEventListener('DOMContentLoaded', function () {
+    // Assicura che la navbar sia sempre visibile
+    const navbar = document.getElementById('project-navbar');
+    if (navbar) {
+        navbar.style.display = 'block'; // forza visibilità
+    }
 
-        // Aggiorna lo stato "active" durante lo scroll
-        document.addEventListener('scroll', function () {
-            const scrollPosition = window.scrollY;
-            const sections = ['projects', 'sahmat bar', 'vlad', 'fluppete', 'parkside', 'buzzer', 'contacts'];
+    // Aggiorna lo stato "active" durante lo scroll
+    document.addEventListener('scroll', function () {
+        const scrollPosition = window.scrollY;
+        const sections = ['projects', 'sahmat bar', 'vlad', 'fluppete', 'parkside', 'buzzer', 'contacts'];
 
-            sections.forEach(sectionId => {
-                const section = document.getElementById(sectionId);
-                if (section) {
-                    const sectionTop = section.offsetTop;
-                    const sectionHeight = section.offsetHeight;
-                    const navbarItem = document.querySelector(`.navbar-item[onclick*="${sectionId}"]`);
+        sections.forEach(sectionId => {
 
-                    if (navbarItem) {
-                        if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
-                            navbarItem.classList.add('active');
-                        } else {
-                            navbarItem.classList.remove('active');
-                        }
+            // CASO SPECIALE: PROJECTS
+            if (sectionId === 'projects') {
+                const projectsItem = document.querySelector('.navbar-item.back-to-project');
+                const firstProjectSection = document.getElementById('sahmat bar');
+
+                if (projectsItem && firstProjectSection) {
+                    if (scrollPosition < firstProjectSection.offsetTop) {
+                        projectsItem.classList.add('active');
+                    } else {
+                        projectsItem.classList.remove('active');
                     }
                 }
-            });
-        });
+                return; // evita il codice normale sotto
+            }
 
-        // Effetto hover sugli elementi della navbar
-        const navbarItems = document.querySelectorAll('.navbar-item');
-        navbarItems.forEach(item => {
-            item.addEventListener('mouseover', () => {
-                item.style.transform = 'scale(1.2)';
-            });
-            item.addEventListener('mouseout', () => {
-                item.style.transform = 'scale(1)';
-            });
+            // CASI NORMALI
+            const section = document.getElementById(sectionId);
+            if (!section) return;
+
+            const sectionTop = section.offsetTop;
+            const sectionHeight = section.offsetHeight;
+            const navbarItem = document.querySelector(`.navbar-item[onclick*="${sectionId}"]`);
+
+            if (!navbarItem) return;
+
+            if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+                navbarItem.classList.add('active');
+            } else {
+                navbarItem.classList.remove('active');
+            }
         });
     });
+
+    // Effetto hover sugli elementi della navbar
+    const navbarItems = document.querySelectorAll('.navbar-item');
+    navbarItems.forEach(item => {
+        item.addEventListener('mouseover', () => {
+            item.style.transform = 'scale(1.2)';
+        });
+        item.addEventListener('mouseout', () => {
+            item.style.transform = 'scale(1)';
+        });
+    });
+});
 </script>
 
-     
-    
-    <!--     // nuovo ordine: omnia - guta - maialino - resoap - fluppete - vlad-->
 <div id= "navstart" style="background-color: #111; height: 4vh; width: 100%; display: flex; align-items: center;"></div>
 <section class="image-gallery">
 
@@ -158,8 +173,8 @@
         <div class="section-bar"></div>
     </div>
 
-</section>        
-    </section>
+    </section>        
+ </section>
 
     <script>
 document.addEventListener('DOMContentLoaded', function() {

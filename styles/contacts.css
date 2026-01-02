@@ -38,7 +38,7 @@
 .contact-link:hover {
     cursor: pointer; /* Cambia il cursore su pointer */
     transform: scale(1.05); /* Leggero effetto di scaling su hover */
-    background-color: #e5b52c; /* Colore di sfondo più scuro su hover */
+    background-color: #a07d1e; /* Colore di sfondo più scuro su hover */
 }
 
 .contact-icon {

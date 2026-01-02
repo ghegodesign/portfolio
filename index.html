@@ -75,7 +75,8 @@ document.addEventListener("DOMContentLoaded", function () {
     </header>
     
     <main>
-        <section id="about">
+    <section id="about">
+            <section>
             <div style="height: 5vh;"></div> <!-- Spazio vuoto!!! -->
             <div class="about-container">
                 <div class="left-column">
@@ -138,19 +139,23 @@ document.addEventListener("DOMContentLoaded", function () {
                     <img src="images/profilo.png" alt="Leonardo Reguzzoni" class="profile-image">
                 </div>
             </div>
-        </section>
+            </section>
         
 
-        <section id="aboutme">
+         <section id="aboutme">
             <div style="height: 12vh;"> </div> <!-- Spazio vuoto!!! -->
             <h1 style="font-size: 6vh; margin: 0.4vh 0 1.5vh 0; cursor: pointer;" id="toggleTitle" onclick="toggleSection()"> 
                 <span>More about me ▼ show CV</span></h1>
-                <!-- Pulsante di download -->
-                <a href="Cv Leonardo Reguzzoni.pdf" target="_blank" download="Cv Leonardo Reguzzoni.pdf">
-            <button class="download-button">or click to download a snapshot CV as PDF</button>
-                </a> 
+    
+        <a class="contact-link" 
+            href="Cv Leonardo Reguzzoni.pdf" target="_blank" download="Cv Leonardo Reguzzoni.pdf" style="display: inline-flex;">
+            <img src="images/file icon.png" alt="File Icon" class="contact-icon">
+            <span> download my snapshot CV as a PDF </span>
+        </a>
 
-            <div class="aboutme-container" id="container-aboutme">
+        <div style="height: 2vh;"> </div> <!-- Spazio vuoto!!! -->
+
+        <div class="aboutme-container" id="container-aboutme">
                 <div class="column">
                     <div class="section">
                         <h2>Education</h2>
@@ -211,7 +216,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
                         <p><strong>HP workshop for <span class="highlight">innovative MJF 3D printing uses</span></strong><br>
                             November 2023 to January 2024<br>
-                            hosted by HP X Politecnico di Milano </p>
+                            hosted by HP x Politecnico di Milano </p>
                         </div>
 
                         <div class="section">
@@ -220,13 +225,11 @@ document.addEventListener("DOMContentLoaded", function () {
                             february 2025<br>
                             hosted by The Design Village x TU Delft</p>
                             
-                        <p><strong>Mobile <span class="highlight">carpentry workstations</span> Walden
-                                workshop</strong><br>
+                        <p><strong>Mobile <span class="highlight">carpentry workstations</span> - Walden workshop</strong><br>
                             March to April 2024<br>
-                            hosted by Rilegno X Politecnico di Milano</p>
+                            hosted by Rilegno x Politecnico di Milano</p>
 
-                        <p><strong>Baku's <span class="highlight">Karavanseraj</span> interdisciplinary
-                                workshop</strong><br>
+                        <p><strong>Baku's <span class="highlight">Karavanseraj</span> interdisciplinary workshop</strong><br>
                             February 2023<br>
                             hosted by Azerbaijan University of Architecture</p>
 
@@ -358,13 +361,14 @@ document.addEventListener("DOMContentLoaded", function () {
             </script>
         </section>
     </section>
+    </section>
 
 
 
 
     <section id="projects">
         <div style="height: 8vh;"></div> <!-- Spazio vuoto!!! -->
-            <h1 style="font-size: 6vh;">My Projects</h1>
+            <h1 style="font-size: 6vh;">Some of my projects:</h1>
             <br>
             <br>
             <div class="project-container" id="card-container" style="grid-template-columns: repeat(4, 1fr);"></div>
@@ -662,7 +666,7 @@ function loadImagesSequentially(project, section, index) {
             <br>
             <p>I am currently looking for an entry level job to gain hands-on experience and kickstart my career; any opportunity will be greatly appreciated! <br> <br> </p>
 
-                <div class="contact-links">
+        <div class="contact-links">
                     <div class="contact-link" onclick="copyMail(this)">
                  <img src="images/mail icon.png" alt="Mail Icon" class="contact-icon">
                  <span>leonardoreguzzoni@hotmail.com</span>
@@ -681,11 +685,11 @@ function loadImagesSequentially(project, section, index) {
         </script>
 
 
-                    <div class="contact-link" onclick="window.location.href='https://www.linkedin.com/in/leonardo-reguzzoni-82ab86330'">
+        <div class="contact-link" onclick="window.location.href='https://www.linkedin.com/in/leonardo-reguzzoni-82ab86330'">
                         <img src="images/linkedin icon.png" alt="LinkedIn Icon" class="contact-icon">
                         <span>linkedin/leonardo reguzzoni</span>
                     </div>
-                </div>   
+        </div>   
                 <br>
                 <br>
         
