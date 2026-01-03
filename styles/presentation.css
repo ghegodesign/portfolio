@@ -6,41 +6,20 @@
   width: 100%;
 }
 
-/* Colonna immagine: sempre 1/3 della sezione */
+/* Colonne */
 .left-column {
   flex: 0 0 33.3333%;
   display: flex;
   flex-direction: column;
 }
 
-.image-wrapper {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-}
-
-.profile-image {
-  width: 100%;
-  height: auto;
-  display: block;
-  border-radius: 8px;
-}
-
-.profile-text {
-  margin-top: 1vh;
-  font-size: 2vh;
-  text-align: justify;
-  width: 100%;
-}
-
-/* Colonna titoletti: occupa il resto */
 .right-column {
   flex: 0 0 66.6667%;
   display: flex;
   flex-direction: column;
 }
 
-/* ====== Titoletti raggiera ====== */
+/* ====== Titoli inclinati ====== */
 .tilted-titles {
   display: flex;
   flex-direction: column;
@@ -49,14 +28,11 @@
 
 .tilted-item {
   transform: 
-    rotate(calc(var(--angle) * -1deg)) 
-    translateX(var(--x-offset)) 
+    rotate(var(--angle))
+    translateX(var(--x-offset))
     translateY(var(--y-offset));
-}
-
-.tilted-item[data-angle] {
-  --angle: attr(data-angle number);
-  --extra-rotate: 0deg;
+  transform-origin: left center;
+  will-change: transform;
 }
 
 /* Testo principale */
@@ -65,54 +41,48 @@
   font-family: 'headerText', sans-serif;
   font-size: 2vw;
   white-space: nowrap;
-  max-width: 100%;
-  box-sizing: border-box;
 }
 
-/* Keyword + extra wrapper */
+/* ====== Keyword ====== */
 .keyword-group {
-  display: inline-flex;
+  position: relative;
+  display: inline-flex;          /* 🔴 FIX */
   flex-direction: column;
   align-items: flex-start;
-  vertical-align: baseline;
-  position: relative;
 }
 
-/* Keyword */
 .keyword {
+  display: inline-block;         /* 🔴 FIX highlight */
   background-color: #e5b52c;
   color: #111;
-  display: inline-block;
   cursor: pointer;
-  transition: transform 0.25s ease;
   padding: 0.05em 0.15em;
-  margin: 0;
+  line-height: 1;                /* 🔴 evita box fantasma */
+  transition: transform 0.25s ease;
 }
 
-/* Hover scale sulla keyword */
 .keyword-group:hover .keyword {
   transform: scale(1.08);
 }
 
-/* Extra testo */
+/* ====== Extra text ====== */
 .extra {
+  position: absolute;
+  left: 0;
+  top: 100%;
+  margin-top: 0.3em;
+
   font-family: 'normalText', sans-serif;
   font-size: 1.1vw;
-  margin-top: 0.3em;
+
   opacity: 0;
   pointer-events: none;
-  transform: translateY(-0.3em);
-  transition: opacity 0.4s ease, transform 0.4s ease;
-  will-change: opacity, transform; /* migliora le performance e riduce flicker */
+  transform: translateY(-0.25em);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+
+  will-change: opacity, transform;
 }
 
-/* Ogni riga del testo extra per effetto raggiera */
-.extra span {
-  display: block;
-  transform: rotate(calc(var(--extra-rotate, 0deg) + var(--line-offset, 0deg)));
-}
-
-/* Mostra testo extra al hover o se keyword attiva */
 .keyword-group:hover .extra,
 .keyword-group.active .extra {
   opacity: 1;
@@ -120,21 +90,29 @@
   transform: translateY(0);
 }
 
-/* Inclinazioni progressive righe extra */
+/* ====== Raggiera ====== */
+.extra span {
+  display: block;
+  transform: rotate(
+    calc(var(--extra-rotate, 0deg) + var(--line-offset, 0deg))
+  );
+}
+
 .extra span:nth-child(1) { --line-offset: 0deg; }
 .extra span:nth-child(2) { --line-offset: 0.2deg; }
 .extra span:nth-child(3) { --line-offset: 0.4deg; }
 .extra span:nth-child(4) { --line-offset: 0.6deg; }
 
-/* ====== Media queries ====== */
+/* ====== Responsive ====== */
 @media (max-width: 1024px) {
   .tilted-line { font-size: 3vw; }
   .extra { font-size: 2.5vw; }
 }
 
 @media (max-width: 768px) {
-  .presentation-container { flex-direction: row; }
-  .left-column, .right-column { flex: 0 0 auto; width: 33.3333%; }
+  .presentation-container {
+    flex-direction: row;
+  }
   .tilted-line { font-size: 4vw; }
   .extra { font-size: 3.5vw; }
 }

@@ -90,84 +90,78 @@ document.addEventListener("DOMContentLoaded", function () {
                 <!-- Colonna sinistra: immagine -->
             <div class="left-column">
                 <div class="image-wrapper">
-                        <img src="images/profilo2.png" alt="Leonardo Reguzzoni" class="profile-image">
+                        <img src="images/profilo2.png" 
+                        style="max-height: 70vh;"
+                        alt="Leonardo Reguzzoni" class="profile-image">
                 </div>
             </div>
 
                 <!-- Colonna destra: titoletti -->
-            <div class="right-column">
-                <section class="tilted-titles">
+<div class="right-column">
+  <section class="tilted-titles">
+
+    <!-- 1 -->
+    <div class="tilted-item" style="--angle: -12deg; --x-offset: -1.1vw; --y-offset: 0vw; --extra-rotate: 1deg;">
+      <div class="tilted-line">
+        Hi! my name is
+        <span class="keyword-group">
+          <span class="keyword">Leo</span>
+          <div class="extra">
+            <span>born 17-07-2001</span>
+            <span>based in Busto Arsizio (VA), Italy</span>
+          </div>
+        </span>
+      </div>
+    </div>
+
+    <!-- 2 -->
+    <div class="tilted-item" style="--angle: -9deg; --x-offset: 0.1vw; --y-offset: 2vw; --extra-rotate: 0.5deg;">
+      <div class="tilted-line">
+        and i freshly got out of
+        <span class="keyword-group">
+          <span class="keyword">uni</span>
+          <div class="extra">
+            <span>master in Integrated Product Design</span>
+            <span>Politecnico di Milano</span>
+          </div>
+        </span>
+      </div>
+    </div>
+
+    <!-- 3 -->
+    <div class="tilted-item" style="--angle: -6deg; --x-offset: 1.2vw; --y-offset: 1.7vw; --extra-rotate: 0.3deg;">
+      <div class="tilted-line">
+        i'm a product
+        <span class="keyword-group">
+          <span class="keyword">designer</span>
+          <div class="extra">
+            <span>design thinking methodology</span>
+            <span>element, model and interaction design</span>
+            <span>3D modeling and rendering</span>
+            <span>design research and critical studies</span>
+          </div>
+        </span>
+      </div>
+    </div>
+
+    <!-- 4 -->
+    <div class="tilted-item" style="--angle: -3deg; --x-offset: 1.4vw; --y-offset: 2.5vw; --extra-rotate: 0.2deg;">
+      <div class="tilted-line">
+        and i'm ready to take on a
+        <span class="keyword-group">
+          <span class="keyword">challenge</span>
+          <div class="extra">
+            <span>in other words,</span>
+            <span>I'm looking for a job ;)</span>
+          </div>
+        </span>
+      </div>
+    </div>
+
+  </section>
+</div>
 
 
-                <!-- 1 -->
-                <div class="tilted-item" data-angle="12" style="--x-offset: -1.1vw; --y-offset: 0vw; --extra-rotate: 1deg;">
-                    <div class="tilted-line">
-                    <span class="title-text">
-                        Hi! my name is
-                        <span class="keyword-group">
-                        <span class="keyword">Leo</span>
-                        <div class="extra">
-                            <span>born 17-07-2001</span>
-                            <span>based in Busto Arsizio (VA), Italy</span>
-                        </div>
-                        </span>
-                    </span>
-                    </div>
-                </div>
-
-                <!-- 2 -->
-                <div class="tilted-item" data-angle="9" style="--x-offset: 0.1vw; --y-offset: 2vw; --extra-rotate: 0.5deg;">
-                    <div class="tilted-line">
-                    <span class="title-text">
-                        i'm fresh out of
-                        <span class="keyword-group">
-                        <span class="keyword">uni</span>
-                        <div class="extra">
-                            <span>master in Integrated Product Design</span>
-                            <span>Politecnico di Milano</span>
-                        </div>
-                        </span>
-                    </span>
-                    </div>
-                </div>
-
-                <!-- 3 -->
-                <div class="tilted-item" data-angle="6" style="--x-offset: 1.2vw; --y-offset: 1.7vw; --extra-rotate: 0.3deg;">
-                    <div class="tilted-line">
-                    <span class="title-text">
-                        i'm a product
-                        <span class="keyword-group">
-                        <span class="keyword">designer</span>
-                        <div class="extra">
-                            <span>design thinking methodology</span>
-                            <span>element, model and interaction design</span>
-                            <span>3D modeling and rendering</span>
-                            <span>design research and critical studies</span>
-                        </div>
-                        </span>
-                    </span>
-                    </div>
-                </div>
-
-                <!-- 4 -->
-                <div class="tilted-item" data-angle="3" style="--x-offset: 1.4vw; --y-offset: 2.5vw; --extra-rotate: 0.2deg;">
-                    <div class="tilted-line">
-                    <span class="title-text">
-                        and i'm ready to take on a
-                        <span class="keyword-group">
-                        <span class="keyword">challenge</span>
-                        <div class="extra">
-                            <span>in other words,</span>
-                            <span>I'm looking for a job ;)</span>
-                        </div>
-                        </span>
-                    </span>
-                    </div>
-                </div>
-
-                </section>
-
-            </div>
         </section>
 
         <section id="about" class="cv-section">
