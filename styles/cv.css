@@ -1,0 +1,129 @@
+.cv-section {
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+
+  background-color: #EFEFEF;
+  color: #000000;
+
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.cv-container {
+    display: flex;
+    gap: 40px;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+#toggleTitle {
+    transition: transform 0.3s ease;
+    transform-origin: left;
+}
+
+#toggleTitle:hover {
+    transform: scale(1.05);
+}
+
+.column {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    flex: 1;
+}
+
+.section {
+        line-height: 1.2;
+}
+
+.section h2 {
+    font-size: 22px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.section ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+/* Font sizes for general text */
+.section p,
+.section ul li {
+    font-size: 16px;
+    white-space: nowrap;
+}
+@media (max-width: 1200px) {
+    .column {
+        flex: 1 1 calc(50% - 20px);
+        /* 2 columns */
+    }
+}
+
+@media (max-width: 650px) {
+    .column {
+        flex: 1 1 100%;
+        /* 1 column */
+    }
+}
+
+.skills-container {
+    max-width: 600px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.skill-category {
+    grid-column: 1 / span 2;
+    font-weight: bold;
+}
+
+.skill-item {
+    display: contents;
+    flex-wrap: nowrap;
+}
+
+.skill-item> :nth-child(1) {
+    grid-column: 1
+}
+
+[skill-level] {
+    grid-column: 2;
+}
+
+[skill-level] span {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    margin: 0 10px 0 0;
+    background-color: #bdbdbd;
+}
+
+[skill-level="1"] :nth-child(-n+1),
+[skill-level="2"] :nth-child(-n+2),
+[skill-level="3"] :nth-child(-n+3),
+[skill-level="4"] :nth-child(-n+4),
+[skill-level="5"] :nth-child(-n+5) {
+    background-color: #dfb03b;
+}
+
+/* Stile per il pulsante di download */
+.download-button {
+    padding: 10px 20px;
+    font-size: 1.2em;
+    background-color: #e5b52c;
+    color: #111;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    margin: 1vh;
+}
+
+/* Effetto hover per il pulsante di download */
+.download-button:hover {
+    transform: scale(1.05); /* Effetto di ingrandimento */
+    background-color: #d4a026; /* Colore leggermente più scuro su hover */
+}

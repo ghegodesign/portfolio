@@ -10,21 +10,10 @@
     box-sizing: border-box;
 }
 
-.about-container {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: flex-start; /* Assicura che le colonne siano allineate in alto */
-    gap: 1vw;
-}
-
 .highlight {
+    color: black;
     background-color: #fcd573;
     padding: 0.1em; /* Mantiene le evidenziazioni */
-}
-
-/* Left Column Styling */
-.left-column {
-    flex: 1;
 }
 
 .info {
@@ -35,14 +24,6 @@
 .info > * {
     flex: 1;
     margin-bottom: 10px; /* Aggiunto margine per separare i dati */
-}
-
-.profile-image {
-    max-width: 100%;
-    max-height: 90vh;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-    margin: 0 1vw;
-    border-radius: 5px; /* Uniformato il margine */
 }
 
 .skills-list {
@@ -73,7 +54,7 @@
 
 /* Ridimensionamento dei titoli */
 h1 {
-    font-size: 6vw; /* Ridotto per adattarsi meglio */
+    font-size: 5vw; /* Ridotto per adattarsi meglio */
     margin: 2px;
 }
 

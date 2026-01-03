@@ -13,17 +13,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Guz Portfolio</title>
     <link rel="icon" href="images/icona.png" type="image/x-icon">
-    <link rel="stylesheet" href="styles/opening.css">
+    <link rel="stylesheet" href="styles/main.css">
     <link rel="stylesheet" href="styles/intro.css">
     <link rel="stylesheet" href="styles/projects_grid.css">
-    <link rel="stylesheet" href="styles/aboutme.css">
+    <link rel="stylesheet" href="styles/cv.css">
     <link rel="stylesheet" href="styles/images.css">
     <link rel="stylesheet" href="styles/navbar.css">
     <link rel="stylesheet" href="styles/mobile_disclaimer.css">
     <link rel="stylesheet" href="styles/contacts.css">
     <link rel="stylesheet" href="styles/hyperlinks.css">
-    <link rel="stylesheet" href="cursor_tooltip.css">
-    <script src="cursor_tooltip.js" defer></script>
+    <link rel="stylesheet" href="styles/cursor_tooltip.css">
+    <script src="scripts/cursor_tooltip.js" defer></script>
+    <link rel="stylesheet" href="styles/presentation.css">
+    <script src="scripts/presentation.js" defer></script>
 </head>
 <body>
 
@@ -38,6 +40,7 @@
              [pls :( don't]</button>
     </div>
 </div>
+
 <script>
 document.addEventListener("DOMContentLoaded", function () {
     const orientationModal = document.getElementById("orientation-modal");
@@ -67,118 +70,138 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 </script>
 
-    <header class="slide">
+<header class="slide">
         <div>
             <h1 class="slide-h-highlight">PORTFOLIO</h1>
             <h2 class="slide-t" style="font-size: 5vh">LEONARDO RE<span class="slide-t-highlight">GUZ</span>ZONI</h2>
         </div>
-    </header>
+</header>
     
-    <main>
+<main>
     <section id="about">
-            <section>
-            <div style="height: 5vh;"></div> <!-- Spazio vuoto!!! -->
-            <div class="about-container">
-                <div class="left-column">
-                    <h1 style="font-size: 6vw; text-align: left; margin: 2px;">LEONARDO</h1>
-                    <h1 style="font-size: 6vw; text-align: right; margin: 2px;">RE<span class="highlight">GUZ</span>ZONI</h1>
-                    <h2 style="font-size: 2.3vw; margin: 0.4vh 0 1.5vh 0; display: block; width: 100%;">
-                        INTEGRATED PRODUCT DESIGN STUDENT
-                    </h2>
 
 
-                    <div class="info" style="margin-bottom: 4vh;">
-                        <div style="font-size: 2vh; font-weight: bold;">
-                            <div>17-07-2001, St. Gallen, CH</div>
-                            <div>Currently based in Busto Arsizio (VA) Italy</div>
-                        </div>
-                    </div>
-                    <p style="text-align: justify; font-size: 2vh;">
-                        My name is Leonardo, but I'm better known as <span class="highlight">Guz</span>. I grew up in
-                        Busto Arsizio, where the smog caresses the soul and where the metropolis meets the desolation of the outside world – 
-                        <span class="highlight">nevertheless</span>, I still pursue a search for color and joy in everyday life.
-                        Although my arrival in the design field may appear to have happened by <span class="highlight">chance</span>, I
-                        firmly believe that nothing truly ever happens by coincidence,
-                        and for that I continue my daily fight to bring <span class="highlight">excellence and beauty</span> to
-                        the world and, above all, to <span class="highlight">express myself</span> through my work (and
-                        finding my essence in the meantime, why not).
-                    </p>
-                    <div style="height: 4vh;"></div> <!-- Spazio vuoto!!! -->
-                    <div class="skills-list">
-                        <p data-center-index="10" style="font-size: 3vh;">DESIGN THINKING METHODOLOGY</p>
-                        <p data-center-index="16" style="font-size: 3vh;">ELEMENT, MODEL AND INTERACTION DESIGN</p>
-                        <p data-center-index="16" style="font-size: 3vh;">3D MODELING, RENDERING</p>
-                        <p data-center-index="6" style="font-size: 3vh;">EMPATHIC DESIGN</p>
-                        <p data-center-index="13" style="font-size: 3vh;">PHYSICAL PROTOTYPING</p>
-                        <div style="height: 4vh;"></div> <!-- Spazio vuoto!!! -->
-                    </div>
-        
-                    <script>
-                        document.querySelectorAll('.skills-list p').forEach((item) => {
-                            const text = item.textContent.trim();
-                            const letterIndex = parseInt(item.getAttribute('data-center-index'), 10);
-        
-                            // Create 2 spans, one for the left and one for the right
-                            const leftSpan = document.createElement('span');
-                            const rightSpan = document.createElement('span');
-        
-                            // Get the substring up to and including the center letter
-                            leftSpan.textContent = text.slice(0, letterIndex + 1);
-                            rightSpan.textContent = text.slice(letterIndex + 1);
-        
-                            // Clear the paragraph
-                            item.textContent = '';
-        
-                            // Append spans to the paragraph
-                            item.appendChild(leftSpan);
-                            item.appendChild(rightSpan);
-                        });
-                    </script>
-                </div>
-                <div>
-                    <img src="images/profilo.png" alt="Leonardo Reguzzoni" class="profile-image">
+        <section>
+        <div class="presentation-container">
+
+                <!-- Colonna sinistra: immagine -->
+            <div class="left-column">
+                <div class="image-wrapper">
+                        <img src="images/profilo2.png" alt="Leonardo Reguzzoni" class="profile-image">
                 </div>
             </div>
+
+                <!-- Colonna destra: titoletti -->
+            <div class="right-column">
+            <section class="tilted-titles">
+
+                <!-- 1 -->
+                <div class="tilted-item" data-angle="12" style="--x-offset: -1.1vw; --y-offset: 0vw; --extra-rotate: 1deg;">
+                    <div class="tilted-line">
+                    <span class="title-text">
+                        Hi! my name is
+                        <span class="keyword-group">
+                        <span class="keyword">Leo</span>
+                        <div class="extra">
+                            <span>born 17-07-2001</span>
+                            <span>based in Busto Arsizio (VA), Italy</span>
+                        </div>
+                        </span>
+                    </span>
+                    </div>
+                </div>
+
+                <!-- 2 -->
+                <div class="tilted-item" data-angle="9" style="--x-offset: 0.1vw; --y-offset: 2vw; --extra-rotate: 1deg;">
+                    <div class="tilted-line">
+                    <span class="title-text">
+                        i'm fresh out of
+                        <span class="keyword-group">
+                        <span class="keyword">uni</span>
+                        <div class="extra">
+                            <span>master in Integrated Product Design</span>
+                            <span>Politecnico di Milano</span>
+                        </div>
+                        </span>
+                    </span>
+                    </div>
+                </div>
+
+                <!-- 3 -->
+                <div class="tilted-item" data-angle="6" style="--x-offset: 1.2vw; --y-offset: 1.7vw; --extra-rotate: 1deg;">
+                    <div class="tilted-line">
+                    <span class="title-text">
+                        i'm a product
+                        <span class="keyword-group">
+                        <span class="keyword">designer</span>
+                        <div class="extra">
+                            <span>design thinking methodology</span>
+                            <span>element, model and interaction design</span>
+                            <span>3D modeling and rendering</span>
+                            <span>design research and critical studies</span>
+                        </div>
+                        </span>
+                    </span>
+                    </div>
+                </div>
+
+                <!-- 4 -->
+                <div class="tilted-item" data-angle="3" style="--x-offset: 1.4vw; --y-offset: 2.5vw; --extra-rotate: 00.3deg;">
+                    <div class="tilted-line">
+                    <span class="title-text">
+                        and i'm ready to take on a
+                        <span class="keyword-group">
+                        <span class="keyword">challenge</span>
+                        <div class="extra">
+                            <span>aka I'm looking for a job ;)</span>
+                        </div>
+                        </span>
+                    </span>
+                    </div>
+                </div>
+
             </section>
-        
+        </div>
+        </section>
 
-         <section id="aboutme">
-            <div style="height: 12vh;"> </div> <!-- Spazio vuoto!!! -->
-            <h1 style="font-size: 6vh; margin: 0.4vh 0 1.5vh 0; cursor: pointer;" id="toggleTitle" onclick="toggleSection()"> 
-                <span>More about me ▼ show CV</span></h1>
+    <section id="about" class="cv-section">
+        <section style="padding: 4vw";>
+            <div style="height: 2vh;"> </div> <!-- Spazio vuoto!!! -->
+            <h1 style="font-size: 5vh; margin: 0.4vh 0 1.5vh 0; cursor: pointer;" id="toggleTitle" onclick="toggleSection()"> 
+                <span>More about me <span class="highlight">▼ show CV</span></span></h1>
     
-        <a class="contact-link" 
-            href="Cv Leonardo Reguzzoni.pdf" target="_blank" download="Cv Leonardo Reguzzoni.pdf" style="display: inline-flex;">
-            <img src="images/file icon.png" alt="File Icon" class="contact-icon">
-            <span> download my snapshot CV as a PDF </span>
-        </a>
+            <a class="contact-link" 
+                href="Cv Leonardo Reguzzoni.pdf" target="_blank" download="Cv Leonardo Reguzzoni.pdf" style="display: inline-flex;">
+                <img src="images/file icon.png" alt="File Icon" class="contact-icon">
+                <span> download my snapshot CV as a PDF </span>
+            </a>
 
-        <div style="height: 2vh;"> </div> <!-- Spazio vuoto!!! -->
+            <div style="height: 2vh;"> </div> <!-- Spazio vuoto!!! -->
 
-        <div class="aboutme-container" id="container-aboutme">
+            <div class="cv-container" id="container-aboutme">
                 <div class="column">
                     <div class="section">
                         <h2>Education</h2>
-                        <p><strong>Master degree in <span class="highlight">Integrated Industrial
+                        <p><strong>Honour master degree in <span class="highlight">Integrated Industrial
                                     Design</span></strong><br>
-                            started 2023 - ONGOING<br>
+                            sept 2023 - dec 2025 <br>
                             Politecnico di Milano</p>
 
                         <p><strong><span class="highlight">Honour bachelor degree</span> in Industrial
                                 Design</span></strong><br>
-                            2020–2023<br>
+                            sept 2020- sept 2023<br>
                             Politecnico di Milano</p>
 
                         <p><strong>International exchange semester</strong><br>
-                            Mar - Jul 2023<br>
+                            mar - jul 2023<br>
                             FADU-UBA, <span class="highlight">Buenos Aires (Argentina)</span></p>
 
                         <p><strong>Scientific High School Diploma</strong><br>
-                            2015 – 2020<br>
+                            2015-2020<br>
                             Liceo Arturo Tosi, <span class="highlight">Busto Arsizio</span></p>
 
                         <p><strong>Degree at the Polish Consulate school</strong><br>
-                            2010 – 2016<br>
+                            2010-2016<br>
                             Szkoła Polska w Mediolanie, Milan</p>
                     </div>
 
@@ -202,20 +225,20 @@ document.addEventListener("DOMContentLoaded", function () {
                     <div class="section">
                         <h2>Professional experiences</h2>
 
-                        <p><strong> internship at <a class="highlight" href="https://designopenspaces.it/" target="_blank" style="color: black; text-decoration: underline;">D.O.S. - design open spaces</a> </strong><br>                                    
-                            Spring 2025 <br>
+                        <p><strong> Internship at <a class="highlight" href="https://designopenspaces.it/" target="_blank" style="color: black; text-decoration: underline;">D.O.S. - design open spaces</a> </strong><br>                                    
+                            spring 2025 <br>
                             trend research, UI & UX, design of AR experiences</p>
 
                         <p><strong> <span class="highlight">Delonghi workshop</span> for innovative kitchen appliances</strong><br>
-                            Autumn 2024 <br>
+                            autumn 2024 <br>
                             hosted by Delonghi x Politecnico di Milano</p>
                     
                         <p><strong>Ferrero workshop for <span class="highlight">Kinder surprise toys</span></strong><br>
-                            September to November 2023<br>
+                            september to november 2023<br>
                             hosted by Politecnico di Milano</p>
 
                         <p><strong>HP workshop for <span class="highlight">innovative MJF 3D printing uses</span></strong><br>
-                            November 2023 to January 2024<br>
+                            november 2023 to january 2024<br>
                             hosted by HP x Politecnico di Milano </p>
                         </div>
 
@@ -226,15 +249,15 @@ document.addEventListener("DOMContentLoaded", function () {
                             hosted by The Design Village x TU Delft</p>
                             
                         <p><strong>Mobile <span class="highlight">carpentry workstations</span> - Walden workshop</strong><br>
-                            March to April 2024<br>
+                            spring 2024<br>
                             hosted by Rilegno x Politecnico di Milano</p>
 
                         <p><strong>Baku's <span class="highlight">Karavanseraj</span> interdisciplinary workshop</strong><br>
-                            February 2023<br>
+                            february 2023<br>
                             hosted by Azerbaijan University of Architecture</p>
 
                         <p><strong> <span class="highlight">Computational Design</span>  and Digital Fabrication PiA </strong><br>
-                            July 2024<br>
+                            july 2024<br>
                             hosted by Politecnico di Milano</p>
                         
                     </div>
@@ -330,6 +353,7 @@ document.addEventListener("DOMContentLoaded", function () {
                             });
                         });
                     </script>
+
                     <div class="section">
                         <h2>Fun Facts</h2>
                         <ul>
@@ -339,6 +363,8 @@ document.addEventListener("DOMContentLoaded", function () {
                     </div>
                 </div>
             </div>
+        <div style="height: 0vh;"> </div> <!-- Spazio vuoto!!! -->
+            
             <script>
 
                 var previousState;
@@ -366,9 +392,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
+
     <section id="projects">
         <div style="height: 8vh;"></div> <!-- Spazio vuoto!!! -->
-            <h1 style="font-size: 6vh;">Some of my projects:</h1>
+            <h1 style="font-size: 5vh;">Take a look at some of my projects:</h1>
             <br>
             <br>
             <div class="project-container" id="card-container" style="grid-template-columns: repeat(4, 1fr);"></div>
@@ -454,7 +481,7 @@ document.addEventListener("DOMContentLoaded", function () {
         style="display: inline-block; font-size:4vh; margin:0.4vh 0 1.5vh 0; text-align:right; cursor:pointer; transition: transform 0.2s;"
          onmouseover="this.style.transform='scale(1.05)';"
          onmouseout="this.style.transform='scale(1)';"
-        onclick="window.location.href='archived projects.html'"> See more projects ▶ </h1> </div>
+        onclick="window.location.href='archived projects.html'"> See <span class="highlight">more</span> projects ▶ </h1> </div>
 <div style="height: 1vh;"></div> <!-- Spazio vuoto -->
 
     </main>

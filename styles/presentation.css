@@ -1,0 +1,153 @@
+/* ====== Container colonne ====== */
+.presentation-container {
+  display: flex;
+  gap: clamp(2vw, 5%, 6vw); /* spazio minimo responsivo tra colonne */
+  align-items: flex-start;    /* titoletti allineati al top dell'immagine */
+  width: 100%;
+}
+
+/* Colonna immagine: sempre 1/3 della sezione */
+.left-column {
+  flex: 0 0 33.3333%;  /* larghezza fissa 1/3 */
+  display: flex;
+  flex-direction: column;
+}
+
+.image-wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.profile-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 8px; /* opzionale */
+}
+
+.profile-text {
+  margin-top: 1vh;
+  font-size: 2vh;
+  text-align: justify;
+  width: 100%;
+}
+
+/* Colonna titoletti: occupa il resto */
+.right-column {
+  flex: 0 0 66.6667%;   /* il resto della sezione */
+  display: flex;
+  flex-direction: column;
+}
+
+/* ====== Titoletti raggiera ====== */
+.tilted-titles {
+  display: flex;
+  flex-direction: column;
+  gap: 2vw;
+}
+
+/* Offset manuale per raggiera */
+.tilted-item {
+  transform: 
+    rotate(calc(var(--angle) * -1deg)) 
+    translateX(var(--x-offset)) 
+    translateY(var(--y-offset));
+}
+
+.tilted-item[data-angle] {
+  --angle: attr(data-angle number);
+  --extra-rotate: 0deg; /* rotazione base blocco extra */
+}
+
+/* Testo principale */
+.tilted-line {
+  display: inline-block;
+  font-family: 'headerText', sans-serif;
+  font-size: 2vw;
+  white-space: nowrap;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+/* Keyword + extra wrapper */
+.keyword-group {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  vertical-align: baseline;
+  position: relative;
+}
+
+/* Keyword */
+.keyword {
+  background-color: #e5b52c;
+  color: #111;
+  display: inline-block;
+  cursor: pointer;
+  transition: transform 0.25s ease;
+  padding: 0.05em 0.15em;
+  margin: 0;
+}
+
+.keyword-group:hover .keyword {
+  transform: scale(1.08);
+}
+
+/* Extra testo */
+.extra {
+  font-family: 'normalText', sans-serif;
+  font-size: 1.1vw;
+  margin-top: 0.3em;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+/* Ogni riga del testo extra per effetto raggiera */
+.extra span {
+  display: block;
+  transform: rotate(calc(var(--extra-rotate, 0deg) + var(--line-offset, 0deg)));
+  transition: transform 0.5s ease;
+}
+
+.keyword-group:hover .extra {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.keyword-group:hover .extra span {
+  transform: rotate(calc(var(--extra-rotate, 0deg) + var(--line-offset, 0deg)));
+}
+
+/* Inclinazioni progressive righe extra */
+.extra span:nth-child(1) { --line-offset: 0deg; }
+.extra span:nth-child(2) { --line-offset: 0.2deg; }
+.extra span:nth-child(3) { --line-offset: 0.4deg; }
+.extra span:nth-child(4) { --line-offset: 0.6deg; }
+
+/* ====== Media queries per responsive ====== */
+@media (max-width: 1024px) {
+  .tilted-line {
+    font-size: 3vw;
+  }
+  .extra {
+    font-size: 2.5vw;
+  }
+}
+
+@media (max-width: 768px) {
+  .about-container {
+    flex-direction: row; /* rimane sempre affiancato */
+  }
+  .left-column, .right-column {
+    flex: 0 0 auto;
+    width: 33.3333%; /* immagine 1/3, titoletti 2/3 */
+  }
+  .tilted-line {
+    font-size: 4vw;
+  }
+  .extra {
+    font-size: 3.5vw;
+  }
+}

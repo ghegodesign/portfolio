@@ -1,0 +1,77 @@
+@import url('https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css');
+
+@font-face {
+    font-family: 'normalText';
+    src: url('../fonts/bahnschrift.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'headerText';
+    src: url('../fonts/FE-FONT.TTF') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    font-family: 'normalText', sans-serif;
+    overflow-x: hidden !important;
+    padding: 0.11vw;
+    background-color: #111;
+}
+
+body>header,
+footer,
+main {
+    background-color: #fff;
+    padding: 4vw;
+    min-width: 650px;
+}
+
+.slide {
+    background-color: #111;
+    color: #fff;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'headerText', sans-serif;
+}
+
+.slide-h {
+    font-size: 10vw;
+    padding: 1vw 2vw;
+    margin: 2vw;
+    text-align: center;
+}
+
+/* Stile per l'elemento evidenziato */
+.slide-h-highlight {
+    color: #111;
+    background-color: #e5b52c;
+    font-size: 10vw;       /* Font size relativo alla larghezza della viewport */
+    padding: 0.1em;        /* Padding relativo alla dimensione del font */
+    margin: 0.05em;        /* Margine relativo alla dimensione del font */
+    display: inline-block; /* Limita la larghezza dello sfondo al testo */
+    text-align: center; /* Centra orizzontalmente l'elemento */      
+}
+
+.slide-t {
+    margin: 1vw;
+    font-size: 4vw;
+    display: flex;
+    justify-content: center;
+}
+
+.slide-t-highlight {
+    background-color: #111;
+    color: #e5b52c;
+    display: inline;
+}
+
+h1,
+h2,
+h3,
+h4 {
+    font-family: 'headerText', sans-serif;}
