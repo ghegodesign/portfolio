@@ -1,14 +1,14 @@
 /* ====== Container colonne ====== */
 .presentation-container {
   display: flex;
-  gap: clamp(2vw, 5%, 6vw); /* spazio minimo responsivo tra colonne */
-  align-items: flex-start;    /* titoletti allineati al top dell'immagine */
+  gap: clamp(2vw, 5%, 6vw);
+  align-items: flex-start;
   width: 100%;
 }
 
 /* Colonna immagine: sempre 1/3 della sezione */
 .left-column {
-  flex: 0 0 33.3333%;  /* larghezza fissa 1/3 */
+  flex: 0 0 33.3333%;
   display: flex;
   flex-direction: column;
 }
@@ -23,7 +23,7 @@
   width: 100%;
   height: auto;
   display: block;
-  border-radius: 8px; /* opzionale */
+  border-radius: 8px;
 }
 
 .profile-text {
@@ -35,7 +35,7 @@
 
 /* Colonna titoletti: occupa il resto */
 .right-column {
-  flex: 0 0 66.6667%;   /* il resto della sezione */
+  flex: 0 0 66.6667%;
   display: flex;
   flex-direction: column;
 }
@@ -47,7 +47,6 @@
   gap: 2vw;
 }
 
-/* Offset manuale per raggiera */
 .tilted-item {
   transform: 
     rotate(calc(var(--angle) * -1deg)) 
@@ -57,7 +56,7 @@
 
 .tilted-item[data-angle] {
   --angle: attr(data-angle number);
-  --extra-rotate: 0deg; /* rotazione base blocco extra */
+  --extra-rotate: 0deg;
 }
 
 /* Testo principale */
@@ -90,6 +89,7 @@
   margin: 0;
 }
 
+/* Hover scale */
 .keyword-group:hover .keyword {
   transform: scale(1.08);
 }
@@ -101,6 +101,7 @@
   margin-top: 0.3em;
   opacity: 0;
   pointer-events: none;
+  transform: translateY(-0.3em); /* posizione iniziale */
   transition: opacity 0.5s ease, transform 0.5s ease;
 }
 
@@ -108,16 +109,21 @@
 .extra span {
   display: block;
   transform: rotate(calc(var(--extra-rotate, 0deg) + var(--line-offset, 0deg)));
-  transition: transform 0.5s ease;
+  /* rimosso transition qui per eliminare flicker */
 }
 
-.keyword-group:hover .extra {
+.keyword-group .extra {
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-0.3em);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.keyword-group.active .extra,
+.keyword-group.hovered .extra {
   opacity: 1;
   pointer-events: auto;
-}
-
-.keyword-group:hover .extra span {
-  transform: rotate(calc(var(--extra-rotate, 0deg) + var(--line-offset, 0deg)));
+  transform: translateY(0);
 }
 
 /* Inclinazioni progressive righe extra */
@@ -126,7 +132,7 @@
 .extra span:nth-child(3) { --line-offset: 0.4deg; }
 .extra span:nth-child(4) { --line-offset: 0.6deg; }
 
-/* ====== Media queries per responsive ====== */
+/* ====== Media queries ====== */
 @media (max-width: 1024px) {
   .tilted-line {
     font-size: 3vw;
@@ -137,12 +143,12 @@
 }
 
 @media (max-width: 768px) {
-  .about-container {
-    flex-direction: row; /* rimane sempre affiancato */
+  .presentation-container {
+    flex-direction: row;
   }
   .left-column, .right-column {
     flex: 0 0 auto;
-    width: 33.3333%; /* immagine 1/3, titoletti 2/3 */
+    width: 33.3333%;
   }
   .tilted-line {
     font-size: 4vw;

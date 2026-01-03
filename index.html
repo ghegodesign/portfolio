@@ -27,6 +27,9 @@
     <link rel="stylesheet" href="styles/presentation.css">
     <script src="scripts/presentation.js" defer></script>
 </head>
+
+
+
 <body>
 
 <!-- script per banner di warning formato verticale-->
@@ -93,7 +96,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 <!-- Colonna destra: titoletti -->
             <div class="right-column">
-            <section class="tilted-titles">
+                <section class="tilted-titles">
+
 
                 <!-- 1 -->
                 <div class="tilted-item" data-angle="12" style="--x-offset: -1.1vw; --y-offset: 0vw; --extra-rotate: 1deg;">
@@ -112,7 +116,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 </div>
 
                 <!-- 2 -->
-                <div class="tilted-item" data-angle="9" style="--x-offset: 0.1vw; --y-offset: 2vw; --extra-rotate: 1deg;">
+                <div class="tilted-item" data-angle="9" style="--x-offset: 0.1vw; --y-offset: 2vw; --extra-rotate: 0.5deg;">
                     <div class="tilted-line">
                     <span class="title-text">
                         i'm fresh out of
@@ -128,7 +132,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 </div>
 
                 <!-- 3 -->
-                <div class="tilted-item" data-angle="6" style="--x-offset: 1.2vw; --y-offset: 1.7vw; --extra-rotate: 1deg;">
+                <div class="tilted-item" data-angle="6" style="--x-offset: 1.2vw; --y-offset: 1.7vw; --extra-rotate: 0.3deg;">
                     <div class="tilted-line">
                     <span class="title-text">
                         i'm a product
@@ -146,247 +150,258 @@ document.addEventListener("DOMContentLoaded", function () {
                 </div>
 
                 <!-- 4 -->
-                <div class="tilted-item" data-angle="3" style="--x-offset: 1.4vw; --y-offset: 2.5vw; --extra-rotate: 00.3deg;">
+                <div class="tilted-item" data-angle="3" style="--x-offset: 1.4vw; --y-offset: 2.5vw; --extra-rotate: 0.2deg;">
                     <div class="tilted-line">
                     <span class="title-text">
                         and i'm ready to take on a
                         <span class="keyword-group">
                         <span class="keyword">challenge</span>
                         <div class="extra">
-                            <span>aka I'm looking for a job ;)</span>
+                            <span>in other words,</span>
+                            <span>I'm looking for a job ;)</span>
                         </div>
                         </span>
                     </span>
                     </div>
                 </div>
 
-            </section>
-        </div>
+                </section>
+
+            </div>
         </section>
 
-    <section id="about" class="cv-section">
-        <section style="padding: 4vw";>
-            <div style="height: 2vh;"> </div> <!-- Spazio vuoto!!! -->
-            <h1 style="font-size: 5vh; margin: 0.4vh 0 1.5vh 0; cursor: pointer;" id="toggleTitle" onclick="toggleSection()"> 
-                <span>More about me <span class="highlight">▼ show CV</span></span></h1>
-    
-            <a class="contact-link" 
-                href="Cv Leonardo Reguzzoni.pdf" target="_blank" download="Cv Leonardo Reguzzoni.pdf" style="display: inline-flex;">
-                <img src="images/file icon.png" alt="File Icon" class="contact-icon">
-                <span> download my snapshot CV as a PDF </span>
-            </a>
+        <section id="about" class="cv-section">
+            <section style="padding: 4vw";>
+                <div style="height: 2vh;"> </div> <!-- Spazio vuoto!!! -->
 
-            <div style="height: 2vh;"> </div> <!-- Spazio vuoto!!! -->
+                <h1 style="font-size: 5vh; margin: 0.4vh 0 1.5vh 0;">
+                    <span id="staticTitle">More about me -</span>
+                        <span class="highlight-dark" id="toggleTitle" style="cursor: pointer;" onclick="toggleSection()">show CV ▼</span></h1>
 
-            <div class="cv-container" id="container-aboutme">
-                <div class="column">
-                    <div class="section">
-                        <h2>Education</h2>
-                        <p><strong>Honour master degree in <span class="highlight">Integrated Industrial
+
+                <script>
+                let isOpen = false;
+                const section = document.getElementById("cv-container");
+                section.style.display = "none"; // inizialmente nascosto
+
+                function toggleSection() {
+                    const section = document.getElementById("cv-container");
+                    const toggle = document.getElementById("toggleTitle");
+                    const staticTitle = document.getElementById("staticTitle");
+
+                    if (isOpen) {
+                    section.style.display = "none";
+                    staticTitle.textContent = "More about me -";
+                    toggle.textContent = "show CV ▼";
+                    } else {
+                    section.style.display = "flex";
+                    staticTitle.textContent = "Less about me -";
+                    toggle.textContent = "hide CV ▲";
+                    }
+
+                    isOpen = !isOpen;
+                }
+                </script>
+
+
+                <a class="contact-link" 
+                    href="Cv Leonardo Reguzzoni.pdf" target="_blank" download="Cv Leonardo Reguzzoni.pdf" style="display: inline-flex;">
+                    <img src="images/file icon.png" alt="File Icon" class="contact-icon">
+                    <span> download my snapshot CV as a PDF </span>
+                </a>
+
+                <div style="height: 2vh;"> </div> <!-- Spazio vuoto!!! -->
+
+                <div class="cv-container" id="cv-container">
+                    <div class="column">
+                        <div class="section">
+                            <h2>Education</h2>
+                            <p><strong>Honour master degree in <span class="highlight">Integrated Industrial
+                                        Design</span></strong><br>
+                                sept 2023 - dec 2025 <br>
+                                Politecnico di Milano</p>
+
+                            <p><strong><span class="highlight">Honour bachelor degree</span> in Industrial
                                     Design</span></strong><br>
-                            sept 2023 - dec 2025 <br>
-                            Politecnico di Milano</p>
+                                sept 2020- sept 2023<br>
+                                Politecnico di Milano</p>
 
-                        <p><strong><span class="highlight">Honour bachelor degree</span> in Industrial
-                                Design</span></strong><br>
-                            sept 2020- sept 2023<br>
-                            Politecnico di Milano</p>
+                            <p><strong>International exchange semester</strong><br>
+                                mar - jul 2023<br>
+                                FADU-UBA, <span class="highlight">Buenos Aires (Argentina)</span></p>
 
-                        <p><strong>International exchange semester</strong><br>
-                            mar - jul 2023<br>
-                            FADU-UBA, <span class="highlight">Buenos Aires (Argentina)</span></p>
+                            <p><strong>Scientific High School Diploma</strong><br>
+                                2015-2020<br>
+                                Liceo Arturo Tosi, <span class="highlight">Busto Arsizio</span></p>
 
-                        <p><strong>Scientific High School Diploma</strong><br>
-                            2015-2020<br>
-                            Liceo Arturo Tosi, <span class="highlight">Busto Arsizio</span></p>
-
-                        <p><strong>Degree at the Polish Consulate school</strong><br>
-                            2010-2016<br>
-                            Szkoła Polska w Mediolanie, Milan</p>
-                    </div>
-
-                    <div class="section">
-                        <h2>Languages</h2>
-                        <p><strong class="highlight">Italian</strong> (native)</p>
-                        <p><strong>English</strong> C1 (FIRST, Cambridge School)</p>
-                        <p><strong>Polish</strong> (high proficiency)</p>
-                        <p><strong>Spanish</strong> B2 (DELE, Instituto Cervantes)</p>
-                    </div>
-
-                    <div class="section">
-                        <h2>Soft Skills</h2>
-                        <p>Natural curiosity</p>
-                        <p>Flexibility and <span class="highlight">adaptability</span></p>
-                        <p><span class="highlight">Empathy</span> and group skills</p>
-                    </div>
-                </div>
-                <div class="column">
-
-                    <div class="section">
-                        <h2>Professional experiences</h2>
-
-                        <p><strong> Internship at <a class="highlight" href="https://designopenspaces.it/" target="_blank" style="color: black; text-decoration: underline;">D.O.S. - design open spaces</a> </strong><br>                                    
-                            spring 2025 <br>
-                            trend research, UI & UX, design of AR experiences</p>
-
-                        <p><strong> <span class="highlight">Delonghi workshop</span> for innovative kitchen appliances</strong><br>
-                            autumn 2024 <br>
-                            hosted by Delonghi x Politecnico di Milano</p>
-                    
-                        <p><strong>Ferrero workshop for <span class="highlight">Kinder surprise toys</span></strong><br>
-                            september to november 2023<br>
-                            hosted by Politecnico di Milano</p>
-
-                        <p><strong>HP workshop for <span class="highlight">innovative MJF 3D printing uses</span></strong><br>
-                            november 2023 to january 2024<br>
-                            hosted by HP x Politecnico di Milano </p>
+                            <p><strong>Degree at the Polish Consulate school</strong><br>
+                                2010-2016<br>
+                                Szkoła Polska w Mediolanie, Milan</p>
                         </div>
 
                         <div class="section">
-                        <h2>Partecipations</h2>
-                        <p><strong>International <span class="highlight">Joint Studio 3.0 - New Delhi, India</span></strong><br>
-                            february 2025<br>
-                            hosted by The Design Village x TU Delft</p>
-                            
-                        <p><strong>Mobile <span class="highlight">carpentry workstations</span> - Walden workshop</strong><br>
-                            spring 2024<br>
-                            hosted by Rilegno x Politecnico di Milano</p>
+                            <h2>Languages</h2>
+                            <p><strong class="highlight">Italian</strong> (native)</p>
+                            <p><strong>English</strong> C1 (FIRST, Cambridge School)</p>
+                            <p><strong>Polish</strong> (high proficiency)</p>
+                            <p><strong>Spanish</strong> B2 (DELE, Instituto Cervantes)</p>
+                        </div>
 
-                        <p><strong>Baku's <span class="highlight">Karavanseraj</span> interdisciplinary workshop</strong><br>
-                            february 2023<br>
-                            hosted by Azerbaijan University of Architecture</p>
-
-                        <p><strong> <span class="highlight">Computational Design</span>  and Digital Fabrication PiA </strong><br>
-                            july 2024<br>
-                            hosted by Politecnico di Milano</p>
-                        
-                    </div>
-                    <div class="section">
-                        <h2>Interests</h2>
-                        <p><span class="highlight">Bricolage</span> and DIY</p>
-                        <p>Cinema and <span class="highlight">Video</span></p>
-                        <p>Geography and history</p>
-                        <p>Travelling and languages</p>
-                    </div>
-                </div>
-                <div class="column">
-
-                    <div class="section">
-                        <h2>Hard Skills</h2>
-                        <div class="skills-container">
-                            <div class="skill-category">
-                                <div>General design skills</div>
-                            </div>
-                            <div class="skill-item">
-                                <div skill-level="4">User research</div>
-                            </div>
-                            <div class="skill-item">
-                                <div skill-level="3">Design strategy</div>
-                            </div>
-                            <div class="skill-item">
-                                <div skill-level="4">Prototyping</div>
-                            </div>
-                            <div class="skill-category">
-                                <div>3D modelling and rendering</div>
-                            </div>
-                            <div class="skill-item">
-                                <div skill-level="3">Autodesk AutoCAD, Alias</div>
-                            </div>
-                            <div class="skill-item">
-                                <div skill-level="5">Solidworks</div>
-                            </div>
-                            <div class="skill-item">
-                                <div skill-level="4">Blender</div>
-                            </div>
-                            <div class="skill-item">
-                                <div skill-level="5">Keyshot</div>
-                            </div>
-                            <div class="skill-item">
-                                <div skill-level="2">Rhino Grasshopper</div>
-                            </div>
-                            <div class="skill-category">
-                                <div>3D modelling and rendering</div>
-                            </div>
-                            <div class="skill-item">
-                                <div skill-level="4">Adobe Illustrator, inDesign</div>
-                            </div>
-                            <div class="skill-item">
-                                <div skill-level="3">Adobe Photoshop, GIMP</div>
-                            </div>
-                            <div class="skill-item">
-                                <div skill-level="3">Artrage</div>
-                            </div>
-                            <div class="skill-item">
-                                <div skill-level="4">Figma</div>
-                            </div>
-                            <div class="skill-category">
-                                <div>Graphics, Editing and Drawing</div>
-                            </div>
-                            <div class="skill-item">
-                                <div skill-level="3">Sony Vegas</div>
-                            </div>
-                            <div class="skill-item">
-                                <div skill-level="5">Camtasia Techsmith</div>
-                            </div>
-                            <div class="skill-category">
-                                <div>Videomaking and Production</div>
-                            </div>
-                            <div class="skill-item">
-                                <div skill-level="3">Slicing and 3D printing</div>
-                            </div>
-                            <div class="skill-item">
-                                <div skill-level="4">Woodworking</div>
-                            </div>
+                        <div class="section">
+                            <h2>Soft Skills</h2>
+                            <p>Natural curiosity</p>
+                            <p>Flexibility and <span class="highlight">adaptability</span></p>
+                            <p><span class="highlight">Empathy</span> and group skills</p>
                         </div>
                     </div>
-                    
-                    <script>
-                        document.querySelectorAll('div[skill-level]').forEach((item) => {
-                            const level = parseInt(item.getAttribute('skill-level'), 10);
-                            item.removeAttribute('skill-level');
-                            const gridSkill = document.createElement('div');
-                            gridSkill.setAttribute('skill-level', level);
-                            item.parentElement.appendChild(gridSkill);
-                            new Array(5).fill().forEach(() => {
-                                const span = document.createElement('span');
-                                gridSkill.appendChild(span);
-                            });
-                        });
-                    </script>
 
-                    <div class="section">
-                        <h2>Fun Facts</h2>
-                        <ul>
-                            <p>Can instantly recognize all 254 world flags</p>
-                            <p>Has a pet chicken</p>
-                        </ul>
+                    <div class="column">
+                        <div class="section">
+                            <h2>Professional experiences</h2>
+
+                            <p><strong> Internship at <a class="highlight" href="https://designopenspaces.it/" target="_blank" style="color: black; text-decoration: underline;">D.O.S. - design open spaces</a> </strong><br>                                    
+                                spring 2025 <br>
+                                trend research, UI & UX, design of AR experiences</p>
+
+                            <p><strong> <span class="highlight">Delonghi workshop</span> for innovative kitchen appliances</strong><br>
+                                autumn 2024 <br>
+                                hosted by Delonghi x Politecnico di Milano</p>
+                        
+                            <p><strong>Ferrero workshop for <span class="highlight">Kinder surprise toys</span></strong><br>
+                                september to november 2023<br>
+                                hosted by Politecnico di Milano</p>
+
+                            <p><strong>HP workshop for <span class="highlight">innovative MJF 3D printing uses</span></strong><br>
+                                november 2023 to january 2024<br>
+                                hosted by HP x Politecnico di Milano </p>
+                            </div>
+
+                            <div class="section">
+                            <h2>Partecipations</h2>
+                            <p><strong>International <span class="highlight">Joint Studio 3.0 - New Delhi, India</span></strong><br>
+                                february 2025<br>
+                                hosted by The Design Village x TU Delft</p>
+                                
+                            <p><strong>Mobile <span class="highlight">carpentry workstations</span> - Walden workshop</strong><br>
+                                spring 2024<br>
+                                hosted by Rilegno x Politecnico di Milano</p>
+
+                            <p><strong>Baku's <span class="highlight">Karavanseraj</span> interdisciplinary workshop</strong><br>
+                                february 2023<br>
+                                hosted by Azerbaijan University of Architecture</p>
+
+                            <p><strong> <span class="highlight">Computational Design</span>  and Digital Fabrication PiA </strong><br>
+                                july 2024<br>
+                                hosted by Politecnico di Milano</p>
+                            
+                        </div>
+                        <div class="section">
+                            <h2>Interests</h2>
+                            <p><span class="highlight">Bricolage</span> and DIY</p>
+                            <p>Cinema and <span class="highlight">Video</span></p>
+                            <p>Geography and history</p>
+                            <p>Travelling and languages</p>
+                        </div>
+                    </div>
+
+                    <div class="column">
+                        <div class="section">
+                            <h2>Hard Skills</h2>
+                            <div class="skills-container">
+                                <div class="skill-category">
+                                    <div>General design skills</div>
+                                </div>
+                                <div class="skill-item">
+                                    <div skill-level="4">User research</div>
+                                </div>
+                                <div class="skill-item">
+                                    <div skill-level="3">Design strategy</div>
+                                </div>
+                                <div class="skill-item">
+                                    <div skill-level="4">Prototyping</div>
+                                </div>
+                                <div class="skill-category">
+                                    <div>3D modelling and rendering</div>
+                                </div>
+                                <div class="skill-item">
+                                    <div skill-level="3">Autodesk AutoCAD, Alias</div>
+                                </div>
+                                <div class="skill-item">
+                                    <div skill-level="5">Solidworks</div>
+                                </div>
+                                <div class="skill-item">
+                                    <div skill-level="4">Blender</div>
+                                </div>
+                                <div class="skill-item">
+                                    <div skill-level="5">Keyshot</div>
+                                </div>
+                                <div class="skill-item">
+                                    <div skill-level="2">Rhino Grasshopper</div>
+                                </div>
+                                <div class="skill-category">
+                                    <div>3D modelling and rendering</div>
+                                </div>
+                                <div class="skill-item">
+                                    <div skill-level="4">Adobe Illustrator, inDesign</div>
+                                </div>
+                                <div class="skill-item">
+                                    <div skill-level="3">Adobe Photoshop, GIMP</div>
+                                </div>
+                                <div class="skill-item">
+                                    <div skill-level="3">Artrage</div>
+                                </div>
+                                <div class="skill-item">
+                                    <div skill-level="4">Figma</div>
+                                </div>
+                                <div class="skill-category">
+                                    <div>Graphics, Editing and Drawing</div>
+                                </div>
+                                <div class="skill-item">
+                                    <div skill-level="3">Sony Vegas</div>
+                                </div>
+                                <div class="skill-item">
+                                    <div skill-level="5">Camtasia Techsmith</div>
+                                </div>
+                                <div class="skill-category">
+                                    <div>Videomaking and Production</div>
+                                </div>
+                                <div class="skill-item">
+                                    <div skill-level="3">Slicing and 3D printing</div>
+                                </div>
+                                <div class="skill-item">
+                                    <div skill-level="4">Woodworking</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <script>
+                            document.querySelectorAll('div[skill-level]').forEach((item) => {
+                                const level = parseInt(item.getAttribute('skill-level'), 10);
+                                item.removeAttribute('skill-level');
+                                const gridSkill = document.createElement('div');
+                                gridSkill.setAttribute('skill-level', level);
+                                item.parentElement.appendChild(gridSkill);
+                                new Array(5).fill().forEach(() => {
+                                    const span = document.createElement('span');
+                                    gridSkill.appendChild(span);
+                                });
+                            });
+                        </script>
+
+                        <div class="section">
+                            <h2>Fun Facts</h2>
+                            <ul>
+                                <p>Can instantly recognize all 254 world flags</p>
+                                <p>Has a pet chicken</p>
+                            </ul>
+                        </div>
                     </div>
                 </div>
-            </div>
-        <div style="height: 0vh;"> </div> <!-- Spazio vuoto!!! -->
-            
-            <script>
 
-                var previousState;
-
-                function toggleSection() {
-                    const section = document.getElementById("container-aboutme");
-                    const title = document.getElementById("toggleTitle");
-
-                    if (section.style.display === "none") {
-                        section.style.display = previousState; // Show the section
-                        title.textContent ="Less about me - hide CV ▲";
-                    } else {
-                        previousState = section.style.display;
-                        section.style.display = "none"; // Hide the section
-                        title.textContent = "More about me - show CV ▼"; // Change title
-                    }
-                }
-                toggleSection()
-
-            </script>
+            <div style="height: 0vh;"> </div> <!-- Spazio vuoto!!! -->
+            </section>
         </section>
-    </section>
+
     </section>
 
 
@@ -476,12 +491,13 @@ document.addEventListener("DOMContentLoaded", function () {
                 });
             </script>
 
-<div style="text-align: right"> 
-<h1 id="toggleTitle" 
-        style="display: inline-block; font-size:4vh; margin:0.4vh 0 1.5vh 0; text-align:right; cursor:pointer; transition: transform 0.2s;"
-         onmouseover="this.style.transform='scale(1.05)';"
-         onmouseout="this.style.transform='scale(1)';"
-        onclick="window.location.href='archived projects.html'"> See <span class="highlight">more</span> projects ▶ </h1> </div>
+    <div style="text-align: right"> 
+        <h1 id="toggleTitle" 
+                style="display: inline-block; font-size:4vh; margin:0.4vh 0 1.5vh 0; text-align:right; cursor:pointer; transition: transform 0.2s;"
+                onmouseover="this.style.transform='scale(1.05)';"
+                onmouseout="this.style.transform='scale(1)';"
+                onclick="window.location.href='archived projects.html'"> <span class="highlight">See more projects ▶</span> </h1>
+    </div>
 <div style="height: 1vh;"></div> <!-- Spazio vuoto -->
 
     </main>
@@ -672,12 +688,13 @@ function loadImagesSequentially(project, section, index) {
     </script>    
 
 
-    <section id="more" style="background-color: #ffffff; text-align:right; padding: 2vh 4vw;">
-        <div class="section" style="text-align:right;"> <h1 id="toggleTitle"  
-        style="display: inline-block; font-size:4vh; margin:0.4vh 0 1.5vh 0; text-align:right; cursor:pointer; transition: transform 0.2s;"
+    <section id="more" style="background-color: #ffffff; text-align:right; padding: 0vh 4vw;">
+        <div class="section" style="text-align:right;"> <h1 style="display: inline-block; font-size:4vh; margin:0.4vh 0 1.5vh 0; text-align:right;"> still unsatisfied? </h1>
+        <div style="width: 1vw;"></div>
+        <h1 id="toggleTitle"  style="display: inline-block; font-size:4vh; margin:0.4vh 0 1.5vh 0; text-align:right; cursor:pointer; transition: transform 0.2s;"
          onmouseover="this.style.transform='scale(1.05)';"
          onmouseout="this.style.transform='scale(1)';"
-        onclick="window.location.href='archived projects.html'"> Still unsatisfied? see archived projects ▶ </h1> </div>
+        onclick="window.location.href='archived projects.html'"><span class="highlight"> see archived projects ▶</span></h1> </div>
         <div style="height: 1vh;"></div> <!-- Spazio vuoto -->
     </section>
 
@@ -726,6 +743,7 @@ function loadImagesSequentially(project, section, index) {
         <div style="height: 48vh;"></div> <!-- Spazio vuoto!!! -->
 </section>
 
+<script src="scripts/presentation.js" defer></script>
 <script src="cursor-tooltip.js"></script>
 <div id="cursor-tooltip"> click to visit! </div>
 

@@ -11,15 +11,16 @@
 }
 
 .cv-container {
-    display: flex;
+    display: none; /* inizialmente nascosto */
     gap: 40px;
     justify-content: space-between;
     flex-wrap: wrap;
 }
 
 #toggleTitle {
+    display: inline-block;
     transition: transform 0.3s ease;
-    transform-origin: left;
+    transform-origin: center;
 }
 
 #toggleTitle:hover {
@@ -107,23 +108,4 @@
 [skill-level="4"] :nth-child(-n+4),
 [skill-level="5"] :nth-child(-n+5) {
     background-color: #dfb03b;
-}
-
-/* Stile per il pulsante di download */
-.download-button {
-    padding: 10px 20px;
-    font-size: 1.2em;
-    background-color: #e5b52c;
-    color: #111;
-    border: none;
-    border-radius: 3px;
-    cursor: pointer;
-    transition: transform 0.3s ease, background-color 0.3s ease;
-    margin: 1vh;
-}
-
-/* Effetto hover per il pulsante di download */
-.download-button:hover {
-    transform: scale(1.05); /* Effetto di ingrandimento */
-    background-color: #d4a026; /* Colore leggermente più scuro su hover */
 }

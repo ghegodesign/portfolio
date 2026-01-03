@@ -16,6 +16,12 @@
     padding: 0.1em; /* Mantiene le evidenziazioni */
 }
 
+.highlight-dark{
+    color: black;
+    background-color: #dfb03b;
+    padding: 0.1em; /* Mantiene le evidenziazioni */
+}
+
 .info {
     display: flex;
     flex-direction: column; /* Aggiunto per gestire meglio la disposizione */
