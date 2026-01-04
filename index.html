@@ -23,9 +23,10 @@
     <link rel="stylesheet" href="styles/contacts.css">
     <link rel="stylesheet" href="styles/hyperlinks.css">
     <link rel="stylesheet" href="styles/cursor_tooltip.css">
-    <script src="scripts/cursor_tooltip.js" defer></script>
     <link rel="stylesheet" href="styles/presentation.css">
-    <script src="scripts/presentation.js" defer></script>
+    <script src="scripts/cursor_tooltip.js" defer></script>
+    <script src="scripts/presentation-titles.js" defer></script>
+    <script src="scripts/presentation-cursor.js" defer></script>
 </head>
 
 
@@ -33,43 +34,43 @@
 <body>
 
 <!-- script per banner di warning formato verticale-->
-<div id="orientation-modal">
-    <div class="modal-content">
-        <img src="images/rotate icon.svg" alt="Rotate icon" class="orientation-icon">
-        <h2 style="font-size: 7vw; text-align: center;">Rotate your device<span style="font-size: 10vw; display: inline-block; transform: translateY(0.7vw);">!</span></h2>
-        <p>  Vertical view is still under construction </p>
-        <div style="height: 9vh;"></div> <!-- Spazio vuoto!!! -->
+    <div id="orientation-modal">
+        <div class="modal-content">
+            <img src="images/rotate icon.svg" alt="Rotate icon" class="orientation-icon">
+            <h2 style="font-size: 7vw; text-align: center;">Rotate your device<span style="font-size: 10vw; display: inline-block; transform: translateY(0.7vw);">!</span></h2>
+            <p>  Vertical view is still under construction </p>
+            <div style="height: 9vh;"></div> <!-- Spazio vuoto!!! -->
+        </div>
     </div>
-</div>
 
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-    const orientationModal = document.getElementById("orientation-modal");
-    const continueVerticalButton = document.getElementById("continue-vertical");
+    <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const orientationModal = document.getElementById("orientation-modal");
+        const continueVerticalButton = document.getElementById("continue-vertical");
 
-    // Funzione per mostrare la modale solo in modalità verticale
-    function checkOrientation() {
-        if (window.innerHeight > window.innerWidth) {
-            // Aggiunge la classe solo se in verticale
-            orientationModal.classList.add("show-modal");
-        } else {
-            // Rimuove la modale in orizzontale o su desktop
-            orientationModal.classList.remove("show-modal");
+        // Funzione per mostrare la modale solo in modalità verticale
+        function checkOrientation() {
+            if (window.innerHeight > window.innerWidth) {
+                // Aggiunge la classe solo se in verticale
+                orientationModal.classList.add("show-modal");
+            } else {
+                // Rimuove la modale in orizzontale o su desktop
+                orientationModal.classList.remove("show-modal");
+            }
         }
-    }
 
-    // Inizializza il controllo dell'orientamento
-    checkOrientation();
+        // Inizializza il controllo dell'orientamento
+        checkOrientation();
 
-    // Rileva il cambio d'orientamento
-    window.addEventListener("resize", checkOrientation);
+        // Rileva il cambio d'orientamento
+        window.addEventListener("resize", checkOrientation);
 
-    // Nascondi la modale quando si clicca su "continua"
-    continueVerticalButton.addEventListener("click", function () {
-        orientationModal.classList.remove("show-modal");
+        // Nascondi la modale quando si clicca su "continua"
+        continueVerticalButton.addEventListener("click", function () {
+            orientationModal.classList.remove("show-modal");
+        });
     });
-});
-</script>
+    </script>
 
 <header class="slide">
         <div>
@@ -77,92 +78,94 @@ document.addEventListener("DOMContentLoaded", function () {
             <h2 class="slide-t" style="font-size: 5vh">LEONARDO RE<span class="slide-t-highlight">GUZ</span>ZONI</h2>
         </div>
 </header>
-    
-<main>
+
+<main> 
     <section id="about">
 
 
-        <section>
-        <div class="presentation-container">
+        <section id="presentation" style="background-color: #ffffff;">
+        <div class="presentation-container" style="padding-left: 10vw; padding-right: 5vw;">
 
-                <!-- Colonna sinistra: immagine -->
+            <!-- Colonna sinistra: immagine -->
             <div class="left-column">
-                <div class="image-wrapper">
-                        <img src="images/profilo2.png" 
-                        style="max-height: 70vh;"
-                        alt="Leonardo Reguzzoni" class="profile-image">
-                </div>
+            <div class="image-wrapper">
+                <img src="images/profilo/profilo1.png"
+                    style="max-height: 70vh;"
+                    alt="Leonardo Reguzzoni"
+                    class="profile-image">
+            </div>
             </div>
 
-                <!-- Colonna destra: titoletti -->
-<div class="right-column">
-  <section class="tilted-titles">
+            <!-- Colonna destra: titoletti -->
+            <div class="right-column">
+            <section class="tilted-titles">
 
-    <!-- 1 -->
-    <div class="tilted-item" style="--angle: -12deg; --x-offset: -1.1vw; --y-offset: 0vw; --extra-rotate: 1deg;">
-      <div class="tilted-line">
-        Hi! my name is
-        <span class="keyword-group">
-          <span class="keyword">Leo</span>
-          <div class="extra">
-            <span>born 17-07-2001</span>
-            <span>based in Busto Arsizio (VA), Italy</span>
-          </div>
-        </span>
-      </div>
-    </div>
+                <!-- 1 -->
+                <div class="tilted-item" style="--angle: -12deg; --x-offset: -1.1vw; --y-offset: 1.2vw; --extra-rotate: 1.5deg;">
+                <div class="tilted-line">
+                    Hi! my name is
+                    <span class="keyword-group">
+                    <span class="keyword">Leo</span>
+                    <div class="extra">
+                        <span>born 17-07-2001</span>
+                        <span>based in Busto Arsizio (VA), Italy</span>
+                    </div>
+                    </span>
+                </div>
+                </div>
 
-    <!-- 2 -->
-    <div class="tilted-item" style="--angle: -9deg; --x-offset: 0.1vw; --y-offset: 2vw; --extra-rotate: 0.5deg;">
-      <div class="tilted-line">
-        and i freshly got out of
-        <span class="keyword-group">
-          <span class="keyword">uni</span>
-          <div class="extra">
-            <span>master in Integrated Product Design</span>
-            <span>Politecnico di Milano</span>
-          </div>
-        </span>
-      </div>
-    </div>
+                <!-- 2 -->
+                <div class="tilted-item" style="--angle: -9deg; --x-offset: 0.1vw; --y-offset: 2vw; --extra-rotate: 1.5deg;">
+                <div class="tilted-line">
+                    and i freshly got out of
+                    <span class="keyword-group">
+                    <span class="keyword">uni</span>
+                    <div class="extra">
+                        <span>master in Integrated Product Design</span>
+                        <span>Politecnico di Milano</span>
+                    </div>
+                    </span>
+                </div>
+                </div>
 
-    <!-- 3 -->
-    <div class="tilted-item" style="--angle: -6deg; --x-offset: 1.2vw; --y-offset: 1.7vw; --extra-rotate: 0.3deg;">
-      <div class="tilted-line">
-        i'm a product
-        <span class="keyword-group">
-          <span class="keyword">designer</span>
-          <div class="extra">
-            <span>design thinking methodology</span>
-            <span>element, model and interaction design</span>
-            <span>3D modeling and rendering</span>
-            <span>design research and critical studies</span>
-          </div>
-        </span>
-      </div>
-    </div>
+                <!-- 3 -->
+                <div class="tilted-item" style="--angle: -6deg; --x-offset: 1.2vw; --y-offset: 2.3vw; --extra-rotate: 1.5deg;">
+                <div class="tilted-line">
+                    i'm a product
+                    <span class="keyword-group">
+                    <span class="keyword">designer</span>
+                    <div class="extra">
+                        <span>design thinking methodology</span>
+                        <span>element, model and interaction design</span>
+                        <span>3D modeling and rendering</span>
+                        <span>design research and critical studies</span>
+                    </div>
+                    </span>
+                </div>
+                </div>
 
-    <!-- 4 -->
-    <div class="tilted-item" style="--angle: -3deg; --x-offset: 1.4vw; --y-offset: 2.5vw; --extra-rotate: 0.2deg;">
-      <div class="tilted-line">
-        and i'm ready to take on a
-        <span class="keyword-group">
-          <span class="keyword">challenge</span>
-          <div class="extra">
-            <span>in other words,</span>
-            <span>I'm looking for a job ;)</span>
-          </div>
-        </span>
-      </div>
-    </div>
+                <!-- 4 -->
+                <div class="tilted-item" style="--angle: -3deg; --x-offset: 1.4vw; --y-offset: 5vw; --extra-rotate: 1deg;">
+                <div class="tilted-line">
+                    and i'm ready to take on a
+                    <span class="keyword-group">
+                    <span class="keyword">challenge</span>
+                    <div class="extra">
+                        <span>in other words,</span>
+                        <span>I'm looking for a job ;)</span>
+                    </div>
+                    </span>
+                </div>
+                </div>
 
-  </section>
-</div>
+            </section>
+            </div>
 
-
+        </div>
         </section>
 
-        <section id="about" class="cv-section">
+
+        <section class="cv-section" id="cv-section">
             <section style="padding: 4vw";>
                 <div style="height: 2vh;"> </div> <!-- Spazio vuoto!!! -->
 
@@ -396,11 +399,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     </section>
 
-
-
-
-
-    <section id="projects">
+    <section id="projects" style="padding-left: 4vw; padding-right: 4vw;">
         <div style="height: 8vh;"></div> <!-- Spazio vuoto!!! -->
             <h1 style="font-size: 5vh;">Take a look at some of my projects:</h1>
             <br>
@@ -482,14 +481,16 @@ document.addEventListener("DOMContentLoaded", function () {
                     }
                 });
             </script>
-
-    <div style="text-align: right"> 
+    <div style="padding-right: 4vw;"> 
+    <div style="text-align: right;"> 
         <h1 id="toggleTitle" 
                 style="display: inline-block; font-size:4vh; margin:0.4vh 0 1.5vh 0; text-align:right; cursor:pointer; transition: transform 0.2s;"
                 onmouseover="this.style.transform='scale(1.05)';"
                 onmouseout="this.style.transform='scale(1)';"
-                onclick="window.location.href='archived projects.html'"> <span class="highlight">See more projects ▶</span> </h1>
+                onclick="window.location.href='archived projects.html'"> <span class="highlight">See archived projects ▶</span> </h1>
     </div>
+    </div>
+
 <div style="height: 1vh;"></div> <!-- Spazio vuoto -->
 
     </main>
@@ -735,8 +736,9 @@ function loadImagesSequentially(project, section, index) {
         <div style="height: 48vh;"></div> <!-- Spazio vuoto!!! -->
 </section>
 
-<script src="scripts/presentation.js" defer></script>
-<script src="cursor-tooltip.js"></script>
+<script src="scripts/presentation-titles.js" defer></script>
+<script src="scripts/presentation-cursor.js" defer></script>
+<script src="scripts/cursor_tooltip.js"></script>
 <div id="cursor-tooltip"> click to visit! </div>
 
 </body>

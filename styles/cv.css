@@ -1,7 +1,5 @@
 .cv-section {
-  width: 100vw;
   margin-left: calc(50% - 50vw);
-  margin-right: calc(50% - 50vw);
 
   background-color: #EFEFEF;
   color: #000000;

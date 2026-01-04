@@ -4,13 +4,21 @@
   gap: clamp(2vw, 5%, 6vw);
   align-items: flex-start;
   width: 100%;
+  padding-top: 15vh;
 }
 
 /* Colonne */
 .left-column {
-  flex: 0 0 33.3333%;
-  display: flex;
-  flex-direction: column;
+    display: flex;              /* attiva flexbox */
+    justify-content: center;    /* centra orizzontalmente */
+    align-items: flex-end;      /* attacca al bordo inferiore */
+    height: 100%;               /* assicurati che il contenitore abbia altezza */
+}
+
+.image-wrapper img {
+    display: block;      /* elimina lo spazio inline sotto */
+    max-height: 70vh;
+    margin: 0 auto;      /* centra orizzontalmente se non usi flex */
 }
 
 .right-column {

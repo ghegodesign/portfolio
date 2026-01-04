@@ -22,10 +22,14 @@ body {
 }
 
 body>header,
-footer,
-main {
+footer{
     background-color: #fff;
     padding: 4vw;
+    min-width: 650px;
+}
+
+main {
+    background-color: #fff;
     min-width: 650px;
 }
 
