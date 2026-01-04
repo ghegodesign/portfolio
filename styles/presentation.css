@@ -46,21 +46,22 @@
 /* ====== Keyword ====== */
 .keyword-group {
   position: relative;
-  display: inline-flex;          /* 🔴 FIX */
+  display: inline-flex;
   flex-direction: column;
   align-items: flex-start;
 }
 
 .keyword {
-  display: inline-block;         /* 🔴 FIX highlight */
+  display: inline-block;
   background-color: #e5b52c;
   color: #111;
   cursor: pointer;
   padding: 0.05em 0.15em;
-  line-height: 1;                /* 🔴 evita box fantasma */
+  line-height: 1;
   transition: transform 0.25s ease;
 }
 
+/* hover SOLO visivo */
 .keyword-group:hover .keyword {
   transform: scale(1.08);
 }
@@ -83,11 +84,19 @@
   will-change: opacity, transform;
 }
 
-.keyword-group:hover .extra,
+/* stato aperto */
+.keyword-group:hover:not(.hover-lock) .extra,
 .keyword-group.active .extra {
   opacity: 1;
   pointer-events: auto;
   transform: translateY(0);
+}
+
+/* 🔴 STATO BLOCCO (fondamentale) */
+.keyword-group.blocked .extra {
+  opacity: 0 !important;
+  pointer-events: none;
+  transform: translateY(-0.25em);
 }
 
 /* ====== Raggiera ====== */
