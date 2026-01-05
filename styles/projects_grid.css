@@ -113,11 +113,11 @@
         margin: 2px 0;
     }
 
-    .project-card:hover img {
+.project-card:hover img {
         filter: none;
     }
 
-    .project-card::after {
+.project-card::after {
         display: none;
     }
 }
