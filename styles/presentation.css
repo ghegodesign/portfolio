@@ -61,30 +61,32 @@
 }
 
 .keyword {
+  position: relative; /* necessario per posizionare la hitbox sopra */
   display: inline-block;
-  position: relative; /* fondamentale per extra e hitbox */
   background-color: #e5b52c;
   color: #111;
   cursor: pointer;
   padding: 0.05em 0.15em;
   line-height: 1;
   transition: transform 0.25s ease;
-  z-index: 1; /* sopra l’hitbox */
 }
 
+/* hitbox trasparente che copre la keyword + extra padding */
 .keyword-hitbox {
   position: absolute;
-  top: 0; left: 0; right: 0; bottom: 0;
-  display: block;
-  /* aumenta area cliccabile */
-  padding: 0.5em;
+  top: -0.5em;
+  left: -0.5em;
+  right: -0.5em;
+  bottom: -0.5em;
   background: transparent;
-  z-index: 0; /* dietro highlight */
+  cursor: pointer;
+  z-index: 2; /* sopra il testo */
 }
+
 
 /* hover SOLO visivo */
 .keyword-group:hover .keyword {
-  transform: scale(1.08);
+  transform: scale(1.12);
 }
 
 /* ====== Extra text (DEFAULT: DOWN) ====== */

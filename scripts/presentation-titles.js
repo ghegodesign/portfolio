@@ -2,28 +2,42 @@ const groups = document.querySelectorAll('.keyword-group');
 
 groups.forEach(group => {
   const keyword = group.querySelector('.keyword');
+  const hitbox = group.querySelector('.keyword-hitbox');
 
-  keyword.addEventListener('click', e => {
-    e.stopPropagation();
+  const activate = () => {
+    if (!group.classList.contains('active')) {
+      group.classList.add('active');
+    }
+  };
 
-    // se è attiva → spegni e blocca hover finché non esce
+  const deactivate = () => {
     if (group.classList.contains('active')) {
       group.classList.remove('active');
       group.classList.add('hover-lock');
-    } 
-    // se non è attiva → attiva
-    else {
-      group.classList.add('active');
     }
+  };
+
+  // Click su keyword o hitbox
+  [keyword, hitbox].forEach(el => {
+    el.addEventListener('click', e => {
+      // fermo la propagazione solo verso parent, non verso document
+      e.stopImmediatePropagation();
+
+      if (group.classList.contains('active')) {
+        deactivate();
+      } else {
+        activate();
+      }
+    });
   });
 
-  // quando esci, riabilita hover
+  // Hover-lock reset
   group.addEventListener('mouseleave', () => {
     group.classList.remove('hover-lock');
   });
 });
 
-// click esterno → spegne tutto e resetta lock
+// Click esterno: reset globale
 document.addEventListener('click', () => {
   groups.forEach(group => {
     group.classList.remove('active');
