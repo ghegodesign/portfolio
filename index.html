@@ -100,63 +100,73 @@
             <div class="right-column">
             <section class="tilted-titles">
 
-                <!-- 1 -->
-                <div class="tilted-item" style="--angle: -12deg; --x-offset: -1.1vw; --y-offset: 1.2vw; --extra-rotate: 1.5deg;">
-                <div class="tilted-line">
-                    Hi! my name is
-                    <span class="keyword-group">
-                    <span class="keyword">Leo</span>
-                    <div class="extra">
-                        <span>born 17-07-2001</span>
-                        <span>based in Busto Arsizio (VA), Italy</span>
-                    </div>
-                    </span>
-                </div>
-                </div>
+<!-- 1+2 -->
+<div class="tilted-item" style="--angle: -12deg; --x-offset: 0vw; --y-offset: 4vw; --extra-rotate: 0deg;">
+  <div class="tilted-line">
+    Hi! my name is
+    <span class="keyword-group extra-up">
+      <span class="keyword">
+        Leo
+        <span class="keyword-hitbox"></span>
+      </span>
+      <div class="extra">
+        <span>born 17-07-2001</span>
+        <span>based in Busto Arsizio (VA), Italy</span>
+      </div>
+    </span>
+  </div>
 
-                <!-- 2 -->
-                <div class="tilted-item" style="--angle: -9deg; --x-offset: 0.1vw; --y-offset: 2vw; --extra-rotate: 1.5deg;">
-                <div class="tilted-line">
-                    and i freshly got out of
-                    <span class="keyword-group">
-                    <span class="keyword">uni</span>
-                    <div class="extra">
-                        <span>master in Integrated Product Design</span>
-                        <span>Politecnico di Milano</span>
-                    </div>
-                    </span>
-                </div>
-                </div>
+  <div class="tilted-line">
+    and i freshly got out of
+    <span class="keyword-group">
+      <span class="keyword">
+        uni
+        <span class="keyword-hitbox"></span>
+      </span>
+      <div class="extra">
+        <span>master in Integrated Product Design</span>
+        <span>Politecnico di Milano</span>
+      </div>
+    </span>
+  </div>
+</div>
+<br>
 
-                <!-- 3 -->
-                <div class="tilted-item" style="--angle: -6deg; --x-offset: 1.2vw; --y-offset: 2.3vw; --extra-rotate: 1.5deg;">
-                <div class="tilted-line">
-                    i'm a product
-                    <span class="keyword-group">
-                    <span class="keyword">designer</span>
-                    <div class="extra">
-                        <span>design thinking methodology</span>
-                        <span>element, model and interaction design</span>
-                        <span>3D modeling and rendering</span>
-                        <span>design research and critical studies</span>
-                    </div>
-                    </span>
-                </div>
-                </div>
+<!-- 3+4 -->
+<div class="tilted-item" style="--angle: -6deg; --x-offset: 1.2vw; --y-offset: 8vw; --extra-rotate: 0deg;">
+  <div class="tilted-line">
+    i do product
+    <span class="keyword-group extra-up">
+      <span class="keyword">
+        design
+        <span class="keyword-hitbox"></span>
+      </span>
+      <div class="extra">
+        <span>design thinking methodology</span>
+        <span>element, model and interaction design</span>
+        <span>3D modeling and rendering</span>
+        <span>design research and critical studies</span>
+      </div>
+    </span>
+  </div>
 
-                <!-- 4 -->
-                <div class="tilted-item" style="--angle: -3deg; --x-offset: 1.4vw; --y-offset: 5vw; --extra-rotate: 1deg;">
-                <div class="tilted-line">
-                    and i'm ready to take on a
-                    <span class="keyword-group">
-                    <span class="keyword">challenge</span>
-                    <div class="extra">
-                        <span>in other words,</span>
-                        <span>I'm looking for a job ;)</span>
-                    </div>
-                    </span>
-                </div>
-                </div>
+  <div class="tilted-line">
+    and i'm ready to take on a
+    <span class="keyword-group">
+      <span class="keyword">
+        challenge
+        <span class="keyword-hitbox"></span>
+      </span>
+      <div class="extra">
+        <span>in other words,</span>
+        <span>I'm looking for a job ;)</span>
+      </div>
+    </span>
+  </div>
+</div>
+
+
+
 
             </section>
             </div>
@@ -435,7 +445,13 @@
 
     // Create and add the image
     const img = document.createElement('img');
-    img.src = `images/projects/${item.title}.png`;
+
+    if (item.title === "enkidu AI") {
+        img.src = "images/projects/enkidu.png";
+    } else {
+        img.src = `images/projects/${item.title}.png`;
+    }
+
     img.alt = item.title;
     card.appendChild(img);
 

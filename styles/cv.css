@@ -3,6 +3,7 @@
     background-color: #EFEFEF;
     color: #000000;
     box-sizing: border-box;
+    padding-right: 5vw;
 }
 
 
@@ -10,7 +11,6 @@
     display: none; /* inizialmente nascosto */
     width: 100%;
     box-sizing: border-box;
-
     gap: 40px;
     justify-content: stretch;
     align-items: flex-start;
@@ -31,7 +31,6 @@
     display: flex;
     flex-direction: column;
     gap: 30px;
-
     flex: 1 1 0;
     min-width: 0;
 }
@@ -42,7 +41,7 @@
 }
 
 .section h2 {
-    font-size: 22px;
+    font-size: clamp(14px, 1.2vw, 20px);
     text-transform: uppercase;
     margin-bottom: 10px;
     font-weight: bold;
@@ -56,7 +55,7 @@
 /* Testo generale */
 .section p,
 .section ul li {
-    font-size: 16px;
+    font-size: clamp(14px, 1vw, 18px);
     white-space: normal;
     overflow-wrap: break-word;
 }

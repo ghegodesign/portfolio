@@ -7,18 +7,18 @@
   padding-top: 15vh;
 }
 
-/* Colonne */
+/* ====== Colonne ====== */
 .left-column {
-    display: flex;              /* attiva flexbox */
-    justify-content: center;    /* centra orizzontalmente */
-    align-items: flex-end;      /* attacca al bordo inferiore */
-    height: 100%;               /* assicurati che il contenitore abbia altezza */
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  height: 100%;
 }
 
 .image-wrapper img {
-    display: block;      /* elimina lo spazio inline sotto */
-    max-height: 70vh;
-    margin: 0 auto;      /* centra orizzontalmente se non usi flex */
+  display: block;
+  max-height: 70vh;
+  margin: 0 auto;
 }
 
 .right-column {
@@ -35,16 +35,17 @@
 }
 
 .tilted-item {
-  transform: 
-    rotate(var(--angle))
-    translateX(var(--x-offset))
-    translateY(var(--y-offset));
+  transform:
+    rotate(var(--angle));
   transform-origin: left center;
   will-change: transform;
 }
 
 /* Testo principale */
 .tilted-line {
+  transform:
+    translateX(var(--x-offset))
+    translateY(var(--y-offset));
   display: inline-block;
   font-family: 'headerText', sans-serif;
   font-size: 2vw;
@@ -61,12 +62,24 @@
 
 .keyword {
   display: inline-block;
+  position: relative; /* fondamentale per extra e hitbox */
   background-color: #e5b52c;
   color: #111;
   cursor: pointer;
   padding: 0.05em 0.15em;
   line-height: 1;
   transition: transform 0.25s ease;
+  z-index: 1; /* sopra l’hitbox */
+}
+
+.keyword-hitbox {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  display: block;
+  /* aumenta area cliccabile */
+  padding: 0.5em;
+  background: transparent;
+  z-index: 0; /* dietro highlight */
 }
 
 /* hover SOLO visivo */
@@ -74,7 +87,7 @@
   transform: scale(1.08);
 }
 
-/* ====== Extra text ====== */
+/* ====== Extra text (DEFAULT: DOWN) ====== */
 .extra {
   position: absolute;
   left: 0;
@@ -86,6 +99,7 @@
 
   opacity: 0;
   pointer-events: none;
+
   transform: translateY(-0.25em);
   transition: opacity 0.3s ease, transform 0.3s ease;
 
@@ -97,6 +111,22 @@
 .keyword-group.active .extra {
   opacity: 1;
   pointer-events: auto;
+  transform: translateY(0);
+}
+
+/* ====== Extra text (UP variant) ====== */
+.keyword-group.extra-up .extra {
+  top: auto;
+  bottom: 100%;
+  margin-top: 0;
+  margin-bottom: 0.3em;
+
+  transform: translateY(0.25em);
+}
+
+/* stato aperto (UP) */
+.keyword-group.extra-up:hover:not(.hover-lock) .extra,
+.keyword-group.extra-up.active .extra {
   transform: translateY(0);
 }
 
@@ -130,6 +160,7 @@
   .presentation-container {
     flex-direction: row;
   }
+
   .tilted-line { font-size: 4vw; }
   .extra { font-size: 3.5vw; }
 }
