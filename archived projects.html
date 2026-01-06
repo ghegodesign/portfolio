@@ -25,6 +25,46 @@
     <script src="scripts/archived_grid.js" defer></script>
 
 </head>
+
+
+<!-- script per banner di warning formato verticale-->
+<div id="orientation-modal">
+    <img src="images/rotate icon.png" alt="Rotate icon" class="orientation-icon">
+    <h2>Rotate your device!</h2>
+    <p>Horizontal view is better either way ;)</p>
+</div>
+
+
+    <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const orientationModal = document.getElementById("orientation-modal");
+        const continueVerticalButton = document.getElementById("continue-vertical");
+
+        // Funzione per mostrare la modale solo in modalità verticale
+        function checkOrientation() {
+            if (window.innerHeight > window.innerWidth) {
+                // Aggiunge la classe solo se in verticale
+                orientationModal.classList.add("show-modal");
+            } else {
+                // Rimuove la modale in orizzontale o su desktop
+                orientationModal.classList.remove("show-modal");
+            }
+        }
+
+        // Inizializza il controllo dell'orientamento
+        checkOrientation();
+
+        // Rileva il cambio d'orientamento
+        window.addEventListener("resize", checkOrientation);
+
+        // Nascondi la modale quando si clicca su "continua"
+        continueVerticalButton.addEventListener("click", function () {
+            orientationModal.classList.remove("show-modal");
+        });
+    });
+    </script>
+
+
 <body>
     <main> 
     <section id="projects" style="padding: 4vw;">

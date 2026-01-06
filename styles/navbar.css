@@ -28,12 +28,6 @@
     cursor: pointer;
 }
 
-/* Rimuovere margini extra sugli estremi
-.navbar-item.about { margin-left: 48px; }
-.navbar-item.back-to-project,
-.navbar-item.get-in-touch { margin-right: 48px; }
-*/
-
 .navbar-item h4 {
     white-space: nowrap;
     margin: 0;

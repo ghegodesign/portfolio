@@ -1,83 +1,40 @@
-/* =========================
-   ORIENTATION MODAL OVERLAY
-   ========================= */
 #orientation-modal {
     position: fixed;
     inset: 0;
-    z-index: 9999;
-
-    background-color: rgba(46, 46, 46, 0.96);
-    color: white;
-
-    display: none;
-    justify-content: center;
-    align-items: center;
-
-    overflow: hidden; /* 🔒 niente scroll qui */
-}
-
-#orientation-modal.show-modal {
-    display: block;
-}
-
-body.modal-open {
-    overflow: hidden;
-    height: 100vh;
-}
-
-
-/* =========================
-   MODAL CONTENT
-   ========================= */
-.modal-content {
-    position: relative;
-
-    aspect-ratio: 1 / 1; 
-    width: 150vw;
-
-    background-color: #000000;
-    border-radius: 20px;
-    box-shadow: 0 4px 8px rgba(0,0,0,.2);
-
-    padding: 40px;
-    box-sizing: border-box;
-
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 
-    overflow: auto; /* scroll SOLO interno */
+    background-color: #000; /* nero pieno */
+    color: #fff;
+    z-index: 9999;
+
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s;
+    text-align: center;
+    padding: 2rem; /* per evitare che tocchi i bordi */
+    gap: 1rem;
 }
 
-
-/* =========================
-   VISIBILITY RULE
-   ========================= */
-@media (orientation: portrait) {
-    #orientation-modal.show-modal {
-        display: flex;
-    }
+#orientation-modal.show-modal {
+    opacity: 1;
+    pointer-events: all;
 }
 
-/* =========================
-   CONTENT STYLING
-   ========================= */
-.orientation-icon {
-    width: 45vw;
+#orientation-modal img {
+    width: clamp(150px, 40vw, 300px); /* min, ideale, max */
     height: auto;
-    margin-bottom: 20px;
+    margin: 1rem;
+}
+
+#orientation-modal h2 {
+    font-size: clamp(5rem, 5vw, 8rem);
+    margin: 1rem;
 }
 
 #orientation-modal p {
-    font-size: 4vw;
-    text-align: center;
-    margin: 10px 0;
-}
-
-/* =========================
-   UTILITIES
-   ========================= */
-.hidden {
-    display: none !important;
+    font-size: clamp(3rem, 3vw, 6rem);
+    margin: 1rem;
 }

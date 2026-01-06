@@ -7,19 +7,6 @@
     cursor: pointer;
     align-items: stretch;
 }
-
-@media (max-width: 1200px) {
-    .project-container {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
-@media (max-width: 700px) {
-    .project-container {
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    }
-}
-
 /* Card progetti */
 .project-card {
     position: relative;
@@ -40,16 +27,6 @@
     transition: opacity 0.4s ease;
     pointer-events: none;
     z-index: 0; /* sotto il testo */
-}
-
-/* Hover desktop: mostra overlay + blur leggero */
-@media (min-width: 701px) {
-    .project-card:hover::after {
-        opacity: 1;
-    }
-    .project-card:hover img {
-        filter: blur(2px); /* blur leggero per contenuto centrale */
-    }
 }
 
 /* Immagine */
@@ -93,35 +70,6 @@
     opacity: 0;
 }
 
-/* Hover: fade + micro scorrimento più marcato */
-@media (min-width: 701px) {
-    .project-card:hover .overlay-text h4,
-    .project-card:hover .overlay-text p {
-        opacity: 1;
-        transform: translateY(-15%);
-    }
-}
-
-/* Mobile: testo sempre sotto l'immagine */
-@media (max-width: 700px) {
-    .project-card .overlay-text {
-        position: static;
-        transform: none;
-        opacity: 1;
-        color: black;
-        text-align: center;
-        margin: 2px 0;
-    }
-
-.project-card:hover img {
-        filter: none;
-    }
-
-.project-card::after {
-        display: none;
-    }
-}
-
 /* Modal */
 .modal {
     display: none;
@@ -160,4 +108,53 @@
 .skill-category {
     margin-bottom: 10px;
     margin-top: 10px;
+}
+
+
+/*MOBILE MOBILE*/
+
+@media (max-height: 500px) and (orientation: landscape) {
+
+  /* Disattiva overlay scuro */
+  .project-card::after {
+    display: none;
+  }
+
+  /* Rimuove blur e transizioni immagine */
+  .project-card img {
+    filter: none !important;
+    transition: none;
+  }
+
+  /* Riporta il testo nel flusso sotto l’immagine */
+  .project-card .overlay-text {
+    position: static;
+    transform: none;
+    pointer-events: auto;
+    color: #111;
+    padding-top: 0rem;
+    text-align: center;
+  }
+
+  /* Testo sempre visibile, nessun effetto hover */
+  .project-card .overlay-text h4,
+  .project-card .overlay-text p {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  /* Ridimensionamento tipografico per mobile */
+  .project-card .overlay-text h4 {
+    font-size: 1rem;
+    white-space: normal;
+    margin-top: 0.5rem;
+    margin-bottom: 0.2rem;
+  }
+
+  .project-card .overlay-text p {
+    font-size: 0.85rem;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
 }
