@@ -14,15 +14,25 @@
     font-style: normal;
 }
 
+@font-face {
+    font-family: 'headerText';
+    src: url('../fonts/FE-FONT.TTF') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 16px;
+}
+
 body {
     font-family: 'normalText', sans-serif;
     overflow-x: hidden !important;
-    padding: 0.11vw;
     background-color: #111;
-}
-
-html, body {
-  overflow-x: hidden !important;
 }
 
 body>header,
@@ -37,45 +47,14 @@ main {
     min-width: 650px;
 }
 
-.slide {
-    background-color: #111;
-    color: #fff;
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: 'headerText', sans-serif;
+h1 {
+    font-size: 5vw; /* Ridotto per adattarsi meglio */
+    margin: 2px;
 }
 
-.slide-h {
-    font-size: 10vw;
-    padding: 1vw 2vw;
-    margin: 2vw;
-    text-align: center;
-}
-
-/* Stile per l'elemento evidenziato */
-.slide-h-highlight {
-    color: #111;
-    background-color: #e5b52c;
-    font-size: 10vw;       /* Font size relativo alla larghezza della viewport */
-    padding: 0.1em;        /* Padding relativo alla dimensione del font */
-    margin: 0.05em;        /* Margine relativo alla dimensione del font */
-    display: inline-block; /* Limita la larghezza dello sfondo al testo */
-    text-align: center; /* Centra orizzontalmente l'elemento */      
-}
-
-.slide-t {
-    margin: 1vw;
-    font-size: 4vw;
-    display: flex;
-    justify-content: center;
-}
-
-.slide-t-highlight {
-    background-color: #111;
-    color: #e5b52c;
-    display: inline;
+h2 {
+    font-size: 2.3vw; /* Ridotto per adattarsi meglio */
+    margin: 0.4vh 0 1.5vh 0;
 }
 
 h1,
@@ -83,3 +62,27 @@ h2,
 h3,
 h4 {
     font-family: 'headerText', sans-serif;}
+
+.highlight {
+    color: black;
+    background-color: #fcd573;
+    padding: 0.1em; /* Mantiene le evidenziazioni */
+}
+
+.highlight-dark{
+    color: black;
+    background-color: #dfb03b;
+    padding: 0.1em; /* Mantiene le evidenziazioni */
+}
+
+/* di default invisibile */
+.spacer {
+    height: 0;
+}
+
+/* attivo solo su mobile landscape */
+@media (max-height: 500px) and (orientation: landscape) {
+    .spacer {
+        height: 10px; /* microspazio verticale */
+    }
+}

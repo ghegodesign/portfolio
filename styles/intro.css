@@ -1,72 +1,42 @@
-@font-face {
-    font-family: 'headerText';
-    src: url('../fonts/FE-FONT.TTF') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-}
-
-/* Imposta il box-sizing */
-* {
-    box-sizing: border-box;
-}
-
-.highlight {
-    color: black;
-    background-color: #fcd573;
-    padding: 0.1em; /* Mantiene le evidenziazioni */
-}
-
-.highlight-dark{
-    color: black;
-    background-color: #dfb03b;
-    padding: 0.1em; /* Mantiene le evidenziazioni */
-}
-
-.info {
+.slide {
+    background-color: #111;
+    color: #fff;
+    height: 100vh;
     display: flex;
-    flex-direction: column; /* Aggiunto per gestire meglio la disposizione */
-}
-
-.info > * {
-    flex: 1;
-    margin-bottom: 10px; /* Aggiunto margine per separare i dati */
-}
-
-.skills-list {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    row-gap: 15px;
-    text-align: right;
-}
-
-.skills-list p {
-    display: contents;
-    margin: 0;
-}
-
-.skills-list span {
-    display: block;
+    align-items: center;
+    justify-content: center;
     font-family: 'headerText', sans-serif;
-    align-items: flex-end; /* Align elements at the bottom */
 }
 
-.skills-list span:first-child {
-    text-align: right;
+.slide-h {
+    font-size: 10vw;
+    padding: 1vw 2vw;
+    margin: 2vw;
+    text-align: center;
 }
 
-.skills-list span:last-child {
-    text-align: left;
+/* Stile per l'elemento evidenziato */
+.slide-h-highlight {
+    color: #111;
+    background-color: #e5b52c;
+    font-size: 10vw;       /* Font size relativo alla larghezza della viewport */
+    padding: 0.1em;        /* Padding relativo alla dimensione del font */
+    margin: 0.05em;        /* Margine relativo alla dimensione del font */
+    display: inline-block; /* Limita la larghezza dello sfondo al testo */
+    text-align: center; /* Centra orizzontalmente l'elemento */      
 }
 
-/* Ridimensionamento dei titoli */
-h1 {
-    font-size: 5vw; /* Ridotto per adattarsi meglio */
-    margin: 2px;
+.slide-t {
+    margin: 1rem; /* proporzionale al desktop, più stabile */
+    font-size: clamp(1.8rem, 3vw, 3.5rem); /* desktop invariato, mobile leggibile */
+    display: flex;
+    justify-content: center;
 }
 
-h2 {
-    font-size: 2.3vw; /* Ridotto per adattarsi meglio */
-    margin: 0.4vh 0 1.5vh 0;
+.slide-t-highlight {
+    background-color: #111;
+    color: #e5b52c;
+    display: inline;
 }
 
 /* Media query per mobile landscape layout */

@@ -41,7 +41,7 @@
 }
 
 .section h2 {
-    font-size: clamp(14px, 1.2vw, 20px);
+    font-size: clamp(10px, 1vw, 18px);
     text-transform: uppercase;
     margin-bottom: 10px;
     font-weight: bold;
@@ -55,20 +55,20 @@
 /* Testo generale */
 .section p,
 .section ul li {
-    font-size: clamp(14px, 1vw, 18px);
+    font-size: clamp(10px, 1vw, 18px);
     white-space: normal;
     overflow-wrap: break-word;
 }
 
 /* ---------- RESPONSIVE ---------- */
 
-@media (max-width: 1200px) {
+@media (max-height: 500px) and (orientation: landscape) {
     .column {
         flex: 1 1 calc(50% - 20px); /* 2 colonne */
     }
 }
 
-@media (max-width: 650px) {
+@media (max-height: 500px) and (orientation: landscape) {
     .column {
         flex: 1 1 100%;            /* 1 colonna */
     }
@@ -83,15 +83,41 @@
     gap: 10px;
 }
 
+.skills-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    row-gap: clamp(0.8rem, 1vw, 1rem);
+    text-align: right;
+}
+
+.skills-list p {
+    display: contents;
+    margin: 0;
+}
+
+.skills-list span {
+    display: block;
+    font-family: 'headerText', sans-serif;
+    align-items: flex-end; /* Align elements at the bottom */
+}
+
+.skills-list span:first-child {
+    text-align: right;
+}
+
+.skills-list span:last-child {
+    text-align: left;
+}
+
 .skill-category {
     grid-column: 1 / span 2;
     font-weight: bold;
-    font-size: clamp(14px, 1vw, 18px);
+    font-size: clamp(10px, 1vw, 18px);
 }
 
 .skill-item {
     display: contents;
-    font-size: clamp(14px, 1vw, 18px);
+    font-size: clamp(10px, 1vw, 18px);
 }
 
 .skill-item > :nth-child(1) {
@@ -104,11 +130,12 @@
 
 [skill-level] span {
     display: inline-block;
-    width: 20px;
-    height: 20px;
+        width: clamp(0.5rem, 1vw, 2rem);
+        aspect-ratio: 1 / 1;
     margin: 0 10px 0 0;
     background-color: #bdbdbd;
 }
+
 
 [skill-level="1"] :nth-child(-n+1),
 [skill-level="2"] :nth-child(-n+2),

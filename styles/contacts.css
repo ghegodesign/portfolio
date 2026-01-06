@@ -23,16 +23,23 @@
 }
 
 .contact-link {
-    font-size: 1.1vw;
+    font-size: clamp(0.7rem, 1.1vw, 1.3rem);
     display: flex; /* Per allineare icona e testo */
     align-items: center; /* Centra verticalmente icona e testo */
     text-decoration: none; /* Rimuove la sottolineatura */
     color: black; /* Colore del testo */
     background-color: #e5b52c; /* Colore di sfondo blu per il pulsante */
-    padding: 14px 24px; /* Spazio interno al pulsante */
-    border-radius: 5px; /* Angoli arrotondati */
+    padding: clamp(0.4rem, 1vw, 1.2rem) clamp(0.5rem, 2vw, 1.5rem);
+    border-radius: 0.3rem;
     transition: transform 0.1s ease, background-color 0.2s ease; /* Transizioni per hover */
     font-weight: bold;
+}
+
+@media (max-height: 500px) and (orientation: landscape)
+ {
+  .contact-link {
+    padding: clamp(0.4rem, 1.2vw, 1rem) clamp(0.5rem, 1.5vw, 1rem);
+  }
 }
 
 .contact-link:hover {
@@ -42,8 +49,8 @@
 }
 
 .contact-icon {
-    width: 24px; /* Dimensione dell'icona */
-    height: 24px; /* Dimensione dell'icona */
+    width: clamp(1rem, 1.25vw, 1.5rem);
+    height: clamp(1rem, 1.25vw, 1.5rem);
     margin-right: 10px; /* Spazio tra icona e testo */
     transition: transform 0.2s ease; /* Transizione per la rotazione */
 }

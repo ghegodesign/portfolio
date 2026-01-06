@@ -6,7 +6,8 @@
     inset: 0;
     z-index: 9999;
 
-    background-color: rgba(211, 211, 211, 0.96);
+    background-color: rgba(46, 46, 46, 0.96);
+    color: white;
 
     display: none;
     justify-content: center;
@@ -34,7 +35,7 @@ body.modal-open {
     aspect-ratio: 1 / 1; 
     width: 150vw;
 
-    background-color: #e0e0e0;
+    background-color: #000000;
     border-radius: 20px;
     box-shadow: 0 4px 8px rgba(0,0,0,.2);
 
