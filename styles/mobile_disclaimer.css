@@ -1,37 +1,67 @@
+/* =========================
+   ORIENTATION MODAL OVERLAY
+   ========================= */
 #orientation-modal {
-    display: none; /* Nascosto di default */
     position: fixed;
-    top: 50%; /* Posizionamento verticale centrale */
-    left: 50%; /* Posizionamento orizzontale centrale */
-    transform: translate(-50%, -50%); /* Centro esatto della modale */
-    z-index: 9999; /* Porta la modale in primo piano */
-    background-color: rgba(211, 211, 211, 0.96); /* Colore di sfondo grigio chiaro con trasparenza */
-    width: 80%; /* Occupa l'80% della larghezza dello schermo */
-    height: 80%; /* Occupa l'80% dell'altezza dello schermo */
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Ombra */
-    border-radius: 20px; /* Aggiunge angoli arrotondati */
+    inset: 0;
+    z-index: 9999;
+
+    background-color: rgba(211, 211, 211, 0.96);
+
+    display: none;
+    justify-content: center;
+    align-items: center;
+
+    overflow: hidden; /* 🔒 niente scroll qui */
 }
 
+#orientation-modal.show-modal {
+    display: block;
+}
+
+body.modal-open {
+    overflow: hidden;
+    height: 100vh;
+}
+
+
+/* =========================
+   MODAL CONTENT
+   ========================= */
 .modal-content {
-    padding: 20px; /* Spaziatura uniforme */
-    box-sizing: border-box; /* Assicura che il padding non influisca sulla larghezza totale */
-    display: flex; /* Imposta il contenitore come un flexbox */
-    flex-direction: column; /* Disposizione verticale */
-    justify-content: center; /* Centra verticalmente il contenuto */
-    align-items: center; /* Centra orizzontalmente il contenuto */
-    height: 100%; /* Occupa tutta l'altezza della modale */
-    width: 100%; /* Occupa tutta la larghezza della modale */
-    overflow: auto; /* Permette lo scorrimento se il contenuto è troppo grande */
+    position: relative;
+
+    aspect-ratio: 1 / 1; 
+    width: 150vw;
+
+    background-color: #e0e0e0;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0,0,0,.2);
+
+    padding: 40px;
+    box-sizing: border-box;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    overflow: auto; /* scroll SOLO interno */
 }
 
 
-/* Mostra la modale solo in verticale e se la classe .show-modal è presente */
+/* =========================
+   VISIBILITY RULE
+   ========================= */
 @media (orientation: portrait) {
     #orientation-modal.show-modal {
-        display: block;
+        display: flex;
     }
 }
 
+/* =========================
+   CONTENT STYLING
+   ========================= */
 .orientation-icon {
     width: 45vw;
     height: auto;
@@ -41,26 +71,12 @@
 #orientation-modal p {
     font-size: 4vw;
     text-align: center;
-    margin: 10px 0 10px 0;
+    margin: 10px 0;
 }
 
-#continue-vertical {
-    padding: 10px 20px;
-    font-size: 3vw;
-    background-color: #b3b3b3;
-    text-align: center;
-    color: #464646;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-weight: bolder;
-
-}
-
-#continue-vertical:hover {
-    background-color: #7a7a7a;
-}
-
+/* =========================
+   UTILITIES
+   ========================= */
 .hidden {
     display: none !important;
 }

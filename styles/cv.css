@@ -86,10 +86,12 @@
 .skill-category {
     grid-column: 1 / span 2;
     font-weight: bold;
+    font-size: clamp(14px, 1vw, 18px);
 }
 
 .skill-item {
     display: contents;
+    font-size: clamp(14px, 1vw, 18px);
 }
 
 .skill-item > :nth-child(1) {

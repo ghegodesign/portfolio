@@ -102,8 +102,8 @@
   opacity: 0;
   pointer-events: none;
 
-  transform: translateY(-0.25em);
-  transition: opacity 0.3s ease, transform 0.3s ease;
+  transform: translateY(-0.6em);
+  transition: opacity 0.3s ease, transform 0.5s ease;
 
   will-change: opacity, transform;
 }
@@ -123,7 +123,7 @@
   margin-top: 0;
   margin-bottom: 0.3em;
 
-  transform: translateY(0.25em);
+  transform: translateY(0.5em);
 }
 
 /* stato aperto (UP) */
@@ -147,10 +147,10 @@
   );
 }
 
-.extra span:nth-child(1) { --line-offset: 0deg; }
-.extra span:nth-child(2) { --line-offset: 0.2deg; }
-.extra span:nth-child(3) { --line-offset: 0.4deg; }
-.extra span:nth-child(4) { --line-offset: 0.6deg; }
+.extra span:nth-child(1) { --line-offset: 0 deg; }
+.extra span:nth-child(2) { --line-offset: 0 deg; }
+.extra span:nth-child(3) { --line-offset: 0 deg; }
+.extra span:nth-child(4) { --line-offset: 0 deg; }
 
 /* ====== Responsive ====== */
 @media (max-width: 1024px) {
