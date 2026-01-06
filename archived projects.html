@@ -93,12 +93,16 @@
         }
     }
 
-   document.addEventListener('DOMContentLoaded', function () {
-    // Assicura che la navbar sia sempre visibile
-    const navbar = document.getElementById('project-navbar');
-    if (navbar) {
-        navbar.style.display = 'block'; // forza visibilità
-    }
+        // Codice per gestire la visibilità della navbar e lo scrolling
+        document.addEventListener('scroll', function () {
+            const SahmatbarSection = document.getElementById('navstart'); // Sezione di riferimento per il primo progetto
+            const navbar = document.getElementById('project-navbar'); // Navbar da mostrare/nascondere
+            const scrollPosition = window.scrollY;
+    
+            // Mostra la navbar se si è scrollati oltre la sezione di riferimento
+            if (scrollPosition >= SahmatbarSection.offsetTop) {
+                navbar.style.display = 'block';
+            }
 
     // Aggiorna lo stato "active" durante lo scroll
     document.addEventListener('scroll', function () {
