@@ -25,9 +25,11 @@
     <link rel="stylesheet" href="styles/hyperlinks.css">
     <link rel="stylesheet" href="styles/cursor_tooltip.css">
     <link rel="stylesheet" href="styles/presentation.css">
+    <link rel="stylesheet" href="styles/rotating_arm.css">
     <script src="scripts/cursor_tooltip.js" defer></script>
     <script src="scripts/presentation-titles.js" defer></script>
     <script src="scripts/presentation-cursor.js" defer></script>
+    <script src="scripts/rotating_arm.js" defer></script>
 </head>
 
 
@@ -86,14 +88,20 @@
         <div class="presentation-container">
 
             <!-- Colonna sinistra: immagine -->
-            <div class="left-column">
-            <div class="image-wrapper">
-                <img src="images/profilo/profilo1.png"
-                    style="max-height: 70vh;"
-                    alt="Leonardo Reguzzoni"
-                    class="profile-image">
-            </div>
-            </div>
+        <div class="left-column">
+            <section class="interactive-photo">
+                <div class="photo-wrapper">
+                        <img src="images/profilo/profilo.png" alt="" class="profile">
+
+                        <img
+                        src="images/profilo/braccio.png"
+                        alt=""
+                        class="arm"
+                        data-elbow-x="420"
+                        data-elbow-y="375">
+                </div>
+            </section>
+         </div>
 
             <!-- Colonna destra: titoletti -->
             <div class="right-column">
@@ -175,9 +183,11 @@
             <section style="padding-left: 5vw";>
                 <div style="height: 2vw;"> </div> <!-- Spazio vuoto!!! -->
 
-                <h1 style="font-size: 5vh; margin: 0.4vh 0 1.5vh 0;">
-                    <span id="staticTitle">More about me -</span>
-                        <span class="highlight-dark" id="toggleTitle" style="cursor: pointer;" onclick="toggleSection()">show CV ▼</span></h1>
+<div style="display: flex; flex-direction: column; align-items: flex-end;">
+                <h1 style="font-size: clamp(20px, 5vh, 50px); margin: 0.4vh 0 1.5vh 0;">
+                    <span class="highlight-dark" id="toggleTitle" style="cursor: pointer;" onclick="toggleSection()">▼ show CV</span>
+                    <span id="staticTitle">- More about me</span>
+                    </h1>
 
 
                 <script>
@@ -192,11 +202,11 @@
 
                     if (isOpen) {
                     section.style.display = "none";
-                    staticTitle.textContent = "More about me -";
+                    staticTitle.textContent = "- More about me";
                     toggle.textContent = "show CV ▼";
                     } else {
                     section.style.display = "flex";
-                    staticTitle.textContent = "Less about me -";
+                    staticTitle.textContent = "- Less about me";
                     toggle.textContent = "hide CV ▲";
                     }
 
@@ -206,13 +216,14 @@
 
                 <div class="spacer"></div>
 
-
                 <a class="contact-link" href="Cv Leonardo Reguzzoni.pdf" target="_blank" download="Cv Leonardo Reguzzoni.pdf" style="display: inline-flex;">
                     <img src="images/file icon.png" alt="File Icon" class="contact-icon">
                     <span> download my snapshot CV as a PDF </span>
                 </a>
+            </div>
 
             <div class="spacer"></div>
+
             <div style="height: 2vh;"> </div> <!-- Spazio vuoto!!! -->
 
                 <div class="cv-container" id="cv-container">
