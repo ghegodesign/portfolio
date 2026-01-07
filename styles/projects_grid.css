@@ -1,3 +1,5 @@
+/* ====================== GRIGLIA PROGETTI ====================== */
+
 /* Container griglia progetti */
 .project-container {
     display: grid;
@@ -7,14 +9,15 @@
     cursor: pointer;
     align-items: stretch;
 }
+
 /* Card progetti */
 .project-card {
     position: relative;
     overflow: hidden;
     text-align: center;
     display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    flex-direction: column; /* mantiene immagine sopra testo */
+    /* rimuovere justify-content: space-between per overlay assoluto */
 }
 
 /* Overlay scuro uniforme per evitare alone */
@@ -26,20 +29,22 @@
     opacity: 0;
     transition: opacity 0.4s ease;
     pointer-events: none;
-    z-index: 0; /* sotto il testo */
+    z-index: 1; /* sotto il testo */
 }
 
 /* Immagine */
 .project-card img {
     width: 100%;
     height: auto;
-    object-fit: cover; /* mantiene bordi nitidi */
+    object-fit: cover;
     display: block;
     transition: filter 0.4s ease;
-    backface-visibility: hidden; /* migliora il rendering del blur */
+    backface-visibility: hidden;
+    position: relative; /* necessario per z-index */
+    z-index: 0; /* sotto overlay */
 }
 
-/* Overlay testo centrato (nuovo div .overlay-text) */
+/* Overlay testo centrato (desktop) */
 .project-card .overlay-text {
     position: absolute;
     top: 50%;
@@ -47,114 +52,87 @@
     transform: translate(-50%, -50%);
     text-align: center;
     pointer-events: none;
-    z-index: 1; /* sopra overlay */
+    z-index: 2; /* sopra immagine */
     color: white;
 }
 
-/* Titolo */
+/* Titolo overlay */
 .project-card .overlay-text h4 {
-    margin-bottom: 0.75rem; /* distanza stabile dal sottotitolo */
-    white-space: nowrap; /* sempre su una riga */
+    margin-bottom: 0.75rem;
+    white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
     font-size: 2rem;
-    transition: opacity 0.35s ease, transform 0.35s ease;
+    transition: opacity 0.5s ease, transform 0.5s ease;
     opacity: 0;
 }
 
-/* Sottotitolo */
+/* Sottotitolo overlay */
 .project-card .overlay-text p {
     margin: 0;
     font-size: 1.25rem;
-    transition: opacity 0.35s ease, transform 0.35s ease;
+    transition: opacity 0.5s ease, transform 0.5s ease;
     opacity: 0;
 }
 
-/* Modal */
-.modal {
-    display: none;
-    position: fixed;
-    z-index: 1000;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgba(0, 0, 0, 0.8);
+/* Hover desktop: mostra overlay e blur immagine */
+.project-card:hover img {
+    filter: blur(2px);
 }
 
-.modal-content {
-    width: 100%;
-    height: 99vh;
-    border: none;
+.project-card:hover .overlay-text h4,
+.project-card:hover .overlay-text p {
+    opacity: 1;
 }
 
-.close {
-    position: absolute;
-    bottom: 20px;
-    right: 40px;
-    padding: 1vw;
-    background-color: #111;
-    color: white;
-    font-size: 40px;
-    font-weight: bold;
-    cursor: pointer;
+.project-card:hover::after {
+    opacity: 1; /* overlay diventa visibile solo su hover */
 }
 
-.no-scroll {
-    overflow: hidden;
-}
-
-.skill-category {
-    margin-bottom: 10px;
-    margin-top: 10px;
-}
-
-
-/*MOBILE MOBILE*/
-
+/* ====================== MOBILE LANDSCAPE ====================== */
 @media (max-height: 500px) and (orientation: landscape) {
 
-  /* Disattiva overlay scuro */
-  .project-card::after {
-    display: none;
-  }
+    /* Disattiva overlay scuro */
+    .project-card::after {
+        display: none;
+    }
 
-  /* Rimuove blur e transizioni immagine */
-  .project-card img {
-    filter: none !important;
-    transition: none;
-  }
+    /* Rimuove blur immagine */
+    .project-card img {
+        filter: none;
+        transition: none;
+        margin-bottom: 0.5rem;
+    }
 
-  /* Riporta il testo nel flusso sotto l’immagine */
-  .project-card .overlay-text {
-    position: static;
-    transform: none;
-    pointer-events: auto;
-    color: #111;
-    padding-top: 0rem;
-    text-align: center;
-  }
+    /* Testo sotto immagine, sempre visibile */
+    .project-card .overlay-text {
+        position: static;
+        transform: none;
+        pointer-events: auto;
+        color: #111;
+        text-align: center;
+        padding-top: 0;
+        line-height: 1.1;
+    }
 
-  /* Testo sempre visibile, nessun effetto hover */
-  .project-card .overlay-text h4,
-  .project-card .overlay-text p {
-    opacity: 1;
-    transform: none;
-    transition: none;
-  }
+    /* Titolo e sottotitolo sempre visibili */
+    .project-card .overlay-text h4,
+    .project-card .overlay-text p {
+        opacity: 1;
+        transform: none;
+        transition: none;
+        margin-top: 0;
+        margin-bottom: 0.1rem;
+    }
 
-  /* Ridimensionamento tipografico per mobile */
-  .project-card .overlay-text h4 {
-    font-size: 1rem;
-    white-space: normal;
-    margin-top: 0.5rem;
-    margin-bottom: 0.2rem;
-  }
+    /* Ridimensionamento font mobile */
+    .project-card .overlay-text h4 {
+        font-size: 1rem;
+        white-space: normal;
+    }
 
-  .project-card .overlay-text p {
-    font-size: 0.85rem;
-    margin-top: 0;
-    margin-bottom: 0;
-  }
+    .project-card .overlay-text p {
+        font-size: 0.85rem;
+        margin-bottom: 0;
+    }
 }
