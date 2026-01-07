@@ -4,6 +4,7 @@
     height: 100vh;
     display: flex;
     align-items: center;
+    text-align: center;
     justify-content: center;
     font-family: 'headerText', sans-serif;
 }
@@ -26,11 +27,26 @@
     text-align: center; /* Centra orizzontalmente l'elemento */      
 }
 
+@media (max-height: 500px) and (orientation: landscape) {
+    .slide-h-highlight {
+        color: #111;
+        background-color: #e5b52c;
+        font-size: 10vw;       /* Font size relativo alla larghezza della viewport */
+        padding: 0.1em;        /* Padding relativo alla dimensione del font */
+        margin: 0.05em;        /* Margine relativo alla dimensione del font */
+        display: inline-block; /* Limita la larghezza dello sfondo al testo */
+        text-align: center; /* Centra orizzontalmente l'elemento */      
+}
+    }
+
+
+
 .slide-t {
     margin: 1rem; /* proporzionale al desktop, più stabile */
     font-size: clamp(1.8rem, 3vw, 3.5rem); /* desktop invariato, mobile leggibile */
     display: flex;
     justify-content: center;
+      text-align: center;
 }
 
 .slide-t-highlight {

@@ -24,7 +24,7 @@
 }
 
 #orientation-modal img {
-    width: clamp(150px, 40vw, 300px); /* min, ideale, max */
+    width: clamp(300px, 40vw, 600px); /* min, ideale, max */
     height: auto;
     margin: 1rem;
 }
