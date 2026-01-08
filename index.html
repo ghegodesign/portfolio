@@ -36,37 +36,7 @@
 
 <body>
 
-<!-- script per banner di warning formato verticale-->
-<div id="orientation-modal">
-    <img src="images/rotate icon.png" alt="Rotate icon" class="orientation-icon">
-    <h2>Rotate your device!</h2>
-    <p>Horizontal view is better either way ;)</p>
-</div>
 
-
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-    const orientationModal = document.getElementById("orientation-modal");
-
-    function checkOrientation() {
-        const isPortrait = window.innerHeight > window.innerWidth;
-
-        if (isPortrait) {
-            orientationModal.classList.add("show-modal");
-            document.body.classList.add("lock-scroll");
-        } else {
-            orientationModal.classList.remove("show-modal");
-            document.body.classList.remove("lock-scroll");
-        }
-    }
-
-    // check iniziale
-    checkOrientation();
-
-    // cambio orientamento / resize
-    window.addEventListener("resize", checkOrientation);
-});
-</script>
 
 
 <header class="slide">
@@ -760,6 +730,66 @@ function loadImagesSequentially(project, section, index) {
 <script src="scripts/presentation-cursor.js" defer></script>
 <script src="scripts/cursor_tooltip.js"></script>
 <div id="cursor-tooltip"> click to visit! </div>
+
+<!-- script per banner di warning formato verticale-->
+<div id="orientation-modal">
+    <img src="images/rotate icon.png" alt="Rotate icon" class="orientation-icon">
+    <h2>Rotate your device!</h2>
+    <p>Horizontal view is better either way ;)</p>
+</div>
+
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const modal = document.getElementById("orientation-modal");
+    let scrollY = 0;
+
+    function lockScroll() {
+        scrollY = window.scrollY || window.pageYOffset;
+
+        document.documentElement.classList.add("lock-scroll");
+        document.body.classList.add("lock-scroll");
+
+        document.body.style.top = `-${scrollY}px`;
+    }
+
+    function unlockScroll() {
+        document.documentElement.classList.remove("lock-scroll");
+        document.body.classList.remove("lock-scroll");
+
+        document.body.style.top = "";
+
+        window.scrollTo(0, scrollY);
+    }
+
+    function checkOrientation() {
+        const isPortrait = window.innerHeight > window.innerWidth;
+
+        if (isPortrait) {
+            modal.classList.add("show-modal");
+            lockScroll();
+        } else {
+            modal.classList.remove("show-modal");
+            unlockScroll();
+        }
+    }
+
+    // blocca gesture touch (iOS killer)
+    document.addEventListener(
+        "touchmove",
+        function (e) {
+            if (modal.classList.contains("show-modal")) {
+                e.preventDefault();
+            }
+        },
+        { passive: false }
+    );
+
+    // init
+    checkOrientation();
+    window.addEventListener("resize", checkOrientation);
+});
+</script>
 
 </body>
 </html>
