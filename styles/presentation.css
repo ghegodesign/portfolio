@@ -7,6 +7,7 @@
   padding-top: clamp(4rem, 3vh, 6rem);
   padding-left: 5vw; 
   padding-right: 5vw;
+  box-sizing: border-box; /* include padding nel 100% */
 }
 
 /* ====== Colonne ====== */
@@ -162,9 +163,20 @@
  {
   .presentation-container {
     gap: clamp(1vw, 5%, 5vw);
-      padding-top: clamp(5rem, 3vh, 8rem);}
+      padding-top: clamp(5rem, 3vh, 8rem);
+        padding-left: 3vw;
+    padding-right: 3vw;}
+      
 
-  .right-column { padding-top: clamp(0.5rem, 1vh, 2rem); /* ====== upper padding ====== */}
+  .left-column {max-width: 30vw; /* scala leggermente */}
+
+  .right-column {flex: 0 0 65%;}
+  
+  .left-column,
+  .right-column {
+    max-width: 100%;
+    flex: 0 0 auto;
+  }
 
   .presentation-container {flex-direction: row;}
 
