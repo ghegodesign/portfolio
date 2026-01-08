@@ -1,31 +1,66 @@
+/* ===============================
+   BODY / HTML SCROLL LOCK
+   =============================== */
 html.lock-scroll,
 body.lock-scroll {
-    position: fixed;
-    overflow: hidden;
+    position: fixed;        /* congela il documento */
+    overflow: hidden;       /* impedisce scroll */
     width: 100%;
     height: 100%;
-    overscroll-behavior: none;
-    touch-action: none;
+    overscroll-behavior: none; /* blocca scroll elastico */
+    touch-action: none;     /* blocca swipe touch */
 }
 
+/* ===============================
+   ORIENTATION MODAL BASE
+   =============================== */
 #orientation-modal {
     position: fixed;
-    inset: 0;
+    inset: 0;               /* top/right/bottom/left = 0 */
     width: 100vw;
-    height: 100vh;
-
+    height: 100svh;         /* altezza reale viewport mobile */
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
-
-    background: #000;
+    background-color: #000;
+    color: #fff;
+    text-align: center;
     z-index: 999999;
-
     opacity: 0;
     pointer-events: none;
+    overflow: hidden;
+    padding: 4svh 5vw;      /* margini interni sicuri */
+    gap: 2svh;
+    transition: opacity 0.2s ease;
 }
+
 #orientation-modal.show-modal {
     opacity: 1;
     pointer-events: all;
+}
+
+/* ===============================
+   ICON IMAGE
+   =============================== */
+#orientation-modal img {
+    max-height: 35svh;      /* mai più alta del 35% del viewport */
+    width: auto;             /* mantiene proporzioni */
+    max-width: 70vw;         /* mai troppo larga */
+    margin-bottom: 2svh;
+}
+
+/* ===============================
+   TITLES & TEXT
+   =============================== */
+#orientation-modal h2 {
+    font-size: clamp(1.5rem, 4svh, 2.4rem);
+    line-height: 1.2;
+    margin-bottom: 1svh;
+}
+
+#orientation-modal p {
+    font-size: clamp(1rem, 2.5svh, 1.4rem);
+    line-height: 1.4;
+    max-width: 32ch;        /* evita righe troppo lunghe */
 }
