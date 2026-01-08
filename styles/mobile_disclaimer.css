@@ -1,27 +1,30 @@
+body.lock-scroll {
+    overflow: hidden;
+    height: 100svh;
+    touch-action: none;
+}
+
 #orientation-modal {
     position: fixed;
     inset: 0;
+    width: 100vw;
+    height: 100svh;
 
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 
-    background-color: #000;
-    color: #fff;
+    background: #000;
     z-index: 9999;
 
     opacity: 0;
     pointer-events: none;
     transition: opacity 0.2s ease;
 
-    text-align: center;
-
-    /* vincoli fisici */
-    padding: 4svh 5vw;
-    max-height: 100svh;
     overflow: hidden;
 }
+
 
 #orientation-modal.show-modal {
     opacity: 1;

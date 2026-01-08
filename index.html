@@ -44,34 +44,30 @@
 </div>
 
 
-    <script>
-    document.addEventListener("DOMContentLoaded", function () {
-        const orientationModal = document.getElementById("orientation-modal");
-        const continueVerticalButton = document.getElementById("continue-vertical");
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const orientationModal = document.getElementById("orientation-modal");
 
-        // Funzione per mostrare la modale solo in modalità verticale
-        function checkOrientation() {
-            if (window.innerHeight > window.innerWidth) {
-                // Aggiunge la classe solo se in verticale
-                orientationModal.classList.add("show-modal");
-            } else {
-                // Rimuove la modale in orizzontale o su desktop
-                orientationModal.classList.remove("show-modal");
-            }
-        }
+    function checkOrientation() {
+        const isPortrait = window.innerHeight > window.innerWidth;
 
-        // Inizializza il controllo dell'orientamento
-        checkOrientation();
-
-        // Rileva il cambio d'orientamento
-        window.addEventListener("resize", checkOrientation);
-
-        // Nascondi la modale quando si clicca su "continua"
-        continueVerticalButton.addEventListener("click", function () {
+        if (isPortrait) {
+            orientationModal.classList.add("show-modal");
+            document.body.classList.add("lock-scroll");
+        } else {
             orientationModal.classList.remove("show-modal");
-        });
-    });
-    </script>
+            document.body.classList.remove("lock-scroll");
+        }
+    }
+
+    // check iniziale
+    checkOrientation();
+
+    // cambio orientamento / resize
+    window.addEventListener("resize", checkOrientation);
+});
+</script>
+
 
 <header class="slide">
         <div>
