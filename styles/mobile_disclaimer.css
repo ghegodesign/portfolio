@@ -30,7 +30,7 @@ body.lock-scroll {
     opacity: 0;
     pointer-events: none;
     overflow: hidden;
-    padding: 4svh 5vw;      /* margini interni sicuri */
+    padding: 6svh 8vw;    /* margini interni sicuri */
     gap: 2svh;
     transition: opacity 0.2s ease;
 }
@@ -44,9 +44,9 @@ body.lock-scroll {
    ICON IMAGE
    =============================== */
 #orientation-modal img {
-    max-height: 35svh;      /* mai più alta del 35% del viewport */
+    max-height: 28svh;  /* prima 35svh, ora più piccolo */
+    max-width: 65vw;    /* leggermente più stretto */
     width: auto;             /* mantiene proporzioni */
-    max-width: 70vw;         /* mai troppo larga */
     margin-bottom: 2svh;
 }
 
@@ -54,13 +54,13 @@ body.lock-scroll {
    TITLES & TEXT
    =============================== */
 #orientation-modal h2 {
-    font-size: clamp(1.5rem, 4svh, 2.4rem);
+    font-size: clamp(1.3rem, 3.5svh, 2.2rem);
     line-height: 1.2;
     margin-bottom: 1svh;
 }
 
 #orientation-modal p {
-    font-size: clamp(1rem, 2.5svh, 1.4rem);
+    font-size: clamp(0.9rem, 2svh, 1.3rem);
     line-height: 1.4;
     max-width: 32ch;        /* evita righe troppo lunghe */
 }
