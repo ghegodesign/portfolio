@@ -30,7 +30,6 @@
     color: black; /* Colore del testo */
     background-color: #e5b52c; /* Colore di sfondo blu per il pulsante */
     padding: clamp(0.4rem, 1vw, 1.2rem) clamp(0.5rem, 2vw, 1.5rem);
-    border-radius: 0.3rem;
     transition: transform 0.1s ease, background-color 0.2s ease; /* Transizioni per hover */
     font-weight: bold;
 }

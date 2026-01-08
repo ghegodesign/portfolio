@@ -9,9 +9,14 @@
     font-family: 'headerText', sans-serif;
 }
 
+.slide > div {
+  text-align: center;
+}
+
+
 .slide-h {
     font-size: 10vw;
-    padding: 1vw 2vw;
+font-size: clamp(12rem, 10vw, 12rem);
     margin: 2vw;
     text-align: center;
 }
@@ -20,11 +25,10 @@
 .slide-h-highlight {
     color: #111;
     background-color: #e5b52c;
-    font-size: 10vw;       /* Font size relativo alla larghezza della viewport */
-    padding: 0.1em;        /* Padding relativo alla dimensione del font */
-    margin: 0.05em;        /* Margine relativo alla dimensione del font */
-    display: inline-block; /* Limita la larghezza dello sfondo al testo */
-    text-align: center; /* Centra orizzontalmente l'elemento */      
+font-size: clamp(6rem, 10vw, 12rem);
+    line-height: 0.9;              /* compatta verticalmente */
+    padding: 0.1em 0.3em 0.25em;   /* sposta visivamente il box verso il basso */
+    display: inline-block;
 }
 
 @media (max-height: 500px) and (orientation: landscape) {
@@ -46,7 +50,7 @@
     font-size: clamp(1.8rem, 3vw, 3.5rem); /* desktop invariato, mobile leggibile */
     display: flex;
     justify-content: center;
-      text-align: center;
+    text-align: center;
 }
 
 .slide-t-highlight {

@@ -1,12 +1,13 @@
+/* ====== Sezione generale CV ====== */
 .cv-section {
-    padding-bottom: 1vw;  /* opzionale, per simmetria */
+    padding-bottom: 1vw;
     background-color: #EFEFEF;
     color: #000000;
     box-sizing: border-box;
     padding-right: 5vw;
 }
 
-
+/* Container principale CV */
 .cv-container {
     display: none; /* inizialmente nascosto */
     width: 100%;
@@ -16,7 +17,7 @@
     align-items: flex-start;
 }
 
-
+/* Toggle title */
 #toggleTitle {
     display: inline-block;
     transition: transform 0.3s ease;
@@ -27,19 +28,26 @@
     transform: scale(1.05);
 }
 
+/* ====== Colonna ====== */
 .column {
     display: flex;
     flex-direction: column;
     gap: 30px;
     flex: 1 1 0;
     min-width: 0;
+    height: 100%; /* permette di riempire l’altezza disponibile */
 }
 
-
+/* Sezione interna della colonna */
 .section {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* distribuisce verticalmente i contenuti */
+    flex: 1 1 auto; /* permette di espandersi */
     line-height: 1.2;
 }
 
+/* Titoli delle sezioni */
 .section h2 {
     font-size: clamp(10px, 1vw, 18px);
     text-transform: uppercase;
@@ -47,12 +55,7 @@
     font-weight: bold;
 }
 
-.section ul {
-    list-style-type: none;
-    padding-left: 0;
-}
-
-/* Testo generale */
+/* Testo e paragrafi */
 .section p,
 .section ul li {
     font-size: clamp(10px, 1vw, 18px);
@@ -60,83 +63,50 @@
     overflow-wrap: break-word;
 }
 
-/* ---------- RESPONSIVE ---------- */
 
-@media (max-height: 500px) and (orientation: landscape) {
-    .column {
-        flex: 1 1 calc(50% - 20px); /* 2 colonne */
-    }
-}
 
-@media (max-height: 500px) and (orientation: landscape) {
-    .column {
-        flex: 1 1 100%;            /* 1 colonna */
-    }
-}
 
-/* ---------- SKILLS GRID ---------- */
 
+/* ====== SKILLS GRID ====== */
+/* ====== SKILLS GRID ====== */
 .skills-container {
-    max-width: 600px;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 10px;
+    width: 100%; /* occupa tutta la larghezza della colonna */
+    display: flex;
+    flex-direction: column; /* ogni skill su una riga */
+    gap: 10px; /* spazio tra le skill */
 }
 
-.skills-list {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    row-gap: clamp(0.8rem, 1vw, 1rem);
-    text-align: right;
-}
-
-.skills-list p {
-    display: contents;
-    margin: 0;
-}
-
-.skills-list span {
-    display: block;
-    font-family: 'headerText', sans-serif;
-    align-items: flex-end; /* Align elements at the bottom */
-}
-
-.skills-list span:first-child {
-    text-align: right;
-}
-
-.skills-list span:last-child {
-    text-align: left;
-}
-
+/* Categoria skill */
 .skill-category {
-    grid-column: 1 / span 2;
     font-weight: bold;
     font-size: clamp(10px, 1vw, 18px);
+    margin-top: 10px;
+    margin-bottom: 5px;
 }
 
+/* Item skill */
 .skill-item {
-    display: contents;
+    display: flex;             /* testo a sinistra, barre a destra */
+    justify-content: space-between;
+    align-items: center;
     font-size: clamp(10px, 1vw, 18px);
 }
 
-.skill-item > :nth-child(1) {
-    grid-column: 1;
-}
-
+/* Contenitore barre skill */
 [skill-level] {
-    grid-column: 2;
+    display: flex;            /* barre in fila */
+    gap: 5px;
 }
 
+/* Barre skill */
 [skill-level] span {
     display: inline-block;
-        width: clamp(0.5rem, 1vw, 2rem);
-        aspect-ratio: 1 / 1;
-    margin: 0 10px 0 0;
+    width: clamp(0.5rem, 1vw, 2rem);
+    aspect-ratio: 1 / 1;
     background-color: #bdbdbd;
 }
 
-
+/* Colora le barre skill completate */
 [skill-level="1"] :nth-child(-n+1),
 [skill-level="2"] :nth-child(-n+2),
 [skill-level="3"] :nth-child(-n+3),

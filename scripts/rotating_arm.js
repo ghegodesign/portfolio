@@ -4,11 +4,12 @@
 
   if (!arm || !wrapper) return;
 
-  const step = 10; // snap gradi
+  const step = 15; // snap gradi
+  const stepOffset = 5; // offset dei multipli di step
 
-  // dimensioni originali immagini
-  const profileOriginal = { w: 4096, h: 4070, pivotX: 3736, pivotY: 3300 };
-  const armOriginal     = { w: 981, h: 3153, pivotX: 430, pivotY: 2720 };
+  // dimensioni originali immagini WebP e relativi pivot
+  const profileOriginal = { w: 2512, h: 2496, pivotX: 2289, pivotY: 2022 };
+  const armOriginal     = { w: 589, h: 1892, pivotX: 258, pivotY: 1630 };
 
   // CREA PUNTINO ROSSO = gomito profilo
   const pivotGomito = document.createElement('div');
@@ -19,7 +20,7 @@
   pivotGomito.style.borderRadius = '50%';
   pivotGomito.style.pointerEvents = 'none';
   pivotGomito.style.zIndex = 1000;
-        pivotGomito.style.visibility = 'hidden';
+  pivotGomito.style.visibility = 'hidden'; // invisibile
   wrapper.appendChild(pivotGomito);
 
   // CREA PUNTINO VERDE = transform-origin braccio
@@ -31,7 +32,7 @@
   pivotOrigin.style.borderRadius = '50%';
   pivotOrigin.style.pointerEvents = 'none';
   pivotOrigin.style.zIndex = 1000;
-            pivotOrigin.style.visibility = 'hidden';
+  pivotOrigin.style.visibility = 'hidden'; // invisibile
   wrapper.appendChild(pivotOrigin);
 
   function updateArmPosition() {
@@ -73,16 +74,16 @@
     const dy = e.clientY - (profileOriginal.pivotY * scaleY + wrapperRect.top);
 
     let angle = Math.atan2(dy, dx) * (180 / Math.PI);
-    angle += 90; // braccio punta verso l'alto
-    angle = Math.round(angle / step) * step;
+    angle += 90; // ANGOLO DI PARTENZA DEL BRACCIO
+    angle = Math.round((angle - stepOffset) / step) * step + stepOffset;
 
     arm.style.transform = `rotate(${angle}deg)`;
   }
 
-  // eventi
+
   window.addEventListener('mousemove', updateRotation);
   window.addEventListener('resize', updateArmPosition);
 
-  // inizializza
+
   updateArmPosition();
 })();

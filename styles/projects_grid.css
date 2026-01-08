@@ -101,7 +101,7 @@
     .project-card img {
         filter: none;
         transition: none;
-        margin-bottom: 0.5rem;
+        margin-bottom: 0;
     }
 
     /* Testo sotto immagine, sempre visibile */
@@ -112,7 +112,6 @@
         color: #111;
         text-align: center;
         padding-top: 0;
-        line-height: 1.1;
     }
 
     /* Titolo e sottotitolo sempre visibili */
@@ -121,18 +120,19 @@
         opacity: 1;
         transform: none;
         transition: none;
-        margin-top: 0;
-        margin-bottom: 0.1rem;
     }
 
     /* Ridimensionamento font mobile */
     .project-card .overlay-text h4 {
         font-size: 1rem;
         white-space: normal;
+        margin-bottom: 0.25rem;
+        line-height: 1.1;
     }
 
     .project-card .overlay-text p {
         font-size: 0.85rem;
         margin-bottom: 0;
+        line-height: 1.1;
     }
 }

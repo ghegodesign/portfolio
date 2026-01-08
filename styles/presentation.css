@@ -4,7 +4,7 @@
   gap: clamp(3.4vw, 12%, 6.5vw);
   align-items: flex-start;
   width: 100%;
-  padding-top: clamp(8rem, 6vh, 12rem);
+  padding-top: clamp(4rem, 3vh, 6rem);
   padding-left: 5vw; 
   padding-right: 5vw;
 }
@@ -15,8 +15,9 @@
   justify-content: center;
   align-items: flex-end;
   height: 100%;
-  flex: 0 0 auto; /* o una larghezza fissa più grande */
-  max-width: 30vw; /* esempio: più grande del default */
+  flex: 0 0 auto; 
+  max-width: 35vw; /* DIMENSIONE IMMAGINE QUI */
+  outline: 2px solid red;
 }
 
 /* ====== Colonne ====== */
@@ -24,6 +25,8 @@
   flex: 0 0 66.6667%;
   display: flex;
   flex-direction: column;
+  padding-top: clamp(4rem, 3vh, 6rem);
+  outline: 2px solid rgb(98, 0, 255);
 }
 
 /* ====== Titoli inclinati ====== */
@@ -132,7 +135,7 @@
   transform: translateY(0);
 }
 
-/* 🔴 STATO BLOCCO (fondamentale) */
+/* STATO BLOCCO */
 .keyword-group.blocked .extra {
   opacity: 0 !important;
   pointer-events: none;

@@ -6,7 +6,7 @@
     justify-content: center;
     align-items: center;
 
-    background-color: #000; /* nero pieno */
+    background-color: #000; 
     color: #fff;
     z-index: 9999;
 
@@ -14,7 +14,7 @@
     pointer-events: none;
     transition: opacity 0.2s;
     text-align: center;
-    padding: 2rem; /* per evitare che tocchi i bordi */
+    padding: 2rem; 
     gap: 1rem;
 }
 
@@ -24,7 +24,7 @@
 }
 
 #orientation-modal img {
-    width: clamp(300px, 40vw, 600px); /* min, ideale, max */
+    width: clamp(300px, 40vw, 600px); 
     height: auto;
     margin: 1rem;
 }
