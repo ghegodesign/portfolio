@@ -55,3 +55,10 @@
 .navbar-item.get-in-touch:not(.active) h4 {
     color: #e5b52c;
 }
+
+
+@media (max-height: 500px) and (orientation: landscape) {
+.navbar-item h4 {
+    font-size: clamp(10px, 1vw, 12px)
+}
+}

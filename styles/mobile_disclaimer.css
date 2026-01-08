@@ -1,21 +1,26 @@
 #orientation-modal {
     position: fixed;
     inset: 0;
+
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 
-    background-color: #000; 
+    background-color: #000;
     color: #fff;
     z-index: 9999;
 
     opacity: 0;
     pointer-events: none;
-    transition: opacity 0.2s;
+    transition: opacity 0.2s ease;
+
     text-align: center;
-    padding: 2rem; 
-    gap: 1rem;
+
+    /* vincoli fisici */
+    padding: 4svh 5vw;
+    max-height: 100svh;
+    overflow: hidden;
 }
 
 #orientation-modal.show-modal {
@@ -23,18 +28,25 @@
     pointer-events: all;
 }
 
+/* CONTENUTO */
+
+/* icona */
 #orientation-modal img {
-    width: clamp(300px, 40vw, 600px); 
-    height: auto;
-    margin: 1rem;
+    max-height: 30svh;
+    width: auto;
+    max-width: 70vw;
+    margin-bottom: 3svh;
 }
 
+/* titolo */
 #orientation-modal h2 {
-    font-size: clamp(5rem, 5vw, 8rem);
-    margin: 1rem;
+    font-size: clamp(1.6rem, 4svh, 2.4rem);
+    margin-bottom: 2svh;
+    line-height: 1.2;
 }
 
 #orientation-modal p {
-    font-size: clamp(3rem, 3vw, 6rem);
-    margin: 1rem;
+    font-size: clamp(1rem, 2.5svh, 1.4rem);
+    line-height: 1.4;
+    max-width: 32ch;
 }
