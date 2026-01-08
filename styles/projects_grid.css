@@ -89,6 +89,12 @@
     opacity: 1; /* overlay diventa visibile solo su hover */
 }
 
+
+
+
+
+
+
 /* ====================== MOBILE LANDSCAPE ====================== */
 @media (max-height: 500px) and (orientation: landscape) {
 
@@ -111,7 +117,7 @@
         pointer-events: auto;
         color: #111;
         text-align: center;
-        padding-top: 0;
+        padding-top: 0.25rem; /* leggero spazio tra immagine e testo */
     }
 
     /* Titolo e sottotitolo sempre visibili */
@@ -126,13 +132,16 @@
     .project-card .overlay-text h4 {
         font-size: 1rem;
         white-space: normal;
-        margin-bottom: 0.25rem;
         line-height: 1.1;
+        margin-top: 0.25rem;         /* avvicina leggermente il titolo all'immagine */
+        margin-bottom: 0.25rem; /* mantiene piccolo spazio tra titolo e descrizione */
     }
 
     .project-card .overlay-text p {
         font-size: 0.85rem;
+        margin-top: 0;
         margin-bottom: 0;
         line-height: 1.1;
     }
 }
+

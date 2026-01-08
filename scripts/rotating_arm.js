@@ -5,7 +5,7 @@
   if (!arm || !wrapper) return;
 
   const step = 15; // snap gradi
-  const stepOffset = 5; // offset dei multipli di step
+  const stepOffset = 11; // offset dei multipli di step
 
   // dimensioni originali immagini WebP e relativi pivot
   const profileOriginal = { w: 2512, h: 2496, pivotX: 2289, pivotY: 2022 };
