@@ -52,7 +52,7 @@
     translateY(var(--y-offset));
   display: inline-block;
   font-family: 'headerText', sans-serif;
-    font-size: clamp(15px, 5vh, 40px);
+    font-size: clamp(15px, 2.4vw, 40px);
   white-space: nowrap;
 }
 
