@@ -1,3 +1,42 @@
+#cursor-icons {
+    position: fixed;
+    pointer-events: none;
+    width: 40px;
+    height: 40px;
+    left: 0;
+    top: 0;
+    z-index: 10000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: width 140ms ease, height 140ms ease, opacity 140ms;
+}
+
+#cursor-icons.clickable {
+    width: 64px;
+    height: 64px;
+}
+
+#cursor-icons .cursor-icon {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 38%;
+    height: 38%;
+    max-width: 100%;
+    max-height: 100%;
+    transform: translate(-50%, -50%) scale(0.7);
+    object-fit: contain;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 140ms ease, transform 160ms cubic-bezier(.2,.9,.3,1);
+    will-change: transform, opacity;
+}
+
+#cursor-icons .cursor-icon.visible {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1.1);
+}
 /* nasconde il cursore nativo (esclude campi input e contenteditable) */
 *:not(input):not(textarea):not(select):not([contenteditable]) {
     cursor: none !important;
@@ -6,41 +45,42 @@
 #cursor-tooltip {
     position: fixed;
     pointer-events: none;
-    width: 20px;
-    height: 20px;
-    background: none;
+    width: 24px;
+    height: 24px;
+    left: 0;
+    top: 0;
+    background: #ffffff00;
     opacity: 1;
-    transform: translate(-50%, -50%);
-    transition: width 140ms ease, height 140ms ease, transform 140ms ease, background-color 140ms ease;
     z-index: 9999;
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    mask-image: none;
+    -webkit-mask-image: none;
+    transition: width 140ms ease, height 140ms ease, opacity 140ms;
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 3px;
 }
 
-#cursor-tooltip::before, #cursor-tooltip::after {
+#cursor-tooltip::before {
     content: '';
     position: absolute;
     top: 0; left: 0; width: 100%; height: 100%;
     border-radius: inherit;
     pointer-events: none;
-}
-#cursor-tooltip::before {
-    background: rgba(255,255,255,0.35);
-    mix-blend-mode: lighten;
-    filter: blur(1.5px);
-}
-#cursor-tooltip::after {
-    background: rgba(0,0,0,0.18);
-    mix-blend-mode: darken;
-    filter: blur(1.5px);
+    background: #dfb13b98;
+    mix-blend-mode: difference;
+    filter: blur(0px);
 }
 
 /* stato 'clickable' quando siamo sopra elementi interattivi: ingrandisce e mostra icona */
 #cursor-tooltip.clickable {
-    width: 32px;
-    height: 32px;
+    width: 40px;
+    height: 40px;
+}
+
+#cursor-tooltip.clickable::before {
+    filter: blur(0px);
 }
 
 #cursor-tooltip .cursor-icon {
@@ -55,7 +95,7 @@
     object-fit: contain;
     pointer-events: none;
     opacity: 0;
-    transition: opacity 140ms ease, transform 160ms cubic-bezier(.2,.9,.3,1);
+    transition: opacity 140ms ease;
     will-change: transform, opacity;
 }
 

@@ -1,38 +1,53 @@
-// crea il cursore personalizzato una sola volta
+// crea il cursore personalizzato (blur/box)
 const cursorTooltip = document.createElement('div');
 cursorTooltip.id = 'cursor-tooltip';
 document.body.appendChild(cursorTooltip);
 
-// icone dentro il cursore
+// crea overlay per le icone
+const cursorIcons = document.createElement('div');
+cursorIcons.id = 'cursor-icons';
+document.body.appendChild(cursorIcons);
+
+// icone dentro l'overlay
 const iconGo = document.createElement('img');
 iconGo.className = 'cursor-icon go';
 iconGo.src = 'images/go_to.svg';
 iconGo.alt = '';
-cursorTooltip.appendChild(iconGo);
+cursorIcons.appendChild(iconGo);
 
 const iconShow = document.createElement('img');
 iconShow.className = 'cursor-icon show';
 iconShow.src = 'images/show.svg';
 iconShow.alt = '';
-cursorTooltip.appendChild(iconShow);
+cursorIcons.appendChild(iconShow);
 
 // nascondi il cursore di default (con eccezioni in CSS per form)
 document.body.style.cursor = 'none';
 
 // segue il mouse continuamente
 document.addEventListener('mousemove', (e) => {
-    cursorTooltip.style.left = e.clientX + 'px';
-    cursorTooltip.style.top = e.clientY + 'px';
+    // centra il cursore rispetto al mouse
+    const w = cursorTooltip.offsetWidth;
+    const h = cursorTooltip.offsetHeight;
+    cursorTooltip.style.left = (e.clientX - w/2) + 'px';
+    cursorTooltip.style.top = (e.clientY - h/2) + 'px';
+    // overlay icone
+    const wi = cursorIcons.offsetWidth;
+    const hi = cursorIcons.offsetHeight;
+    cursorIcons.style.left = (e.clientX - wi/2) + 'px';
+    cursorIcons.style.top = (e.clientY - hi/2) + 'px';
 });
 
 // mostra il cursore quando il mouse è dentro la finestra
 document.addEventListener('mouseenter', () => {
     cursorTooltip.style.opacity = '1';
+    cursorIcons.style.opacity = '1';
 });
 
 // nascondi il cursore quando esce dalla finestra
 document.addEventListener('mouseleave', () => {
     cursorTooltip.style.opacity = '0';
+    cursorIcons.style.opacity = '0';
 });
 
 // helper: determina se un elemento è 'interattivo' (click/anchor/button o ha cursor:pointer)
@@ -66,10 +81,12 @@ document.addEventListener('mouseover', (e) => {
     const target = e.target;
     if (isNavbarOrTilted(target)) {
         cursorTooltip.classList.add('clickable');
+        cursorIcons.classList.add('clickable');
         iconGo.classList.remove('visible');
         iconShow.classList.remove('visible');
     } else if (isInteractive(target)) {
         cursorTooltip.classList.add('clickable');
+        cursorIcons.classList.add('clickable');
         const anchor = target.closest('a');
         if (anchor) {
             iconGo.classList.add('visible');
@@ -100,6 +117,7 @@ document.addEventListener('mouseout', (e) => {
     const elUnder = document.elementFromPoint(x, y);
     if (!isInteractive(elUnder) && !isNavbarOrTilted(elUnder)) {
         cursorTooltip.classList.remove('clickable');
+        cursorIcons.classList.remove('clickable');
         iconGo.classList.remove('visible');
         iconShow.classList.remove('visible');
     }
