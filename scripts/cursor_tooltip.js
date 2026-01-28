@@ -8,6 +8,7 @@ const cursorIcons = document.createElement('div');
 cursorIcons.id = 'cursor-icons';
 document.body.appendChild(cursorIcons);
 
+/*
 // icone dentro l'overlay
 const iconGo = document.createElement('img');
 iconGo.className = 'cursor-icon go';
@@ -20,6 +21,7 @@ iconShow.className = 'cursor-icon show';
 iconShow.src = 'images/show.svg';
 iconShow.alt = '';
 cursorIcons.appendChild(iconShow);
+*/
 
 // nascondi il cursore di default (con eccezioni in CSS per form)
 document.body.style.cursor = 'none';
