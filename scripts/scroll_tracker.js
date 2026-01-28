@@ -22,7 +22,7 @@
     });
   }
 
-  // aspetta Umami
+  // wait Umami
   const waitForUmami = setInterval(() => {
     if (window.umami && typeof window.umami.track === 'function') {
       clearInterval(waitForUmami);

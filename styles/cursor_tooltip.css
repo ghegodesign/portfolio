@@ -1,13 +1,55 @@
+/* nasconde il cursore nativo (esclude campi input e contenteditable) */
+*:not(input):not(textarea):not(select):not([contenteditable]) {
+    cursor: none !important;
+}
+
 #cursor-tooltip {
     position: fixed;
     pointer-events: none;
-    padding: 4px 8px;
-    font-size: 12px;
-    background-color: rgba(0, 0, 0, 0.8);
-    color: white;
-    white-space: nowrap;
-    opacity: 0;
-    transform: translate(12px, 12px);
-    transition: opacity 0.15s ease;
+    width: 20px;
+    height: 20px;
+    background-color: #ffffff;
+    opacity: 1;
+    mix-blend-mode: difference;
+    filter: sepia(1);
+    transform: translate(-50%, -50%);
+    transition: width 140ms ease, height 140ms ease, transform 140ms ease, background-color 140ms ease;
     z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 3px;
+}
+
+/* stato 'clickable' quando siamo sopra elementi interattivi: ingrandisce e mostra icona */
+#cursor-tooltip.clickable {
+    width: 32px;
+    height: 32px;
+}
+
+#cursor-tooltip .cursor-icon {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 60%;
+    height: 60%;
+    max-width: 100%;
+    max-height: 100%;
+    transform: translate(-50%, -50%) scale(0.6);
+    object-fit: contain;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 140ms ease, transform 160ms cubic-bezier(.2,.9,.3,1);
+    will-change: transform, opacity;
+}
+
+/* quando l'icona è visibile viene aggiunta la classe .visible: la scaliamo più grande del box */
+#cursor-tooltip .cursor-icon.visible {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1.3);
+}
+
+/* mantiene normale cursore per elementi form */
+input, textarea, select, [contenteditable] {
+    cursor: auto !important;
 }
