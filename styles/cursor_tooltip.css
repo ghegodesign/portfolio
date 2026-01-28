@@ -1,6 +1,6 @@
 #cursor-tooltip.header-hover-cursor {
     background: #fff !important;
-    box-shadow: 0 0 8px 4px rgba(255,255,255,0.18);
+    box-shadow: 0 0 clamp(4px, 0.8vw, 12px) clamp(2px, 0.4vw, 6px) rgba(255,255,255,0.18);
     backdrop-filter: none !important;
     -webkit-backdrop-filter: none !important;
     transition: background 0.3s, box-shadow 0.3s;
@@ -9,12 +9,12 @@
     background: #fff !important;
     mix-blend-mode: normal !important;
     filter: none !important;
-    box-shadow: 0 0 8px 4px rgba(255,255,255,0.18);
+    box-shadow: 0 0 clamp(4px, 0.8vw, 12px) clamp(2px, 0.4vw, 6px) rgba(255,255,255,0.18);
     transition: background 0.3s, box-shadow 0.3s;
 }
 #header-hover-cursor {
     background: #fff !important;
-    box-shadow: 0 0 8px 4px rgba(255,255,255,0.18);
+    box-shadow: 0 0 clamp(4px, 0.8vw, 12px) clamp(2px, 0.4vw, 6px) rgba(255,255,255,0.18);
     backdrop-filter: none !important;
     -webkit-backdrop-filter: none !important;
     transition: background 0.3s, box-shadow 0.3s;
@@ -22,8 +22,8 @@
 #cursor-icons {
     position: fixed;
     pointer-events: none;
-    width: 40px;
-    height: 40px;
+    width: clamp(28px, 2.8vw, 48px);
+    height: clamp(28px, 2.8vw, 48px);
     left: 0;
     top: 0;
     z-index: 10000;
@@ -34,8 +34,8 @@
 }
 
 #cursor-icons.clickable {
-    width: 64px;
-    height: 64px;
+    width: clamp(34px, 4vw, 52px);
+    width: clamp(34px, 4vw, 52px);
 }
 
 #cursor-icons .cursor-icon {
@@ -54,13 +54,10 @@
     will-change: transform, opacity;
 }
 
-
-
 #cursor-icons .cursor-icon.visible {
     opacity: 1;
     transform: translate(-50%, -50%) scale(1.1);
 }
-/* nasconde il cursore nativo (esclude campi input e contenteditable) */
 *:not(input):not(textarea):not(select):not([contenteditable]) {
     cursor: none !important;
 }
@@ -68,8 +65,8 @@
 #cursor-tooltip {
     position: fixed;
     pointer-events: none;
-    width: 24px;
-    height: 24px;
+    width: clamp(16px, 1.4vw, 24px);
+    height: clamp(16px, 1.4vw, 24px);
     left: 0;
     top: 0;
     background: #ffffff00;
@@ -96,10 +93,9 @@
     filter: blur(0px);
 }
 
-/* stato 'clickable' quando siamo sopra elementi interattivi: ingrandisce e mostra icona */
 #cursor-tooltip.clickable {
-    width: 40px;
-    height: 40px;
+    width: clamp(28px, 2.8vw, 44px);
+    height: clamp(28px, 2.8vw, 44px);
 }
 
 #cursor-tooltip.clickable::before {
@@ -122,7 +118,6 @@
     will-change: transform, opacity;
 }
 
-/* quando l'icona è visibile viene aggiunta la classe .visible: la scaliamo più grande del box */
 #cursor-tooltip .cursor-icon.visible {
     opacity: 1;
     transform: translate(-50%, -50%) scale(1.3);
