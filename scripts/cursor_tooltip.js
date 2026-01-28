@@ -38,8 +38,6 @@ document.addEventListener('mouseleave', () => {
 // helper: determina se un elemento è 'interattivo' (click/anchor/button o ha cursor:pointer)
 function isInteractive(el) {
     if (!el) return false;
-    // Escludi elementi della navbar
-    if (el.closest && el.closest('.navbar-item')) return false;
     const interactiveSelector = 'a, button, [onclick], .keyword-hitbox, .contact-link, .project-card';
     if (el.closest && el.closest(interactiveSelector)) return true;
     const cs = window.getComputedStyle(el);
@@ -47,48 +45,60 @@ function isInteractive(el) {
     return false;
 }
 
-// quando entri su un elemento interattivo: ingrandisci e mostra icona corretta
+// helper: determina se un elemento è navbar o tilted clickable
+function isNavbarOrTilted(el) {
+    if (!el) return false;
+    if (el.closest('.navbar-item')) return true;
+    if (el.closest('.tilted-titles')) {
+        return (
+            el.closest('.keyword') ||
+            el.closest('.keyword-hitbox') ||
+            el.closest('.contact-link') ||
+            el.closest('a') ||
+            el.closest('button')
+        );
+    }
+    return false;
+}
+
+// quando entri su un elemento interattivo o navbar/tilted: ingrandisci e mostra/nascondi icona
 document.addEventListener('mouseover', (e) => {
     const target = e.target;
-    if (isInteractive(target)) {
+    if (isNavbarOrTilted(target)) {
         cursorTooltip.classList.add('clickable');
-
+        iconGo.classList.remove('visible');
+        iconShow.classList.remove('visible');
+    } else if (isInteractive(target)) {
+        cursorTooltip.classList.add('clickable');
         const anchor = target.closest('a');
         if (anchor) {
-            // link/ancora -> go_to
             iconGo.classList.add('visible');
             iconShow.classList.remove('visible');
         } else if (target.closest('[onclick]')) {
-            // controlla se l'onclick cambia location (link esterno)
             const onclickAttr = target.closest('[onclick]').getAttribute('onclick');
             if (onclickAttr && (onclickAttr.includes('location.href') || onclickAttr.includes('window.location'))) {
-                // link esterno -> go_to
                 iconGo.classList.add('visible');
                 iconShow.classList.remove('visible');
             } else {
-                // altri onclick -> show
                 iconGo.classList.remove('visible');
                 iconShow.classList.add('visible');
             }
         } else if (target.closest('.keyword-hitbox') || (target.dataset && target.dataset.tooltip)) {
-            // elementi che mostrano info -> show
             iconGo.classList.remove('visible');
             iconShow.classList.add('visible');
         } else {
-            // fallback: mostra go_to
             iconGo.classList.add('visible');
             iconShow.classList.remove('visible');
         }
     }
 });
 
-// quando esci: verifica se sotto il cursore c'è ancora un elemento interattivo
+// quando esci: verifica se sotto il cursore c'è ancora un elemento interattivo o navbar/tilted
 document.addEventListener('mouseout', (e) => {
-    // usa elementFromPoint per sapere cosa c'è sotto
     const x = e.clientX;
     const y = e.clientY;
     const elUnder = document.elementFromPoint(x, y);
-    if (!isInteractive(elUnder)) {
+    if (!isInteractive(elUnder) && !isNavbarOrTilted(elUnder)) {
         cursorTooltip.classList.remove('clickable');
         iconGo.classList.remove('visible');
         iconShow.classList.remove('visible');
