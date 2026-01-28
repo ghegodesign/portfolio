@@ -122,3 +122,36 @@ document.addEventListener('mouseout', (e) => {
         iconShow.classList.remove('visible');
     }
 });
+
+// header hover: cursore bianco
+const header = document.querySelector('header');
+if (header) {
+    header.addEventListener('mouseenter', () => {
+        cursorTooltip.classList.add('header-hover-cursor');
+    });
+    header.addEventListener('mouseleave', () => {
+        cursorTooltip.classList.remove('header-hover-cursor');
+    });
+}
+
+// Aggiorna colore cursore anche su scroll
+window.addEventListener('scroll', () => {
+    const header = document.querySelector('header');
+    if (!header) return;
+    const rect = header.getBoundingClientRect();
+    const x = window.innerWidth / 2;
+    const y = window.innerHeight / 2;
+    // Prendi la posizione del cursore
+    const cursorRect = cursorTooltip.getBoundingClientRect();
+    const cx = cursorRect.left + cursorRect.width / 2;
+    const cy = cursorRect.top + cursorRect.height / 2;
+    // Se il cursore è sopra l'header, applica la classe
+    if (
+        cx >= rect.left && cx <= rect.right &&
+        cy >= rect.top && cy <= rect.bottom
+    ) {
+        cursorTooltip.classList.add('header-hover-cursor');
+    } else {
+        cursorTooltip.classList.remove('header-hover-cursor');
+    }
+});
