@@ -100,7 +100,8 @@
 
 
 /* hover SOLO visivo */
-.keyword-group:hover .keyword {
+.keyword-group:hover .keyword,
+.keyword-group.keyword-pulse .keyword {
   transform: scale(1.12);
 }
 
@@ -169,6 +170,13 @@ stato aperto (UP)
 .extra span:nth-child(2) { --line-offset: 0deg; }
 .extra span:nth-child(3) { --line-offset: 0deg; }
 .extra span:nth-child(4) { --line-offset: 0deg; }
+
+@media (prefers-reduced-motion: reduce) {
+  .keyword-group.keyword-pulse .keyword {
+    transition: none;
+    transform: none;
+  }
+}
 
 /* ====== Responsive ====== */
 
