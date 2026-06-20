@@ -39,10 +39,21 @@
 }
 
 .tilted-item {
+  position: relative;
+  z-index: 1;
   transform:
     rotate(var(--angle));
   transform-origin: left center;
   will-change: transform;
+}
+
+.tilted-item:nth-of-type(1) { z-index: 3; }
+.tilted-item:nth-of-type(2) { z-index: 2; }
+.tilted-item:nth-of-type(3) { z-index: 1; }
+
+.tilted-item:hover,
+.tilted-item:focus-within {
+  z-index: 10;
 }
 
 /* Testo principale */
@@ -107,7 +118,8 @@
   opacity: 0;
   pointer-events: none;
 
-  transform: translateY(-0.6em);
+  transform: translateY(-0.6em) rotate(var(--extra-rotate, 0deg));
+  transform-origin: left top;
   transition: opacity 0.3s ease, transform 0.5s ease;
 
   will-change: opacity, transform;
@@ -118,10 +130,12 @@
 .keyword-group.active .extra {
   opacity: 1;
   pointer-events: auto;
-  transform: translateY(0);
+  transform: translateY(0) rotate(var(--extra-rotate, 0deg));
 }
 
 /* ====== Extra text (UP variant) ====== */
+
+/*
 .keyword-group.extra-up .extra {
   top: auto;
   bottom: 100%;
@@ -131,31 +145,30 @@
   transform: translateY(0.5em);
 }
 
-/* stato aperto (UP) */
+stato aperto (UP)
 .keyword-group.extra-up:hover:not(.hover-lock) .extra,
 .keyword-group.extra-up.active .extra {
   transform: translateY(0);
 }
+*/
 
 /* STATO BLOCCO */
 .keyword-group.blocked .extra {
   opacity: 0 !important;
   pointer-events: none;
-  transform: translateY(-0.25em);
+  transform: translateY(-0.25em) rotate(var(--extra-rotate, 0deg));
 }
 
 /* ====== Raggiera ====== */
 .extra span {
   display: block;
-  transform: rotate(
-    calc(var(--extra-rotate, 0deg) + var(--line-offset, 0deg))
-  );
+  transform: rotate(var(--line-offset, 0deg));
 }
 
-.extra span:nth-child(1) { --line-offset: 0 deg; }
-.extra span:nth-child(2) { --line-offset: 0 deg; }
-.extra span:nth-child(3) { --line-offset: 0 deg; }
-.extra span:nth-child(4) { --line-offset: 0 deg; }
+.extra span:nth-child(1) { --line-offset: 0deg; }
+.extra span:nth-child(2) { --line-offset: 0deg; }
+.extra span:nth-child(3) { --line-offset: 0deg; }
+.extra span:nth-child(4) { --line-offset: 0deg; }
 
 /* ====== Responsive ====== */
 
